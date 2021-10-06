@@ -1,0 +1,11 @@
+<h2>Edit Purchase</h2>
+
+<app-purchase-form
+  [model]="model"
+  *ngIf="model"
+  [nonSelectedItems]="nonSelectedItems"
+  [selectedItems]="selectedItems"
+  (onSaveChanges)="saveChanges($event)"
+></app-purchase-form>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

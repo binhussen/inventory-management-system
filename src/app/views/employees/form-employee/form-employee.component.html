@@ -1,0 +1,105 @@
+<mat-card class="p-0">
+  <mat-card-content>
+    <form (submit)="saveChanges()" [formGroup]="form">
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="name"
+                formControlName="name"
+                placeholder="Name"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['name'].hasError('required') &&
+                form.controls['name'].touched
+              "
+              class="form-error-msg"
+            >
+              Company Name is required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="phone"
+                formControlName="phone"
+                placeholder="Phone number"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['phone'].hasError('phone') &&
+                form.controls['phone'].touched
+              "
+              class="form-error-msg"
+            >
+              Invaild phone number
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                type="email"
+                name="email"
+                formControlName="email"
+                placeholder="Your Email"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['email'].hasError('required') &&
+                form.controls['email'].touched
+              "
+              class="form-error-msg"
+            >
+              Email is required
+            </small>
+            <small
+              *ngIf="
+                form.controls['email'].hasError('email') &&
+                form.controls['email'].touched
+              "
+              class="form-error-msg"
+            >
+              Invaild email address
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="department"
+                formControlName="department"
+                placeholder="department"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['department'].hasError('department') &&
+                form.controls['department'].touched
+              "
+              class="form-error-msg"
+            >
+              Invaild discribtion
+            </small>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Submit
+      </button>
+      <a mat-stroked-button routerLink="/view/employees">Cancel</a>
+    </form>
+  </mat-card-content>
+</mat-card>

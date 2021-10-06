@@ -1,0 +1,126 @@
+<mat-card class="p-0">
+  <mat-card-content>
+    <form (submit)="saveChanges()" [formGroup]="form">
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Supplier</mat-label>
+              <mat-select formControlName="supplierId">
+                <mat-option
+                  *ngFor="let company of companies"
+                  [value]="company.id"
+                >
+                  {{ company.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field margin="right">
+              <mat-label>Reciver</mat-label>
+              <mat-select formControlName="reciverId">
+                <mat-option
+                  *ngFor="let company of companies"
+                  [value]="company.id"
+                >
+                  {{ company.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="graNo"
+                formControlName="graNo"
+                placeholder="GraNo"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['graNo'].hasError('graNo') &&
+                form.controls['graNo'].touched
+              "
+              class="form-error-msg"
+            >
+              GraNo is required
+            </small>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="pox"
+                formControlName="pox"
+                placeholder="Pox"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['pox'].hasError('pox') &&
+                form.controls['pox'].touched
+              "
+              class="form-error-msg"
+            >
+              Pox is Required
+            </small>
+          </div>
+          <app-store-item-index></app-store-item-index>
+          <h4>Select the Items</h4>
+
+          <app-multiple-selector
+            [NonSelectedItems]="nonSelectedItems"
+            [SelectedItems]="selectedItems"
+          ></app-multiple-selector>
+
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Accepted By</mat-label>
+              <mat-select formControlName="acceptedBy">
+                <mat-option
+                  *ngFor="let employee of employees"
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Checked By</mat-label>
+              <mat-select formControlName="checkedBy">
+                <mat-option
+                  *ngFor="let employee of employees"
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Inspected By</mat-label>
+              <mat-select formControlName="inspectedBy">
+                <mat-option
+                  *ngFor="let employee of employees"
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Submit
+      </button>
+      <a mat-stroked-button routerLink="/view/stores">Cancel</a>
+    </form>
+  </mat-card-content>
+</mat-card>

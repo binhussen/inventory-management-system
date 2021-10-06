@@ -1,0 +1,127 @@
+<mat-card class="p-0">
+    <mat-card-content>
+        <form (submit)="saveChanges()" [formGroup]="form">
+            <div fxLayout="row wrap">
+                <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input
+                            matInput
+                            name="name"
+                            formControlName="name"
+                            placeholder="Name"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['name'].hasError('required') && form.controls['name'].touched" 
+                        class="form-error-msg"> Company Name is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="phone"
+                            formControlName="phone"
+                            placeholder="Phone number">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['phone'].hasError('phone') && form.controls['phone'].touched" 
+                        class="form-error-msg"> Invaild phone number </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                        <input
+                            matInput
+                            type="email"
+                            name="email"
+                            formControlName="email"
+                            placeholder="Your Email"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['email'].hasError('required') && form.controls['email'].touched" 
+                        class="form-error-msg"> Email is required </small>
+                        <small 
+                        *ngIf="form.controls['email'].hasError('email') && form.controls['email'].touched" 
+                        class="form-error-msg"> Invaild email address </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="fax"
+                            formControlName="fax"
+                            placeholder="fax">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['fax'].hasError('fax') && form.controls['fax'].touched" 
+                        class="form-error-msg"> Invaild fax number </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="city"
+                            formControlName="city"
+                            placeholder="city">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['city'].hasError('city') && form.controls['city'].touched" 
+                        class="form-error-msg"> Invaild city </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="address"
+                            formControlName="address"
+                            placeholder="address">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['address'].hasError('address') && form.controls['address'].touched" 
+                        class="form-error-msg"> Invaild address</small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                        <input
+                            matInput
+                            name="website"
+                            formControlName="website"
+                            placeholder="Your Website (http://mhd.com)"
+                            value="">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['website'].hasError('url') && form.controls['website'].touched" 
+                        class="form-error-msg"> Invaild web address </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="discribtion"
+                            formControlName="discribtion"
+                            placeholder="discribtion">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['discribtion'].hasError('discribtion') && form.controls['discribtion'].touched" 
+                        class="form-error-msg"> Invaild discribtion </small>
+                    </div>
+                </div>
+            </div>
+            <button 
+            mat-raised-button 
+            color="primary" 
+            [disabled]="form.invalid">Submit</button>
+            <a mat-stroked-button routerLink="/view/companies">Cancel</a>
+        </form>
+    </mat-card-content>
+</mat-card>
+

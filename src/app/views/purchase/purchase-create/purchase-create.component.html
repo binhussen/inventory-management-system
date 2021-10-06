@@ -1,0 +1,9 @@
+<h2>Create Purchase</h2>
+
+<app-purchase-form
+  *ngIf="nonSelectedItems"
+  [nonSelectedItems]="nonSelectedItems"
+  (onSaveChanges)="saveChanges($event)"
+></app-purchase-form>
+
+<mat-spinner *ngIf="!nonSelectedItems"></mat-spinner>

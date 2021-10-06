@@ -1,0 +1,53 @@
+<button mat-flat-button color="primary" routerLink="/view/user/register">
+  Register
+</button>
+
+<div class="ml-05 mr-05 mt-05 pb-1">
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="users" matSort>
+      <ng-container matColumnDef="Email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Email
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="email">
+          {{ element.email }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Role">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Role
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="role">
+          <mat-form-field>
+            <mat-select>
+              <mat-option *ngFor="let role of roles">
+                <div
+                  [swal]="{
+                    title: 'Confirmation',
+                    text: 'Are you sure that you want to change the user an role?',
+                    showCancelButton: true
+                  }"
+                  (confirm)="ChangeRole(element.id, role)"
+                >
+                  {{ role }}
+                </div>
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+      <mat-row *matRowDef="let element; columns: columnsToDisplay"> </mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20, 50]"
+      showFirstLastButtons
+      [length]="totalAmountOfRecords"
+      [pageSize]="pageSize"
+      (page)="updatePagination($event)"
+      class="mat-elevation-z8"
+    >
+    </mat-paginator>
+  </div>
+</div>

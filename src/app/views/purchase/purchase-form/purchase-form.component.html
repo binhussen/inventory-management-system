@@ -1,0 +1,66 @@
+<mat-card class="p-0">
+  <mat-card-content>
+    <app-purchase-item-create></app-purchase-item-create>
+    <form (submit)="saveChanges()" [formGroup]="form">
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+          <h4>Select the Items</h4>
+          <button
+            mat-flat-button
+            color="primary"
+            routerLink="/view/purchaseitems"
+          >
+            Edit
+          </button>
+          <app-multiple-selector
+            [NonSelectedItems]="nonSelectedItems"
+            [SelectedItems]="selectedItems"
+          ></app-multiple-selector>
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Asked By</mat-label>
+              <mat-select formControlName="askedBy">
+                <mat-option
+                  *ngFor="let employee of employees"
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Checked By</mat-label>
+              <mat-select formControlName="checkedBy">
+                <mat-option
+                  *ngFor="let employee of employees"
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="pb-1">
+            <mat-form-field>
+              <mat-label>Approved By</mat-label>
+              <mat-select formControlName="approvedBy">
+                <mat-option
+                  *ngFor="let employee of employees"
+                  [value]="employee.id"
+                >
+                  {{ employee.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Submit
+      </button>
+      <a mat-stroked-button routerLink="/view/purchases">Cancel</a>
+    </form>
+  </mat-card-content>
+</mat-card>

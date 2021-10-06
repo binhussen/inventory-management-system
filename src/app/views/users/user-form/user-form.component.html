@@ -1,0 +1,85 @@
+<mat-card class="p-0">
+  <mat-card-content>
+    <form (submit)="onSubmit.emit(form.value)" [formGroup]="form">
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                type="email"
+                name="email"
+                formControlName="email"
+                placeholder="Your Email"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['email'].hasError('required') &&
+                form.controls['email'].touched
+              "
+              class="form-error-msg"
+            >
+              Email is required
+            </small>
+            <small
+              *ngIf="
+                form.controls['email'].hasError('email') &&
+                form.controls['email'].touched
+              "
+              class="form-error-msg"
+            >
+              Invalid email address
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                type="password"
+                matInput
+                name="password"
+                formControlName="password"
+                placeholder="Password"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['password'].hasError('password') &&
+                form.controls['password'].touched
+              "
+              class="form-error-msg"
+            >
+              Password is Required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <mat-label>Role</mat-label>
+              <mat-select formControlName="role">
+                <mat-option *ngFor="let role of roles" [value]="role">
+                  {{ role }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['role'].hasError('role') &&
+                form.controls['role'].touched
+              "
+              class="form-error-msg"
+            >
+              Role is Required
+            </small>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Submit
+      </button>
+      <a mat-stroked-button routerLink="/view/users">Cancel</a>
+    </form>
+  </mat-card-content>
+</mat-card>
