@@ -11,7 +11,7 @@ export class EmployeesService {
 
   constructor(private http: HttpClient) {}
 
-  private apiURL = environment.apiURL + "/employees";
+  private apiURL = environment.apiURL + "companies/4a829fbc-2194-4c8a-010d-08d98bdfd1c9"+"/employees";
 
   get(page: number, recordsPerPage: number): Observable<any> {
     let params = new HttpParams();

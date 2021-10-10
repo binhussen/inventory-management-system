@@ -21,7 +21,9 @@ export class FormEmployeeComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       name: new FormControl("", [Validators.required]),
-      phone: new FormControl("", [Validators.required]),
+      phoneNo: new FormControl("", [Validators.required]),
+      age:new FormControl("",[Validators.required]),
+      position:new FormControl("",Validators.required),
       email: new FormControl("", [Validators.required, Validators.email]),
       department: new FormControl("", [Validators.required]),
     });

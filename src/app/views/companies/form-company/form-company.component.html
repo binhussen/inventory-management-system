@@ -20,19 +20,6 @@
 
                     <div class="pb-1">
                         <mat-form-field class="full-width">
-                            <input 
-                            matInput
-                            name="phone"
-                            formControlName="phone"
-                            placeholder="Phone number">
-                        </mat-form-field>
-                        <small 
-                        *ngIf="form.controls['phone'].hasError('phone') && form.controls['phone'].touched" 
-                        class="form-error-msg"> Invaild phone number </small>
-                    </div>
-
-                    <div class="pb-1">
-                        <mat-form-field class="full-width">
                         <input
                             matInput
                             type="email"
@@ -46,7 +33,20 @@
                         class="form-error-msg"> Email is required </small>
                         <small 
                         *ngIf="form.controls['email'].hasError('email') && form.controls['email'].touched" 
-                        class="form-error-msg"> Invaild email address </small>
+                        class="form-error-msg"> company email address is required </small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="phone"
+                            formControlName="phoneNo"
+                            placeholder="Phone number">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['phoneNo'].hasError('required') && form.controls['phoneNo'].touched" 
+                        class="form-error-msg"> company phone number is required </small>
                     </div>
 
                     <div class="pb-1">
@@ -58,34 +58,8 @@
                             placeholder="fax">
                         </mat-form-field>
                         <small 
-                        *ngIf="form.controls['fax'].hasError('fax') && form.controls['fax'].touched" 
-                        class="form-error-msg"> Invaild fax number </small>
-                    </div>
-
-                    <div class="pb-1">
-                        <mat-form-field class="full-width">
-                            <input 
-                            matInput
-                            name="city"
-                            formControlName="city"
-                            placeholder="city">
-                        </mat-form-field>
-                        <small 
-                        *ngIf="form.controls['city'].hasError('city') && form.controls['city'].touched" 
-                        class="form-error-msg"> Invaild city </small>
-                    </div>
-
-                    <div class="pb-1">
-                        <mat-form-field class="full-width">
-                            <input 
-                            matInput
-                            name="address"
-                            formControlName="address"
-                            placeholder="address">
-                        </mat-form-field>
-                        <small 
-                        *ngIf="form.controls['address'].hasError('address') && form.controls['address'].touched" 
-                        class="form-error-msg"> Invaild address</small>
+                        *ngIf="form.controls['fax'].hasError('required') && form.controls['fax'].touched" 
+                        class="form-error-msg"> Company fax number is required</small>
                     </div>
 
                     <div class="pb-1">
@@ -98,21 +72,50 @@
                             value="">
                         </mat-form-field>
                         <small 
+                        *ngIf="form.controls['website'].hasError('required') && form.controls['website'].touched" 
+                        class="form-error-msg"> Company web address is required</small>
+                        <small 
                         *ngIf="form.controls['website'].hasError('url') && form.controls['website'].touched" 
-                        class="form-error-msg"> Invaild web address </small>
+                        class="form-error-msg"> Company web address must be valid url</small>
                     </div>
 
                     <div class="pb-1">
                         <mat-form-field class="full-width">
                             <input 
                             matInput
-                            name="discribtion"
-                            formControlName="discribtion"
-                            placeholder="discribtion">
+                            name="address"
+                            formControlName="address"
+                            placeholder="address">
                         </mat-form-field>
                         <small 
-                        *ngIf="form.controls['discribtion'].hasError('discribtion') && form.controls['discribtion'].touched" 
-                        class="form-error-msg"> Invaild discribtion </small>
+                        *ngIf="form.controls['address'].hasError('required') && form.controls['address'].touched" 
+                        class="form-error-msg"> Company address is required</small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="country"
+                            formControlName="country"
+                            placeholder="Country">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['country'].hasError('required') && form.controls['country'].touched" 
+                        class="form-error-msg"> Company Country is required</small>
+                    </div>
+
+                    <div class="pb-1">
+                        <mat-form-field class="full-width">
+                            <input 
+                            matInput
+                            name="description"
+                            formControlName="description"
+                            placeholder="description">
+                        </mat-form-field>
+                        <small 
+                        *ngIf="form.controls['description'].hasError('required') && form.controls['description'].touched" 
+                        class="form-error-msg"> Company description is required</small>
                     </div>
                 </div>
             </div>

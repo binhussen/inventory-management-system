@@ -19,13 +19,12 @@ export class IndexCompaniesComponent implements OnInit {
   pageSize = 5;
   columnsToDisplay = [
     "Name",
-    "Phone",
     "Email",
+    "Phone",
     "Fax",
-    "City",
-    "Address",
     "Website",
-    "Discribtion",
+    "Full Address",
+    "Description",
     "Actions",
   ];
   constructor(private companiesService: CompaniesService) {}

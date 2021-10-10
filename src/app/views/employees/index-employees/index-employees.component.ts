@@ -15,7 +15,7 @@ export class IndexEmployeesComponent implements OnInit {
   totalAmountOfRecords;
   currentPage = 1;
   pageSize = 5;
-  columnsToDisplay = ['Name','Phone','Email','Department','Actions'];
+  columnsToDisplay = ['Name','Age','Email','Phone','Department','Position','Actions'];
   constructor(private employeesService: EmployeesService) { }
 
   ngOnInit(): void {

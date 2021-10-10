@@ -16,7 +16,7 @@ import {
 export class SecurityService {
   constructor(private http: HttpClient, private router: Router) {}
 
-  private apiURL = environment.apiURL + "/accounts";
+  private apiURL = environment.apiURL + "authentication";
   private readonly tokenKey: string = "token";
   private readonly expirationTokenKey: string = "token-expiration";
   private readonly roleField = "role";

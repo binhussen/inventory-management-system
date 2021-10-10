@@ -1,22 +1,21 @@
 export interface companyCreationDTO {
   name: string;
-  phone: string;
+  phoneNo: string;
   email: string;
   fax: string;
-  city: string;
+  country: string;
   address: string;
   website: string;
-  discribtion: string;
+  description: string;
 }
 
 export interface companyDTO {
   id: number;
   name: string;
-  phone: string;
+  phoneNo: string;
   email: string;
   fax: string;
-  city: string;
-  address: string;
+  fullAddress :string;
   website: string;
-  discribtion: string;
+  description: string;
 }

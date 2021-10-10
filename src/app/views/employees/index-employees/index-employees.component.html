@@ -14,12 +14,21 @@
         </mat-cell>
       </ng-container>
 
+      <ng-container matColumnDef="Age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Age
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="age">
+          {{ element.age }}
+        </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="Phone">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Phone
         </mat-header-cell>
         <mat-cell *matCellDef="let element" data-label="phone">
-          {{ element.phone }}
+          {{ element.phoneNo }}
         </mat-cell>
       </ng-container>
 
@@ -38,6 +47,15 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let element" data-label="department">
           {{ element.department }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Position">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Position
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="position">
+          {{ element.position }}
         </mat-cell>
       </ng-container>
 

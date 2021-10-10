@@ -1,5 +1,5 @@
 export interface userCredentials {
-  email: string;
+  username: string;
   password: string;
   role: string;
 }
@@ -11,5 +11,5 @@ export interface authenticationResponse {
 
 export interface userDTO {
   id: string;
-  email: string;
+  username: string;
 }

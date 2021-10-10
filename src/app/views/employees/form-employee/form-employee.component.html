@@ -20,58 +20,80 @@
               "
               class="form-error-msg"
             >
-              Company Name is required
+              Employee Name is required
             </small>
           </div>
+
+          <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              name="age"
+              formControlName="age"
+              placeholder="Age"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['age'].hasError('required') &&
+              form.controls['age'].touched
+            "
+            class="form-error-msg"
+          >
+            Employee Age is required
+          </small>
+        </div>
+
+        <div class="pb-1">
+          <mat-form-field class="full-width">
+            <input
+              matInput
+              type="email"
+              name="email"
+              formControlName="email"
+              placeholder="Your Email"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['email'].hasError('required') &&
+              form.controls['email'].touched
+            "
+            class="form-error-msg"
+          >
+            Email is required
+          </small>
+          <small
+            *ngIf="
+              form.controls['email'].hasError('email') &&
+              form.controls['email'].touched
+            "
+            class="form-error-msg"
+          >
+            Employee email address is required
+          </small>
+        </div>
 
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
                 matInput
-                name="phone"
-                formControlName="phone"
+                name="phoneNo"
+                formControlName="phoneNo"
                 placeholder="Phone number"
-              />
-            </mat-form-field>
-            <small
-              *ngIf="
-                form.controls['phone'].hasError('phone') &&
-                form.controls['phone'].touched
-              "
-              class="form-error-msg"
-            >
-              Invaild phone number
-            </small>
-          </div>
-
-          <div class="pb-1">
-            <mat-form-field class="full-width">
-              <input
-                matInput
-                type="email"
-                name="email"
-                formControlName="email"
-                placeholder="Your Email"
                 value=""
               />
             </mat-form-field>
             <small
               *ngIf="
-                form.controls['email'].hasError('required') &&
-                form.controls['email'].touched
+                form.controls['phoneNo'].hasError('required') &&
+                form.controls['phoneNo'].touched
               "
               class="form-error-msg"
             >
-              Email is required
-            </small>
-            <small
-              *ngIf="
-                form.controls['email'].hasError('email') &&
-                form.controls['email'].touched
-              "
-              class="form-error-msg"
-            >
-              Invaild email address
+              Employee phone number is required
             </small>
           </div>
 
@@ -86,12 +108,32 @@
             </mat-form-field>
             <small
               *ngIf="
-                form.controls['department'].hasError('department') &&
+                form.controls['department'].hasError('required') &&
                 form.controls['department'].touched
               "
               class="form-error-msg"
             >
-              Invaild discribtion
+              Employee department is required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="position"
+                formControlName="position"
+                placeholder="position"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['position'].hasError('required') &&
+                form.controls['position'].touched
+              "
+              class="form-error-msg"
+            >
+              Employee Position is required
             </small>
           </div>
         </div>

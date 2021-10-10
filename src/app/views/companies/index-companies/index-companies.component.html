@@ -14,21 +14,21 @@
         </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="Phone">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Phone
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="phone">
-          {{ element.phone }}
-        </mat-cell>
-      </ng-container>
-
       <ng-container matColumnDef="Email">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Email
         </mat-header-cell>
         <mat-cell *matCellDef="let element" data-label="email">
           {{ element.email }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Phone
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="phone">
+          {{ element.phoneNo }}
         </mat-cell>
       </ng-container>
 
@@ -41,24 +41,6 @@
         </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="City">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          City
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="city">
-          {{ element.city }}
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Address">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Address
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="address">
-          {{ element.address }}
-        </mat-cell>
-      </ng-container>
-
       <ng-container matColumnDef="Website">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Website
@@ -68,12 +50,21 @@
         </mat-cell>
       </ng-container>
 
-      <ng-container matColumnDef="Discribtion">
+      <ng-container matColumnDef="Full Address">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Discribtion
+          Address
         </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="discribtion">
-          {{ element.discribtion }}
+        <mat-cell *matCellDef="let element" data-label="Full Address">
+          {{ element.fullAddress }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Description">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Description
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="Description">
+          {{ element.description }}
         </mat-cell>
       </ng-container>
 

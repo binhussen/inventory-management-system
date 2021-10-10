@@ -10,7 +10,7 @@ import { companyCreationDTO, companyDTO } from "../models/companies.model";
 export class CompaniesService {
   constructor(private http: HttpClient) {}
 
-  private apiURL = environment.apiURL + "/companies";
+  private apiURL = environment.apiURL + "companies";
 
   get(page: number, recordsPerPage: number): Observable<any> {
     let params = new HttpParams();

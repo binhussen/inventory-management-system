@@ -23,13 +23,13 @@ export class FormCompanyComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       name: new FormControl("", [Validators.required]),
-      phone: new FormControl("", [Validators.required]),
+      phoneNo: new FormControl("", [Validators.required]),
       email: new FormControl("", [Validators.required, Validators.email]),
       fax: new FormControl("", [Validators.required]),
-      city: new FormControl("", [Validators.required]),
+      country: new FormControl("", [Validators.required]),
       address: new FormControl("", [Validators.required]),
-      website: new FormControl("", CustomValidators.url),
-      discribtion: new FormControl("", [Validators.required]),
+      website: new FormControl("", [CustomValidators.url,Validators.required]),
+      description: new FormControl("", [Validators.required]),
     });
 
     if (this.model !== undefined){
