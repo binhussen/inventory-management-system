@@ -67,6 +67,10 @@ import { UserFormComponent } from "./users/user-form/user-form.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
+import { CompanyEmployeeFormComponent } from './company-employee/company-employee-form/company-employee-form.component';
+import { CompanyEmployeeCreateComponent } from './company-employee/company-employee-create/company-employee-create.component';
+import { CompanyEmployeeListComponent } from './company-employee/company-employee-list/company-employee-list.component';
+import { CompanyEmployeeEditComponent } from './company-employee/company-employee-edit/company-employee-edit.component';
 
 @NgModule({
   declarations: [
@@ -110,6 +114,10 @@ import { UserProfileComponent } from "./users/user-profile/user-profile.componen
     UserRegisterComponent,
     UserEditComponent,
     UserProfileComponent,
+    CompanyEmployeeFormComponent,
+    CompanyEmployeeCreateComponent,
+    CompanyEmployeeListComponent,
+    CompanyEmployeeEditComponent,
   ],
   imports: [
     CommonModule,

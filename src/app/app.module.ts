@@ -18,6 +18,7 @@ import { InMemoryDataService } from "./shared/inmemory-db/inmemory-db.service";
 import { rootRouterConfig } from "./app.routing";
 import { SharedModule } from "./shared/shared.module";
 import { AppComponent } from "./app.component";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
   HttpClient,
@@ -39,6 +40,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     SharedModule,
     HttpClientModule,
     PerfectScrollbarModule,
+    FlexLayoutModule,
 
     InMemoryWebApiModule.forRoot(InMemoryDataService, {
       passThruUnknownUrl: true,

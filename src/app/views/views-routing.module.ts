@@ -31,12 +31,17 @@ import { FinanceListComponent } from "./finance/finance-list/finance-list.compon
 import { UserIndexComponent } from "./users/user-index/user-index.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
+import { CompanyEmployeeFormComponent } from "./company-employee/company-employee-form/company-employee-form.component";
 
 export const ViewsRoutingModule: Routes = [
   {
     path: "companies",
     component: IndexCompaniesComponent,
     data: { title: "Companies", breadcrumb: "Companies" },
+  },
+  {
+    path:"trys",
+    component: CompanyEmployeeFormComponent
   },
   {
     path: "companies/create",
