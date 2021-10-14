@@ -1,353 +1,277 @@
 <!-- header -->
-<div fxLayout="row">
-  <div fxFlex="10"></div>
-  <div fxFlex="30">
-    <div fxLayout="column">
+<div [formGroup]="form">
+  <div fxLayout="row">
+    <div fxFlex="10"></div>
+    <div fxFlex="30">
+      <div fxLayout="column">
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              name="name"
+              formControlName="name"
+              placeholder="Name"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['name'].hasError('required') &&
+              form.controls['name'].touched
+            "
+            class="form-error-msg"
+          >
+            Company Name is required
+          </small>
+        </div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              name="address"
+              formControlName="address"
+              placeholder="address"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['address'].hasError('required') &&
+              form.controls['address'].touched
+            "
+            class="form-error-msg"
+          >
+            Company address is required</small
+          >
+        </div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              name="country"
+              formControlName="country"
+              placeholder="Country"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['country'].hasError('required') &&
+              form.controls['country'].touched
+            "
+            class="form-error-msg"
+          >
+            Company Country is required</small
+          >
+        </div>
+      </div>
+    </div>
+    <div fxFlex="30">
+      <div fxLayout="column">
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              type="email"
+              name="email"
+              formControlName="email"
+              placeholder="Your Email"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['email'].hasError('required') &&
+              form.controls['email'].touched
+            "
+            class="form-error-msg"
+          >
+            Email is required
+          </small>
+          <small
+            *ngIf="
+              form.controls['email'].hasError('email') &&
+              form.controls['email'].touched
+            "
+            class="form-error-msg"
+          >
+            company email address is required
+          </small>
+        </div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              name="phone"
+              formControlName="phoneNo"
+              placeholder="Phone number"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['phoneNo'].hasError('required') &&
+              form.controls['phoneNo'].touched
+            "
+            class="form-error-msg"
+          >
+            company phone number is required
+          </small>
+        </div>
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              name="fax"
+              formControlName="fax"
+              placeholder="fax"
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['fax'].hasError('required') &&
+              form.controls['fax'].touched
+            "
+            class="form-error-msg"
+          >
+            Company fax number is required</small
+          >
+        </div>
+      </div>
+    </div>
+    <div fxFlex="30">
       <div>
         <mat-form-field>
           <input
             matInput
-            name="name"
-            formControlName="name"
-            placeholder="Name"
+            name="website"
+            formControlName="website"
+            placeholder="Your Website (http://mhd.com)"
             value=""
           />
         </mat-form-field>
         <small
           *ngIf="
-            form.controls['name'].hasError('required') &&
-            form.controls['name'].touched
+            form.controls['website'].hasError('required') &&
+            form.controls['website'].touched
           "
           class="form-error-msg"
         >
-          Company Name is required
-        </small>
-      </div>
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            name="address"
-            formControlName="address"
-            placeholder="address"
-          />
-        </mat-form-field>
-        <!-- <small
+          Company web address is required</small
+        >
+        <small
           *ngIf="
-            form.controls['address'].hasError('required') &&
-            form.controls['address'].touched
+            form.controls['website'].hasError('url') &&
+            form.controls['website'].touched
           "
           class="form-error-msg"
         >
-          Company address is required</small
-        > -->
+          Company web address must be valid url</small
+        >
       </div>
       <div>
         <mat-form-field>
           <input
             matInput
-            name="country"
-            formControlName="country"
-            placeholder="Country"
+            name="description"
+            formControlName="description"
+            placeholder="description"
           />
         </mat-form-field>
-        <!-- <small 
-                        *ngIf="form.controls['country'].hasError('required') && form.controls['country'].touched" 
-                        class="form-error-msg"> Company Country is required</small> -->
+        <small
+          *ngIf="
+            form.controls['description'].hasError('required') &&
+            form.controls['description'].touched
+          "
+          class="form-error-msg"
+        >
+          Company description is required</small
+        >
       </div>
     </div>
-  </div>
-  <!-- <div fxFlex="30">
-    <div fxLayout="column">
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            type="email"
-            name="email"
-            formControlName="email"
-            placeholder="Your Email"
-            value=""
-          />
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input
-            matInput
-            name="phone"
-            formControlName="phoneNo"
-            placeholder="Phone number"
-          />
-        </mat-form-field>
-      </div>
-      <div>
-        <mat-form-field>
-          <input matInput name="fax" formControlName="fax" placeholder="fax" />
-        </mat-form-field>
-      </div>
-    </div>
-  </div>
-  <div fxFlex="30">
-    <div>
-      <mat-form-field>
-        <input
-          matInput
-          name="website"
-          formControlName="website"
-          placeholder="Your Website (http://mhd.com)"
-          value=""
-        />
-      </mat-form-field>
-      <small
-        *ngIf="
-          form.controls['website'].hasError('required') &&
-          form.controls['website'].touched
-        "
-        class="form-error-msg"
-      >
-        Company web address is required</small
-      >
-      <small
-        *ngIf="
-          form.controls['website'].hasError('url') &&
-          form.controls['website'].touched
-        "
-        class="form-error-msg"
-      >
-        Company web address must be valid url</small
-      >
-    </div>
-  </div> -->
-</div>
-<!--  -->
-<div fxLayout="row">
-  <div fxFlex="20">
-    <mat-card class="p-0">
-      <mat-card-content>
-        <form (submit)="onAdd()" [formGroup]="form">
-          <div fxLayout="row wrap">
-            <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
-              <div class="pb-1">
-                <mat-form-field>
-                  <input
-                    matInput
-                    name="name"
-                    formControlName="name"
-                    placeholder="Name"
-                    value=""
-                  />
-                </mat-form-field>
-                <small
-                  *ngIf="
-                    form.controls['name'].hasError('required') &&
-                    form.controls['name'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-              </div>
-
-              <div class="pb-1">
-                <mat-form-field>
-                  <input
-                    matInput
-                    name="age"
-                    formControlName="age"
-                    placeholder="Age"
-                    value=""
-                  />
-                </mat-form-field>
-                <small
-                  *ngIf="
-                    form.controls['age'].hasError('required') &&
-                    form.controls['age'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-              </div>
-
-              <div class="pb-1">
-                <mat-form-field>
-                  <input
-                    matInput
-                    type="email"
-                    name="email"
-                    formControlName="email"
-                    placeholder="Your Email"
-                    value=""
-                  />
-                </mat-form-field>
-                <small
-                  *ngIf="
-                    form.controls['email'].hasError('required') &&
-                    form.controls['email'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-                <small
-                  *ngIf="
-                    form.controls['email'].hasError('email') &&
-                    form.controls['email'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-              </div>
-
-              <div class="pb-1">
-                <mat-form-field>
-                  <input
-                    matInput
-                    name="phoneNo"
-                    formControlName="phoneNo"
-                    placeholder="Phone number"
-                    value=""
-                  />
-                </mat-form-field>
-                <small
-                  *ngIf="
-                    form.controls['phoneNo'].hasError('required') &&
-                    form.controls['phoneNo'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-              </div>
-
-              <div class="pb-1">
-                <mat-form-field>
-                  <input
-                    matInput
-                    name="department"
-                    formControlName="department"
-                    placeholder="department"
-                  />
-                </mat-form-field>
-                <small
-                  *ngIf="
-                    form.controls['department'].hasError('required') &&
-                    form.controls['department'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-              </div>
-
-              <div class="pb-1">
-                <mat-form-field>
-                  <input
-                    matInput
-                    name="position"
-                    formControlName="position"
-                    placeholder="position"
-                  />
-                </mat-form-field>
-                <small
-                  *ngIf="
-                    form.controls['position'].hasError('required') &&
-                    form.controls['position'].touched
-                  "
-                  class="form-error-msg"
-                >
-                  Required
-                </small>
-              </div>
-            </div>
-          </div>
-          <button mat-raised-button color="primary" [disabled]="form.invalid">
-            Add
-          </button>
-          <a mat-stroked-button>Cancel</a>
-        </form>
-      </mat-card-content>
-    </mat-card>
   </div>
   <!--  -->
-  <div fxFlex="80">
-    <mat-table [dataSource]="employees" matSort>
-      <ng-container matColumnDef="Name">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Name
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="name">
-          {{ element.name }}
-        </mat-cell>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button mat-mini-fab (click)="addEmployee()">
+      <mat-icon class="add-course-btn">add</mat-icon>
+    </button>
+  </div>
+  <!--  -->
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="10"></div>
+    <div fxFlex="80">
+      <ng-container formArrayName="employees">
+        <ng-container
+          *ngFor="let employeeForm of employees.controls; let i = index"
+        >
+          <div [formGroup]="employeeForm">
+            <mat-form-field>
+              <input
+                matInput
+                name="name"
+                formControlName="name"
+                placeholder="Name"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="age"
+                formControlName="age"
+                placeholder="Age"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                type="email"
+                name="email"
+                formControlName="email"
+                placeholder="Your Email"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="phoneNo"
+                formControlName="phoneNo"
+                placeholder="Phone number"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="department"
+                formControlName="department"
+                placeholder="department"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="position"
+                formControlName="position"
+                placeholder="position"
+              />
+            </mat-form-field>
+            <mat-icon class="delete-btn" (click)="deleteEmployee(i)">
+              delete_forever</mat-icon
+            >
+          </div>
+        </ng-container>
       </ng-container>
-
-      <ng-container matColumnDef="Age">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Age
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="age">
-          {{ element.age }}
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Phone">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Phone
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="phone">
-          {{ element.phoneNo }}
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Email">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Email
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="email">
-          {{ element.email }}
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Department">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Department
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="department">
-          {{ element.department }}
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Position">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Position
-        </mat-header-cell>
-        <mat-cell *matCellDef="let element" data-label="position">
-          {{ element.position }}
-        </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="Action">
-        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-        <mat-cell *matCellDef="let i = index">
-          <button
-            mat-flat-button
-            color="warn"
-            [swal]="{
-              title: 'Confirmation',
-              text: 'Are you sure that you want to delete the record?',
-              showCancelButton: true
-            }"
-            (confirm)="onRemove(i)"
-          >
-            Delete
-          </button>
-        </mat-cell>
-      </ng-container>
-
-      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
-      <mat-row *matRowDef="let element; columns: columnsToDisplay"> </mat-row>
-    </mat-table>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="saveChanges()"
+    >
+      Submit
+    </button>
+    <a mat-stroked-button routerLink="/view/companies">Cancel</a>
   </div>
 </div>

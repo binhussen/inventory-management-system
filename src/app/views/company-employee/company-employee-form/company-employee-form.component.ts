@@ -1,16 +1,19 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import {
   Form,
+  FormArray,
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
 } from "@angular/forms";
 import { MatTableDataSource } from "@angular/material/table";
+import { companyWithEmployee } from "app/shared/models/companies.model";
 import {
   employeeCreationDTO,
   employeeDTO,
 } from "app/shared/models/employees.model";
+import { CustomValidators } from "ngx-custom-validators";
 
 @Component({
   selector: "app-company-employee-form",
@@ -18,6 +21,7 @@ import {
   styleUrls: ["./company-employee-form.component.scss"],
 })
 export class CompanyEmployeeFormComponent implements OnInit {
+  try = "Names";
   columnsToDisplay = [
     "Name",
     "Age",
@@ -27,54 +31,54 @@ export class CompanyEmployeeFormComponent implements OnInit {
     "Position",
     "Action",
   ];
-  employees: MatTableDataSource<employeeDTO>;
+  form = this.formBuilder.group({
+    name: new FormControl("", [Validators.required]),
+    phoneNo: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    fax: new FormControl("", [Validators.required]),
+    country: new FormControl("", [Validators.required]),
+    address: new FormControl("", [Validators.required]),
+    website: new FormControl("", [CustomValidators.url, Validators.required]),
+    description: new FormControl("", [Validators.required]),
+    employees: this.formBuilder.array([]),
+  });
   @Input()
   model: employeeCreationDTO;
 
-  form: FormGroup;
-
   @Output()
-  onSaveChanges: EventEmitter<employeeCreationDTO> = new EventEmitter<employeeCreationDTO>();
+  onSaveChanges: EventEmitter<companyWithEmployee> = new EventEmitter<companyWithEmployee>();
 
-  constructor(private formBuilder: FormBuilder) {
-    const employeeDTO: employeeDTO[] = [];
-    this.employees = new MatTableDataSource(employeeDTO);
+  constructor(private formBuilder: FormBuilder) {}
 
-    this.form = this.formBuilder.group({
-      name: new FormControl(null, [Validators.required]),
-      phoneNo: new FormControl(null, [Validators.required]),
-      age: new FormControl(null, [Validators.required]),
-      position: new FormControl(null, Validators.required),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      department: new FormControl(null, [Validators.required]),
-    });
-  }
-
-  onAdd() {
-    this.employees.data.push({
-      id: this.form.value.name,
-      name: this.form.value.name,
-      age: this.form.value.age,
-      email: this.form.value.email,
-      phoneNo: this.form.value.phoneNo,
-      department: this.form.value.department,
-      position: this.form.value.position,
-    });
-
-    this.employees.filter = "";
-  }
-
-  onRemove(index: number) {
-    this.employees.data.splice(index, 1);
-    this.employees.filter = "";
-  }
   ngOnInit() {
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
     }
+
+    console.log(this.employees.value);
   }
 
   saveChanges() {
     this.onSaveChanges.emit(this.form.value);
+  }
+
+  get employees() {
+    return this.form.controls["employees"] as FormArray;
+  }
+
+  addEmployee() {
+    const employeeForm = this.formBuilder.group({
+      name: ["", Validators.required],
+      age: ["", Validators.required],
+      email: ["", Validators.required],
+      phoneNo: ["", Validators.required],
+      department: ["", Validators.required],
+      position: ["", Validators.required],
+    });
+    this.employees.push(employeeForm);
+  }
+
+  deleteEmployee(Index: number) {
+    this.employees.removeAt(Index);
   }
 }

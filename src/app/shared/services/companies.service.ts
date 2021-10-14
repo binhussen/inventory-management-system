@@ -2,7 +2,11 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { environment } from "environments/environment";
 import { Observable } from "rxjs";
-import { companyCreationDTO, companyDTO } from "../models/companies.model";
+import {
+  companyCreationDTO,
+  companyDTO,
+  companyWithEmployee,
+} from "../models/companies.model";
 
 @Injectable({
   providedIn: "root",
@@ -34,6 +38,9 @@ export class CompaniesService {
     return this.http.post(this.apiURL, company);
   }
 
+  createwithemployee(company: companyWithEmployee) {
+    return this.http.post(this.apiURL, company);
+  }
   edit(id: number, company: companyCreationDTO) {
     return this.http.put(`${this.apiURL}/${id}`, company);
   }

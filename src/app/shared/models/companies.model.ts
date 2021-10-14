@@ -15,7 +15,28 @@ export interface companyDTO {
   phoneNo: string;
   email: string;
   fax: string;
-  fullAddress :string;
+  fullAddress: string;
   website: string;
   description: string;
+}
+
+export interface companyWithEmployee {
+  name: string;
+  phoneNo: string;
+  email: string;
+  fax: string;
+  country: string;
+  address: string;
+  website: string;
+  description: string;
+  employees: [
+    {
+      name: string;
+      age: number;
+      position: string;
+      phoneNo: string;
+      email: string;
+      department: string;
+    }
+  ];
 }

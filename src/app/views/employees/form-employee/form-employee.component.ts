@@ -10,6 +10,7 @@ import { employeeCreationDTO } from 'app/shared/models/employees.model';
 export class FormEmployeeComponent implements OnInit {
   constructor(private formBuilder: FormBuilder) { }
 
+
   @Input()
   model: employeeCreationDTO;
 
@@ -17,7 +18,6 @@ export class FormEmployeeComponent implements OnInit {
 
   @Output()
   onSaveChanges: EventEmitter<employeeCreationDTO> = new EventEmitter<employeeCreationDTO>();
-
   ngOnInit() {
     this.form = this.formBuilder.group({
       name: new FormControl("", [Validators.required]),
