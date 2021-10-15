@@ -71,6 +71,11 @@ import { CompanyEmployeeFormComponent } from './company-employee/company-employe
 import { CompanyEmployeeCreateComponent } from './company-employee/company-employee-create/company-employee-create.component';
 import { CompanyEmployeeListComponent } from './company-employee/company-employee-list/company-employee-list.component';
 import { CompanyEmployeeEditComponent } from './company-employee/company-employee-edit/company-employee-edit.component';
+import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { RequestEditComponent } from './request/request-edit/request-edit.component';
+import { RequestFormComponent } from './request/request-form/request-form.component';
+import { RequestListComponent } from './request/request-list/request-list.component';
+import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 
 @NgModule({
   declarations: [
@@ -118,6 +123,11 @@ import { CompanyEmployeeEditComponent } from './company-employee/company-employe
     CompanyEmployeeCreateComponent,
     CompanyEmployeeListComponent,
     CompanyEmployeeEditComponent,
+    RequestCreateComponent,
+    RequestEditComponent,
+    RequestFormComponent,
+    RequestListComponent,
+    RequestDetailComponent,
   ],
   imports: [
     CommonModule,

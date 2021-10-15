@@ -1,0 +1,98 @@
+<!-- header -->
+<div [formGroup]="form">
+  <!--  -->
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button mat-mini-fab (click)="addItem()">
+      <mat-icon class="add-course-btn">add</mat-icon>
+    </button>
+  </div>
+  <!--  -->
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="10"></div>
+    <div fxFlex="80">
+      <ng-container formArrayName="requestItems">
+        <ng-container
+          *ngFor="let itemForm of requestItems.controls; let i = index"
+        >
+          <div [formGroup]="itemForm">
+            <mat-form-field>
+              <input
+                matInput
+                name="name"
+                formControlName="name"
+                placeholder="Name"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="type"
+                formControlName="type"
+                placeholder="Type"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="use"
+                formControlName="use"
+                placeholder="Usage"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="quantity"
+                formControlName="quantity"
+                placeholder="Quantity"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="unitPrice"
+                formControlName="unitPrice"
+                placeholder="Unit Price"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="description"
+                formControlName="description"
+                placeholder="Description"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="budgetCode"
+                formControlName="budgetCode"
+                placeholder="Budget Code"
+              />
+            </mat-form-field>
+
+            <mat-icon class="delete-btn" (click)="deleteItem(i)">
+              delete_forever</mat-icon
+            >
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="saveChanges()"
+    >
+      Submit
+    </button>
+    <a mat-stroked-button routerLink="/view/companies">Cancel</a>
+  </div>
+</div>

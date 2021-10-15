@@ -38,7 +38,7 @@ export class CompaniesService {
     return this.http.post(this.apiURL, company);
   }
 
-  createwithemployee(company: companyWithEmployee) {
+  createWithEmployee(company: companyWithEmployee) {
     return this.http.post(this.apiURL, company);
   }
   edit(id: number, company: companyCreationDTO) {

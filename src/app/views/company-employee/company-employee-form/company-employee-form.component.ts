@@ -54,8 +54,6 @@ export class CompanyEmployeeFormComponent implements OnInit {
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
     }
-
-    console.log(this.employees.value);
   }
 
   saveChanges() {

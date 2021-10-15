@@ -1,3 +1,5 @@
+import { employeeCreationDTO, employeeDTO } from "./employees.model";
+
 export interface companyCreationDTO {
   name: string;
   phoneNo: string;
@@ -29,14 +31,5 @@ export interface companyWithEmployee {
   address: string;
   website: string;
   description: string;
-  employees: [
-    {
-      name: string;
-      age: number;
-      position: string;
-      phoneNo: string;
-      email: string;
-      department: string;
-    }
-  ];
+  employees: Array<employeeCreationDTO>;
 }

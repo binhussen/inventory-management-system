@@ -31,7 +31,8 @@ import { FinanceListComponent } from "./finance/finance-list/finance-list.compon
 import { UserIndexComponent } from "./users/user-index/user-index.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
-import { CompanyEmployeeFormComponent } from "./company-employee/company-employee-form/company-employee-form.component";
+import { CompanyEmployeeCreateComponent } from "./company-employee/company-employee-create/company-employee-create.component";
+import { RequestCreateComponent } from "./request/request-create/request-create.component";
 
 export const ViewsRoutingModule: Routes = [
   {
@@ -40,8 +41,12 @@ export const ViewsRoutingModule: Routes = [
     data: { title: "Companies", breadcrumb: "Companies" },
   },
   {
-    path:"trys",
-    component: CompanyEmployeeFormComponent
+    path: "trys",
+    component: CompanyEmployeeCreateComponent,
+  },
+  {
+    path: "request",
+    component: RequestCreateComponent,
   },
   {
     path: "companies/create",
@@ -166,5 +171,5 @@ export const ViewsRoutingModule: Routes = [
   {
     path: "user/edit/:id",
     component: UserEditComponent,
-  }
+  },
 ];
