@@ -10,45 +10,34 @@ import { StoresService } from "app/shared/services/stores.service";
   styleUrls: ["./store-list.component.scss"],
 })
 export class StoreListComponent implements OnInit {
-  role: string[] = ["Store_Man"];
   stores: StoreHeaderDTO[];
   totalAmountOfRecords;
   currentPage = 1;
   pageSize = 5;
-
   columnsToDisplay = [
     "Supplier",
-    "Reciver",
-    "GraNo",
-    "Pox",
-    "CheckedBy",
-    "AcceptedBy",
-    "InspectedBy",
+    "Receiver",
+    "Gra No",
+    "Checked By",
     "Date",
     "Actions",
   ];
-
-  constructor(private storesService: StoresService) {}
+  constructor(private StoreService: StoresService) {}
 
   ngOnInit(): void {
     this.loadData();
   }
 
   delete(id: number) {
-    this.storesService.delete(id).subscribe(() => {
+    this.StoreService.delete(id).subscribe(() => {
       this.loadData();
     });
   }
 
   loadData() {
-    this.storesService
-      .get(this.currentPage, this.pageSize)
-      .subscribe((response: HttpResponse<StoreHeaderDTO[]>) => {
-        this.stores = response.body;
-        this.totalAmountOfRecords = response.headers.get(
-          "totalAmountOfRecords"
-        );
-      });
+    this.StoreService.getAll().subscribe((response) => {
+      this.stores = response;
+    });
   }
 
   updatePagination(event: PageEvent) {

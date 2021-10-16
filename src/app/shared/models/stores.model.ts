@@ -21,7 +21,6 @@ export interface StoreHeaderDTO {
   checkedBy: string;
   acceptedBy: string;
   inspectedBy: string;
-  storeItems: StoreItemDTO[];
 }
 
 export interface StoreHeaderPostGetDTO {
@@ -32,4 +31,29 @@ export interface StoreHeaderPutGetDTO {
   storeHeader: StoreHeaderDTO;
   selectedItems: StoreItemDTO[];
   nonSelectedItems: StoreItemDTO[];
+}
+
+export interface storeCreate {
+  supplierId: string;
+  graNo: string;
+  storeItems: storeItem[];
+}
+
+export interface storeItem {
+  name: string;
+  itemSpecification: string;
+  unit: string;
+  qtyOrdered: string;
+  qtyRecived: string;
+  unitPrice: string;
+}
+
+export interface StoreItems {
+  name: string;
+  itemSpecification: string;
+  unit: string;
+  qtyOrdered: string;
+  qtyRecived: string;
+  unitPrice: string;
+  totalPrice: string;
 }

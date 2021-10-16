@@ -9,6 +9,7 @@ import {
   FinanceHeaderPutGetDTO,
 } from "../models/finances.model";
 import { RequestCreate } from "../models/requests.model";
+import { StoreHeaderDTO } from "../models/stores.model";
 
 @Injectable({
   providedIn: "root",
@@ -80,6 +81,7 @@ export class RequestService {
   }
 
   createWithItem(request: RequestCreate) {
+    console.log(request);
     return this.http.post(this.apiURL, request);
   }
 }

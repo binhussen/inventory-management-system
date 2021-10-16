@@ -4,6 +4,7 @@ import { environment } from "environments/environment";
 import { Observable } from "rxjs";
 import { formatDateFormData } from "../helpers/utils";
 import {
+  storeCreate,
   StoreHeaderCreationDTO,
   StoreHeaderDTO,
   StoreHeaderPostGetDTO,
@@ -15,7 +16,7 @@ import {
 })
 export class StoresService {
   constructor(private http: HttpClient) {}
-  private apiURL = environment.apiURL + "/stores";
+  private apiURL = environment.apiURL + "storeheaders";
 
   // public getHomePageStores(): Observable<homeDTO>{
   //   return this.http.get<homeDTO>(this.apiURL);
@@ -83,5 +84,14 @@ export class StoresService {
     formData.append("storeItemsIds", JSON.stringify(store.storeItemsIds));
 
     return formData;
+  }
+
+  createWithItem(store: storeCreate) {
+    console.log(store);
+    return this.http.post(this.apiURL, store);
+  }
+
+  getAll(): Observable<StoreHeaderDTO[]> {
+    return this.http.get<StoreHeaderDTO[]>(this.apiURL);
   }
 }

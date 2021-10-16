@@ -1,0 +1,128 @@
+<!-- header -->
+<div [formGroup]="form">
+  <div fxLayout="row">
+    <div fxFlex="85"></div>
+    <div fxFlex="15">
+      <div fxLayout="column">
+        <div>
+          <mat-form-field>
+            <input
+              matInput
+              name="name"
+              formControlName="supplierId"
+              placeholder="Supplier"
+              value=""
+            />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['supplierId'].hasError('required') &&
+              form.controls['supplierId'].touched
+            "
+            class="form-error-msg"
+          >
+            Supplier is required
+          </small>
+        </div>
+        <div>
+          <mat-form-field>
+            <input matInput formControlName="graNo" placeholder="Gra No" />
+          </mat-form-field>
+          <small
+            *ngIf="
+              form.controls['graNo'].hasError('required') &&
+              form.controls['graNo'].touched
+            "
+            class="form-error-msg"
+          >
+            Gra No is required</small
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button mat-mini-fab (click)="addItem()">
+      <mat-icon class="add-course-btn">add</mat-icon>
+    </button>
+  </div>
+  <!--  -->
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <div fxFlex="10"></div>
+    <div fxFlex="80">
+      <ng-container formArrayName="storeItems">
+        <ng-container
+          *ngFor="let itemForm of storeItems.controls; let i = index"
+        >
+          <div [formGroup]="itemForm">
+            <mat-form-field>
+              <input
+                matInput
+                name="name"
+                formControlName="name"
+                placeholder="Name"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="itemSpecification"
+                formControlName="itemSpecification"
+                placeholder="Item Specification"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="unit"
+                placeholder="Unit Measurement"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                name="quantity"
+                formControlName="qtyOrdered"
+                placeholder="Quantity Ordered"
+                value=""
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="qtyRecived"
+                placeholder="Quantity Received"
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                formControlName="unitPrice"
+                placeholder="Unit Price"
+              />
+            </mat-form-field>
+
+            <mat-icon class="delete-btn" (click)="deleteItem(i)">
+              delete_forever</mat-icon
+            >
+          </div>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <button
+      mat-raised-button
+      color="primary"
+      [disabled]="form.invalid"
+      (click)="saveChanges()"
+    >
+      Submit
+    </button>
+    <a mat-stroked-button routerLink="/view/companies">Cancel</a>
+  </div>
+</div>

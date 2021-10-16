@@ -1,9 +1,0 @@
-<h2>Create Store</h2>
-
-<app-store-form
-  *ngIf="nonSelectedItems"
-  [nonSelectedItems]="nonSelectedItems"
-  (onSaveChanges)="saveChanges($event)"
-></app-store-form>
-
-<mat-spinner *ngIf="!nonSelectedItems"></mat-spinner>

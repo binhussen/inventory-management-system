@@ -34,11 +34,6 @@ import { IndexEmployeesComponent } from "./employees/index-employees/index-emplo
 import { CreateEmployeeComponent } from "./employees/create-employee/create-employee.component";
 import { EditEmployeeComponent } from "./employees/edit-employee/edit-employee.component";
 import { FormEmployeeComponent } from "./employees/form-employee/form-employee.component";
-import { StoreListComponent } from "./store/store-list/store-list.component";
-import { StoreDetailComponent } from "./store/store-detail/store-detail.component";
-import { StoreCreateComponent } from "./store/store-create/store-create.component";
-import { StoreEditComponent } from "./store/store-edit/store-edit.component";
-import { StoreFormComponent } from "./store/store-form/store-form.component";
 import { FinanceFormComponent } from "./finance/finance-form/finance-form.component";
 import { FinanceCreateComponent } from "./finance/finance-create/finance-create.component";
 import { FinanceEditComponent } from "./finance/finance-edit/finance-edit.component";
@@ -67,15 +62,20 @@ import { UserFormComponent } from "./users/user-form/user-form.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
-import { CompanyEmployeeFormComponent } from './company-employee/company-employee-form/company-employee-form.component';
-import { CompanyEmployeeCreateComponent } from './company-employee/company-employee-create/company-employee-create.component';
-import { CompanyEmployeeListComponent } from './company-employee/company-employee-list/company-employee-list.component';
-import { CompanyEmployeeEditComponent } from './company-employee/company-employee-edit/company-employee-edit.component';
-import { RequestCreateComponent } from './request/request-create/request-create.component';
-import { RequestEditComponent } from './request/request-edit/request-edit.component';
-import { RequestFormComponent } from './request/request-form/request-form.component';
-import { RequestListComponent } from './request/request-list/request-list.component';
-import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { CompanyEmployeeFormComponent } from "./company-employee/company-employee-form/company-employee-form.component";
+import { CompanyEmployeeCreateComponent } from "./company-employee/company-employee-create/company-employee-create.component";
+import { CompanyEmployeeListComponent } from "./company-employee/company-employee-list/company-employee-list.component";
+import { CompanyEmployeeEditComponent } from "./company-employee/company-employee-edit/company-employee-edit.component";
+import { RequestCreateComponent } from "./request/request-create/request-create.component";
+import { RequestEditComponent } from "./request/request-edit/request-edit.component";
+import { RequestFormComponent } from "./request/request-form/request-form.component";
+import { RequestListComponent } from "./request/request-list/request-list.component";
+import { RequestDetailComponent } from "./request/request-detail/request-detail.component";
+import { StoreCreateComponent } from "./stores/store-create/store-create.component";
+import { StoreDetailComponent } from "./stores/store-detail/store-detail.component";
+import { StoreEditComponent } from "./stores/store-edit/store-edit.component";
+import { StoreListComponent } from "./stores/store-list/store-list.component";
+import { StoreFormComponent } from "./stores/store-form/store-form.component";
 
 @NgModule({
   declarations: [
@@ -87,11 +87,6 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     CreateEmployeeComponent,
     EditEmployeeComponent,
     FormEmployeeComponent,
-    StoreListComponent,
-    StoreDetailComponent,
-    StoreCreateComponent,
-    StoreEditComponent,
-    StoreFormComponent,
     StoreItemCreateComponent,
     StoreItemEditComponent,
     StoreItemFormComponent,
@@ -128,6 +123,11 @@ import { RequestDetailComponent } from './request/request-detail/request-detail.
     RequestFormComponent,
     RequestListComponent,
     RequestDetailComponent,
+    StoreCreateComponent,
+    StoreDetailComponent,
+    StoreEditComponent,
+    StoreListComponent,
+    StoreFormComponent,
   ],
   imports: [
     CommonModule,

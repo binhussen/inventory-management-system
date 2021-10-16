@@ -1,10 +1,8 @@
-<h2>Edit Store</h2>
+<h2>Edit</h2>
 
 <app-store-form
-  [model]="model"
   *ngIf="model"
-  [nonSelectedItems]="nonSelectedItems"
-  [selectedItems]="selectedItems"
+  [model]="model"
   (onSaveChanges)="saveChanges($event)"
 ></app-store-form>
 

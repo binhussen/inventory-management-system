@@ -5,13 +5,9 @@ import { IndexCompaniesComponent } from "./companies/index-companies/index-compa
 import { CreateEmployeeComponent } from "./employees/create-employee/create-employee.component";
 import { EditEmployeeComponent } from "./employees/edit-employee/edit-employee.component";
 import { IndexEmployeesComponent } from "./employees/index-employees/index-employees.component";
-import { StoreCreateComponent } from "./store/store-create/store-create.component";
-import { StoreDetailComponent } from "./store/store-detail/store-detail.component";
-import { StoreEditComponent } from "./store/store-edit/store-edit.component";
 import { StoreItemCreateComponent } from "./store/store-item-create/store-item-create.component";
 import { StoreItemEditComponent } from "./store/store-item-edit/store-item-edit.component";
 import { StoreItemIndexComponent } from "./store/store-item-index/store-item-index.component";
-import { StoreListComponent } from "./store/store-list/store-list.component";
 
 import { PurchaseCreateComponent } from "./purchase/purchase-create/purchase-create.component";
 import { PurchaseDetailComponent } from "./purchase/purchase-detail/purchase-detail.component";
@@ -33,6 +29,10 @@ import { UserRegisterComponent } from "./users/user-register/user-register.compo
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
 import { CompanyEmployeeCreateComponent } from "./company-employee/company-employee-create/company-employee-create.component";
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
+import { StoreListComponent } from "./stores/store-list/store-list.component";
+import { StoreCreateComponent } from "./stores/store-create/store-create.component";
+import { StoreDetailComponent } from "./stores/store-detail/store-detail.component";
+import { StoreEditComponent } from "./stores/store-edit/store-edit.component";
 
 export const ViewsRoutingModule: Routes = [
   {
@@ -88,7 +88,7 @@ export const ViewsRoutingModule: Routes = [
     data: { title: "Stores", breadcrumb: "Stores" },
   },
   {
-    path: "stores/create",
+    path: "store/create",
     component: StoreCreateComponent,
   },
   {
