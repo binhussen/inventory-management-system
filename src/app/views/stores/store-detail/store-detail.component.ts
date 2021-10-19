@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-import { StoreHeaderDTO, StoreItems } from "app/shared/models/stores.model";
+import { StoreHeaderDTO, storeItem } from "app/shared/models/stores.model";
 import { StoreItemsService } from "app/shared/services/store-items.service";
 import { StoresService } from "app/shared/services/stores.service";
 
@@ -10,7 +10,7 @@ import { StoresService } from "app/shared/services/stores.service";
   styleUrls: ["./store-detail.component.scss"],
 })
 export class StoreDetailComponent implements OnInit {
-  stores: Array<StoreItems>;
+  stores: storeItem[];
   header: StoreHeaderDTO;
   totalAmountOfRecords;
   currentPage = 1;
@@ -23,32 +23,38 @@ export class StoreDetailComponent implements OnInit {
     "Quantity Received",
     "Unit Price",
     "Total Price",
+    "Actions",
   ];
   constructor(
     private activatedRoute: ActivatedRoute,
-    private storeItemsService: StoreItemsService,
     private storeService: StoresService
   ) {}
 
+  paramsId;
   ngOnInit(): void {
+    this.activatedRoute.params.subscribe((params) => {
+      this.paramsId = params.id;
+    });
+
     this.getDetail();
     this.getHeader();
   }
 
   getDetail() {
-    this.activatedRoute.params.subscribe((params) => {
-      this.storeItemsService.getAll(params.id).subscribe((storeItems) => {
-        this.stores = storeItems;
-      });
+    this.storeService.getAllItem(this.paramsId).subscribe((items) => {
+      this.stores = items;
     });
   }
 
   getHeader() {
-    this.activatedRoute.params.subscribe((params) => {
-      this.storeService.getById(params.id).subscribe((store) => {
-        this.header = store;
-        console.log(store);
-      });
+    this.storeService.getById(this.paramsId).subscribe((store) => {
+      this.header = store;
+    });
+  }
+
+  delete(id) {
+    this.storeService.deleteItem(this.paramsId, id).subscribe(() => {
+      this.getDetail();
     });
   }
 }

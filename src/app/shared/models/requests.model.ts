@@ -45,3 +45,11 @@ export interface RequestItemDTO {
 export interface RequestCreate {
   requestItems: Array<RequestItemDTO>;
 }
+
+export interface RequestHeader {
+  id?: string;
+  askedBy: string;
+  checkedBy: string;
+  approvedBy: string;
+  date: string;
+}

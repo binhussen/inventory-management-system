@@ -6,7 +6,7 @@ import {
   StoreItemCreationDTO,
   StoreItemDTO,
 } from "../models/store-items.model";
-import { StoreItems } from "../models/stores.model";
+import { storeItem } from "../models/stores.model";
 
 @Injectable({
   providedIn: "root",
@@ -14,7 +14,7 @@ import { StoreItems } from "../models/stores.model";
 export class StoreItemsService {
   constructor(private http: HttpClient) {}
 
-  private apiURL = environment.apiURL + "storeItems";
+  private apiURL = environment.apiURL + "storeitems";
 
   get(page: number, recordsPerPage: number): Observable<any> {
     let params = new HttpParams();
@@ -26,8 +26,8 @@ export class StoreItemsService {
     });
   }
 
-  getAll(id): Observable<StoreItems> {
-    return this.http.get<StoreItems>(this.apiURL + "/" + id + "/storeItems");
+  getAllItem(id): Observable<storeItem> {
+    return this.http.get<storeItem>(this.apiURL + "/" + id + "/storeitems");
   }
 
   getById(id: number): Observable<StoreItemDTO> {

@@ -1,0 +1,135 @@
+<mat-card class="p-0">
+  <mat-card-content>
+    <form (submit)="saveChanges()" [formGroup]="form">
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="name"
+                formControlName="name"
+                placeholder="Name"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['name'].hasError('required') &&
+                form.controls['name'].touched
+              "
+              class="form-error-msg"
+            >
+              Name is required
+            </small>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="type"
+                formControlName="type"
+                placeholder="Type"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['type'].hasError('required') &&
+                form.controls['type'].touched
+              "
+              class="form-error-msg"
+            >
+              Type is required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="quantity"
+                formControlName="quantity"
+                placeholder="quantity"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['quantity'].hasError('required') &&
+                form.controls['quantity'].touched
+              "
+              class="form-error-msg"
+            >
+              Quantity is Required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="unitPrice"
+                formControlName="unitPrice"
+                placeholder="Unit Price"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['unitPrice'].hasError('required') &&
+                form.controls['unitPrice'].touched
+              "
+              class="form-error-msg"
+            >
+              Unit Price is required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="use"
+                formControlName="use"
+                placeholder="Use"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['use'].hasError('required') &&
+                form.controls['use'].touched
+              "
+              class="form-error-msg"
+            >
+              Use is Required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="description"
+                formControlName="description"
+                placeholder="Description"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['description'].hasError('required') &&
+                form.controls['description'].touched
+              "
+              class="form-error-msg"
+            >
+              Description is Required
+            </small>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Submit
+      </button>
+      <a mat-stroked-button routerLink="/view/requestitems">Cancel</a>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { storeCreate } from "app/shared/models/stores.model";
+import {
+  storeCreate,
+  StoreHeaderDTO,
+  storeItemDto,
+} from "app/shared/models/stores.model";
 import { StoresService } from "app/shared/services/stores.service";
 
 @Component({
@@ -15,22 +19,21 @@ export class StoreEditComponent implements OnInit {
     private router: Router
   ) {}
 
-  model: storeCreate;
+  model: StoreHeaderDTO;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
       this.storeService.getById(params.id).subscribe((stores) => {
-        // this.model = stores;
-        console.log();
+        this.model = stores;
       });
     });
   }
 
   saveChanges(store: storeCreate) {
-    // this.storeService
-    //   .edit(this.model.id, employeeCreationDTO)
-    //   .subscribe(() => {
-    //     this.router.navigate(["/view/employees"]);
-    //   });
+    this.activatedRoute.params.subscribe((params) => {
+      this.storeService.edit(params.id, store).subscribe(() => {
+        this.router.navigate(["/view/stores"]);
+      });
+    });
   }
 }

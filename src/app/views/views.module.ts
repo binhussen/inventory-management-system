@@ -34,28 +34,9 @@ import { IndexEmployeesComponent } from "./employees/index-employees/index-emplo
 import { CreateEmployeeComponent } from "./employees/create-employee/create-employee.component";
 import { EditEmployeeComponent } from "./employees/edit-employee/edit-employee.component";
 import { FormEmployeeComponent } from "./employees/form-employee/form-employee.component";
-import { FinanceFormComponent } from "./finance/finance-form/finance-form.component";
-import { FinanceCreateComponent } from "./finance/finance-create/finance-create.component";
-import { FinanceEditComponent } from "./finance/finance-edit/finance-edit.component";
-import { FinanceListComponent } from "./finance/finance-list/finance-list.component";
-import { FinanceDetailComponent } from "./finance/finance-detail/finance-detail.component";
-import { PurchaseDetailComponent } from "./purchase/purchase-detail/purchase-detail.component";
-import { PurchaseCreateComponent } from "./purchase/purchase-create/purchase-create.component";
-import { PurchaseEditComponent } from "./purchase/purchase-edit/purchase-edit.component";
-import { PurchaseFormComponent } from "./purchase/purchase-form/purchase-form.component";
-import { PurchaseListComponent } from "./purchase/purchase-list/purchase-list.component";
 import { StoreItemCreateComponent } from "./store/store-item-create/store-item-create.component";
-import { StoreItemEditComponent } from "./store/store-item-edit/store-item-edit.component";
 import { StoreItemFormComponent } from "./store/store-item-form/store-item-form.component";
 import { StoreItemIndexComponent } from "./store/store-item-index/store-item-index.component";
-import { FinanceItemCreateComponent } from "./finance/finance-item-create/finance-item-create.component";
-import { FinanceItemEditComponent } from "./finance/finance-item-edit/finance-item-edit.component";
-import { FinanceItemFormComponent } from "./finance/finance-item-form/finance-item-form.component";
-import { FinanceItemIndexComponent } from "./finance/finance-item-index/finance-item-index.component";
-import { PurchaseItemCreateComponent } from "./purchase/purchase-item-create/purchase-item-create.component";
-import { PurchaseItemEditComponent } from "./purchase/purchase-item-edit/purchase-item-edit.component";
-import { PurchaseItemFormComponent } from "./purchase/purchase-item-form/purchase-item-form.component";
-import { PurchaseItemIndexComponent } from "./purchase/purchase-item-index/purchase-item-index.component";
 import { MaterialModule } from "app/shared/modules/material/material.module";
 import { UserIndexComponent } from "./users/user-index/user-index.component";
 import { UserFormComponent } from "./users/user-form/user-form.component";
@@ -76,6 +57,8 @@ import { StoreDetailComponent } from "./stores/store-detail/store-detail.compone
 import { StoreEditComponent } from "./stores/store-edit/store-edit.component";
 import { StoreListComponent } from "./stores/store-list/store-list.component";
 import { StoreFormComponent } from "./stores/store-form/store-form.component";
+import { StoreitemEditComponent } from "./stores/storeitem-edit/storeitem-edit.component";
+import { RequestitemEditComponent } from './request/requestitem-edit/requestitem-edit.component';
 
 @NgModule({
   declarations: [
@@ -88,27 +71,8 @@ import { StoreFormComponent } from "./stores/store-form/store-form.component";
     EditEmployeeComponent,
     FormEmployeeComponent,
     StoreItemCreateComponent,
-    StoreItemEditComponent,
     StoreItemFormComponent,
     StoreItemIndexComponent,
-    FinanceFormComponent,
-    FinanceCreateComponent,
-    FinanceEditComponent,
-    FinanceListComponent,
-    FinanceDetailComponent,
-    FinanceItemCreateComponent,
-    FinanceItemEditComponent,
-    FinanceItemFormComponent,
-    FinanceItemIndexComponent,
-    PurchaseDetailComponent,
-    PurchaseCreateComponent,
-    PurchaseEditComponent,
-    PurchaseFormComponent,
-    PurchaseListComponent,
-    PurchaseItemCreateComponent,
-    PurchaseItemEditComponent,
-    PurchaseItemFormComponent,
-    PurchaseItemIndexComponent,
     UserIndexComponent,
     UserFormComponent,
     UserRegisterComponent,
@@ -128,6 +92,8 @@ import { StoreFormComponent } from "./stores/store-form/store-form.component";
     StoreEditComponent,
     StoreListComponent,
     StoreFormComponent,
+    StoreitemEditComponent,
+    RequestitemEditComponent,
   ],
   imports: [
     CommonModule,

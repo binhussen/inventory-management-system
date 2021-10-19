@@ -1,0 +1,135 @@
+<mat-card class="p-0">
+  <mat-card-content>
+    <form (submit)="saveChanges()" [formGroup]="form">
+      <div fxLayout="row wrap">
+        <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="name"
+                formControlName="name"
+                placeholder="Name"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['name'].hasError('required') &&
+                form.controls['name'].touched
+              "
+              class="form-error-msg"
+            >
+              Name is required
+            </small>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="itemSpecification"
+                formControlName="itemSpecification"
+                placeholder="ItemSpecification"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['itemSpecification'].hasError('required') &&
+                form.controls['itemSpecification'].touched
+              "
+              class="form-error-msg"
+            >
+              ItemSpecification is required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="unit"
+                formControlName="unit"
+                placeholder="Unit"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['unit'].hasError('required') &&
+                form.controls['unit'].touched
+              "
+              class="form-error-msg"
+            >
+              Unit is Required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="qtyOrdered"
+                formControlName="qtyOrdered"
+                placeholder="qtyOrdered"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['qtyOrdered'].hasError('required') &&
+                form.controls['qtyOrdered'].touched
+              "
+              class="form-error-msg"
+            >
+              QtyOrdered is required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="qtyRecived"
+                formControlName="qtyRecived"
+                placeholder="QtyRecived"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['qtyRecived'].hasError('required') &&
+                form.controls['qtyRecived'].touched
+              "
+              class="form-error-msg"
+            >
+              QtyRecived is Required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="unitPrice"
+                formControlName="unitPrice"
+                placeholder="UnitPrice"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['unitPrice'].hasError('required') &&
+                form.controls['unitPrice'].touched
+              "
+              class="form-error-msg"
+            >
+              UnitPrice is Required
+            </small>
+          </div>
+        </div>
+      </div>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">
+        Submit
+      </button>
+      <a mat-stroked-button routerLink="/view/storeitems">Cancel</a>
+    </form>
+  </mat-card-content>
+</mat-card>

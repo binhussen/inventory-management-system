@@ -21,7 +21,7 @@ export class RequestCreateComponent implements OnInit {
 
   saveChanges(request: RequestCreate) {
     this.requestService.createWithItem(request).subscribe(() => {
-      this.router.navigate(["/view/employees"]);
+      this.router.navigate(["/view/requests"]);
     });
   }
 }

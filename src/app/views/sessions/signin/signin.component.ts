@@ -47,6 +47,7 @@ export class SigninComponent implements OnInit {
     this.securityService.login(signinData).subscribe(
       (authenticationResponse) => {
         this.securityService.saveToken(authenticationResponse);
+        console.log(this.securityService.getRole());
         this.router.navigate(["/"]);
       }
       // (error) => (this.errors = parseWebAPIErrors(error))

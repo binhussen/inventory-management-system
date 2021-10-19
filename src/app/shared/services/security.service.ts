@@ -9,12 +9,17 @@ import {
   userCredentials,
   userDTO,
 } from "../models/security.model";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: "root",
 })
 export class SecurityService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private jwtHelper: JwtHelperService
+  ) {}
 
   private apiURL = environment.apiURL + "authentication";
   private readonly tokenKey: string = "token";
@@ -93,7 +98,9 @@ export class SecurityService {
   }
 
   getRole(): string {
-    return this.getFieldFromJWT(this.roleField);
+    const token = localStorage.getItem(this.tokenKey);
+    // return this.getFieldFromJWT(this.roleField);
+    return this.jwtHelper.decodeToken(token);
   }
 
   register(

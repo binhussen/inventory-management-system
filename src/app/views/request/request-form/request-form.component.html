@@ -12,9 +12,9 @@
     <div fxFlex="80">
       <ng-container formArrayName="requestItems">
         <ng-container
-          *ngFor="let itemForm of requestItems.controls; let i = index"
+          *ngFor="let requestForm of requestItems.controls; let i = index"
         >
-          <div [formGroup]="itemForm">
+          <div [formGroup]="requestForm">
             <mat-form-field>
               <input
                 matInput
@@ -27,7 +27,7 @@
             <mat-form-field>
               <input
                 matInput
-                name="type"
+                name="Type"
                 formControlName="type"
                 placeholder="Type"
                 value=""
@@ -36,16 +36,6 @@
             <mat-form-field>
               <input
                 matInput
-                name="use"
-                formControlName="use"
-                placeholder="Usage"
-                value=""
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                name="quantity"
                 formControlName="quantity"
                 placeholder="Quantity"
                 value=""
@@ -57,22 +47,17 @@
                 name="unitPrice"
                 formControlName="unitPrice"
                 placeholder="Unit Price"
+                value=""
               />
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput formControlName="use" placeholder="Use" />
             </mat-form-field>
             <mat-form-field>
               <input
                 matInput
-                name="description"
                 formControlName="description"
                 placeholder="Description"
-              />
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                name="budgetCode"
-                formControlName="budgetCode"
-                placeholder="Budget Code"
               />
             </mat-form-field>
 
@@ -93,6 +78,6 @@
     >
       Submit
     </button>
-    <a mat-stroked-button routerLink="/view/companies">Cancel</a>
+    <a mat-stroked-button routerLink="/view/requests">Cancel</a>
   </div>
 </div>

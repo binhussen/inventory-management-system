@@ -85,6 +85,33 @@
           </mat-cell>
         </ng-container>
 
+        <ng-container matColumnDef="Actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Actions
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-icon
+              routerLink="/view/storeitem/{{ paramsId }}/edit/{{ element.id }}"
+              mat-flat-button
+              color="primary"
+              >edit
+            </mat-icon>
+            <mat-icon
+              class="delete-btn"
+              mat-flat-button
+              color="warn"
+              [swal]="{
+                title: 'Confirmation',
+                text: 'Are you sure that you want to delete the record?',
+                showCancelButton: true
+              }"
+              (confirm)="delete(element.id)"
+            >
+              delete_forever</mat-icon
+            >
+          </mat-cell>
+        </ng-container>
+
         <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
         <mat-row *matRowDef="let element; columns: columnsToDisplay"> </mat-row>
       </mat-table>

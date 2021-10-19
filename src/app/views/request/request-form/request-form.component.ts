@@ -13,6 +13,7 @@ import {
   employeeCreationDTO,
   employeeDTO,
 } from "app/shared/models/employees.model";
+import { RequestCreate } from "app/shared/models/requests.model";
 import { CustomValidators } from "ngx-custom-validators";
 
 @Component({
@@ -28,7 +29,7 @@ export class RequestFormComponent implements OnInit {
   model: employeeCreationDTO;
 
   @Output()
-  onSaveChanges: EventEmitter<companyWithEmployee> = new EventEmitter<companyWithEmployee>();
+  onSaveChanges: EventEmitter<RequestCreate> = new EventEmitter<RequestCreate>();
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -50,10 +51,9 @@ export class RequestFormComponent implements OnInit {
     const requestItems = this.formBuilder.group({
       name: ["", Validators.required],
       type: ["", Validators.required],
-      use: ["", Validators.required],
       quantity: ["", Validators.required],
       unitPrice: ["", Validators.required],
-      budgetCode: ["", Validators.required],
+      use: ["", Validators.required],
       description: ["", Validators.required],
     });
     this.requestItems.push(requestItems);
