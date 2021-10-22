@@ -51,7 +51,7 @@ export const rootRouterConfig: Routes = [
         data: { title: "Pages", breadcrumb: "Pages" },
       },
       {
-        path: "view",
+        path: "",
         loadChildren: () =>
           import("./views/views.module").then((m) => m.ViewsModule),
       },

@@ -1,4 +1,4 @@
-<button mat-flat-button color="primary" routerLink="/view/store/create">
+<button mat-flat-button color="primary" routerLink="/store/create">
   Create
 </button>
 
@@ -54,12 +54,12 @@
         <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <mat-icon
-            routerLink="/view/store/edit/{{ element.id }}"
+            routerLink="/store/edit/{{ element.id }}"
             mat-flat-button
             color="primary"
             >edit
           </mat-icon>
-          <mat-icon routerLink="/view/store/{{ element.id }}">info </mat-icon>
+          <mat-icon routerLink="/store/{{ element.id }}">info </mat-icon>
           <mat-icon
             class="delete-btn"
             mat-flat-button

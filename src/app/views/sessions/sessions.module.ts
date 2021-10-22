@@ -10,12 +10,10 @@ import { SharedComponentsModule } from "app/shared/components/shared-components.
 
 // import { CommonDirectivesModule } from './sdirectives/common/common-directives.module';
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
-import { LockscreenComponent } from "./lockscreen/lockscreen.component";
 import { SigninComponent } from "./signin/signin.component";
 
 import { SessionsRoutes } from "./sessions.routing";
 import { NotFoundComponent } from "./not-found/not-found.component";
-import { ErrorComponent } from "./error/error.component";
 
 @NgModule({
   imports: [
@@ -28,12 +26,6 @@ import { ErrorComponent } from "./error/error.component";
     PerfectScrollbarModule,
     RouterModule.forChild(SessionsRoutes),
   ],
-  declarations: [
-    ForgotPasswordComponent,
-    LockscreenComponent,
-    SigninComponent,
-    NotFoundComponent,
-    ErrorComponent,
-  ],
+  declarations: [ForgotPasswordComponent, SigninComponent, NotFoundComponent],
 })
 export class SessionsModule {}

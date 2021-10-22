@@ -1,6 +1,6 @@
 <app-authorize-view [role]="role">
   <ng-container authorized
-    ><button mat-flat-button color="primary" routerLink="/view/stores/create">
+    ><button mat-flat-button color="primary" routerLink="/stores/create">
       Create new
     </button></ng-container
   ></app-authorize-view
@@ -84,7 +84,7 @@
         <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <a
-            routerLink="/view/stores/edit/{{ element.id }}"
+            routerLink="/stores/edit/{{ element.id }}"
             mat-flat-button
             color="primary"
           >

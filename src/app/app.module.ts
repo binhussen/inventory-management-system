@@ -28,7 +28,7 @@ import {
 import { ErrorHandlerService } from "./shared/services/error-handler.service";
 import { ViewsModule } from "./views/views.module";
 import { JwtInterceptorService } from "./shared/interceptors/jwt-intercepter.service";
-import { JwtModule } from "@auth0/angular-jwt";
+// import { JwtModule } from "@auth0/angular-jwt";
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -48,13 +48,13 @@ export function tokenGetter() {
     InMemoryWebApiModule.forRoot(InMemoryDataService, {
       passThruUnknownUrl: true,
     }),
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        // whitelistedDomains: ["localhost:5001"],
-        // blacklistedRoutes: [],
-      },
-    }),
+    // JwtModule.forRoot({
+    //   config: {
+    //     tokenGetter: tokenGetter,
+    //     // whitelistedDomains: ["localhost:5001"],
+    //     // blacklistedRoutes: [],
+    //   },
+    // }),
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
   ],
   declarations: [AppComponent],

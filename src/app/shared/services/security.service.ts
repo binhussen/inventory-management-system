@@ -9,7 +9,7 @@ import {
   userCredentials,
   userDTO,
 } from "../models/security.model";
-import { JwtHelperService } from "@auth0/angular-jwt";
+// import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: "root",
@@ -17,14 +17,14 @@ import { JwtHelperService } from "@auth0/angular-jwt";
 export class SecurityService {
   constructor(
     private http: HttpClient,
-    private router: Router,
-    private jwtHelper: JwtHelperService
+    private router: Router // private jwtHelper: JwtHelperService
   ) {}
 
   private apiURL = environment.apiURL + "authentication";
   private readonly tokenKey: string = "token";
   private readonly expirationTokenKey: string = "token-expiration";
   private readonly roleField = "role";
+  private readonly userName = "name";
 
   getUsers(page: number, recordsPerPage: number): Observable<any> {
     let params = new HttpParams();
@@ -88,7 +88,8 @@ export class SecurityService {
       return "";
     }
     const dataToken = JSON.parse(atob(token.split(".")[1]));
-    return dataToken[field];
+    var claim = "http://schemas.microsoft.com/ws/2008/06/identity/claims/";
+    return dataToken[claim + field];
   }
 
   logout() {
@@ -98,9 +99,11 @@ export class SecurityService {
   }
 
   getRole(): string {
-    const token = localStorage.getItem(this.tokenKey);
-    // return this.getFieldFromJWT(this.roleField);
-    return this.jwtHelper.decodeToken(token);
+    return this.getFieldFromJWT(this.roleField);
+  }
+
+  getUserName(): string {
+    return this.getFieldFromJWT(this.userName);
   }
 
   register(
