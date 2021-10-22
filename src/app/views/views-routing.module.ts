@@ -5,8 +5,6 @@ import { IndexCompaniesComponent } from "./companies/index-companies/index-compa
 import { CreateEmployeeComponent } from "./employees/create-employee/create-employee.component";
 import { EditEmployeeComponent } from "./employees/edit-employee/edit-employee.component";
 import { IndexEmployeesComponent } from "./employees/index-employees/index-employees.component";
-import { StoreItemCreateComponent } from "./store/store-item-create/store-item-create.component";
-import { StoreItemIndexComponent } from "./store/store-item-index/store-item-index.component";
 import { UserIndexComponent } from "./users/user-index/user-index.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
@@ -52,15 +50,6 @@ export const ViewsRoutingModule: Routes = [
   {
     path: "employees/edit/:id",
     component: EditEmployeeComponent,
-  },
-  {
-    path: "storeitems",
-    component: StoreItemIndexComponent,
-    data: { title: "StoreItems", breadcrumb: "StoreItems" },
-  },
-  {
-    path: "storeitems/create",
-    component: StoreItemCreateComponent,
   },
   {
     path: "stores",

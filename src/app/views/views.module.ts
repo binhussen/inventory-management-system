@@ -34,9 +34,6 @@ import { IndexEmployeesComponent } from "./employees/index-employees/index-emplo
 import { CreateEmployeeComponent } from "./employees/create-employee/create-employee.component";
 import { EditEmployeeComponent } from "./employees/edit-employee/edit-employee.component";
 import { FormEmployeeComponent } from "./employees/form-employee/form-employee.component";
-import { StoreItemCreateComponent } from "./store/store-item-create/store-item-create.component";
-import { StoreItemFormComponent } from "./store/store-item-form/store-item-form.component";
-import { StoreItemIndexComponent } from "./store/store-item-index/store-item-index.component";
 import { MaterialModule } from "app/shared/modules/material/material.module";
 import { UserIndexComponent } from "./users/user-index/user-index.component";
 import { UserFormComponent } from "./users/user-form/user-form.component";
@@ -58,7 +55,7 @@ import { StoreEditComponent } from "./stores/store-edit/store-edit.component";
 import { StoreListComponent } from "./stores/store-list/store-list.component";
 import { StoreFormComponent } from "./stores/store-form/store-form.component";
 import { StoreitemEditComponent } from "./stores/storeitem-edit/storeitem-edit.component";
-import { RequestitemEditComponent } from './request/requestitem-edit/requestitem-edit.component';
+import { RequestitemEditComponent } from "./request/requestitem-edit/requestitem-edit.component";
 
 @NgModule({
   declarations: [
@@ -70,9 +67,6 @@ import { RequestitemEditComponent } from './request/requestitem-edit/requestitem
     CreateEmployeeComponent,
     EditEmployeeComponent,
     FormEmployeeComponent,
-    StoreItemCreateComponent,
-    StoreItemFormComponent,
-    StoreItemIndexComponent,
     UserIndexComponent,
     UserFormComponent,
     UserRegisterComponent,

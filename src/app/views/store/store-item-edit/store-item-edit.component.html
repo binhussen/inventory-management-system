@@ -1,9 +1,0 @@
-<h2>Edit StoreItem</h2>
-
-<app-store-item-form
-  *ngIf="model"
-  [model]="model"
-  (onSaveChanges)="saveChanges($event)"
-></app-store-item-form>
-
-<mat-spinner *ngIf="!model"></mat-spinner>
