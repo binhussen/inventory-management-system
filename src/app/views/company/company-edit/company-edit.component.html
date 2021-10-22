@@ -1,0 +1,9 @@
+<h2 fxLayout="row" fxLayoutAlign="center center">Edit Company</h2>
+
+<app-company-form
+  *ngIf="model"
+  [model]="model"
+  (onSaveChanges)="saveChanges($event)"
+></app-company-form>
+
+<mat-spinner *ngIf="!model"></mat-spinner>

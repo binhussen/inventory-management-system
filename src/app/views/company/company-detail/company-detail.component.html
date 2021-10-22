@@ -1,0 +1,114 @@
+<!-- header -->
+<div>
+  <div fxLayout="row">
+    <div fxFlex="5"></div>
+    <div fxFlex="75">
+      <div fxLayout="column">
+        <div>Name : {{ header.name }}</div>
+        <div>Email : {{ header.email }}</div>
+        <div>Phone : {{ header.phoneNo }}</div>
+        <div></div>
+      </div>
+    </div>
+    <div fxFlex="20">
+      <div fxLayout="column">
+        <div>Receiver :{{ header.fax }}</div>
+        <div>Checked By :{{ header.website }}</div>
+        <div>Date :{{ header.address }}</div>
+        <div>Date :{{ header.description }}</div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+  <div class="ml-05 mr-05 mt-05 pb-1">
+    <div class="mat-elevation-z8">
+      <mat-table [dataSource]="employees" matSort>
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Name
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="name">
+            {{ element.name }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Age">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Age
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="age">
+            {{ element.age }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Phone No">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Phone
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="phoneNo">
+            {{ element.unit }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Email">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Email
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="email">
+            {{ element.email }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Department">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Department
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="department">
+            {{ element.department }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Position">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Position
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="position">
+            {{ element.position }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Actions
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <mat-icon
+              routerLink="/employee/{{ paramsId }}/edit/{{ element.id }}"
+              mat-flat-button
+              color="primary"
+              >edit
+            </mat-icon>
+            <mat-icon
+              class="delete-btn"
+              mat-flat-button
+              color="warn"
+              [swal]="{
+                title: 'Confirmation',
+                text: 'Are you sure that you want to delete the record?',
+                showCancelButton: true
+              }"
+              (confirm)="delete(element.id)"
+            >
+              delete_forever</mat-icon
+            >
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let element; columns: columnsToDisplay"> </mat-row>
+      </mat-table>
+    </div>
+  </div>
+  <!--  -->
+</div>

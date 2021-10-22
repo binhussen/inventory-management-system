@@ -43,7 +43,6 @@ import { UserProfileComponent } from "./users/user-profile/user-profile.componen
 import { CompanyEmployeeFormComponent } from "./company-employee/company-employee-form/company-employee-form.component";
 import { CompanyEmployeeCreateComponent } from "./company-employee/company-employee-create/company-employee-create.component";
 import { CompanyEmployeeListComponent } from "./company-employee/company-employee-list/company-employee-list.component";
-import { CompanyEmployeeEditComponent } from "./company-employee/company-employee-edit/company-employee-edit.component";
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
 import { RequestEditComponent } from "./request/request-edit/request-edit.component";
 import { RequestFormComponent } from "./request/request-form/request-form.component";
@@ -56,6 +55,12 @@ import { StoreListComponent } from "./stores/store-list/store-list.component";
 import { StoreFormComponent } from "./stores/store-form/store-form.component";
 import { StoreitemEditComponent } from "./stores/storeitem-edit/storeitem-edit.component";
 import { RequestitemEditComponent } from "./request/requestitem-edit/requestitem-edit.component";
+import { CompanyCreateComponent } from "./company/company-create/company-create.component";
+import { CompanyDetailComponent } from "./company/company-detail/company-detail.component";
+import { CompanyEditComponent } from "./company/company-edit/company-edit.component";
+import { CompanyFormComponent } from "./company/company-form/company-form.component";
+import { CompanyListComponent } from "./company/company-list/company-list.component";
+import { CompanyEmployeeEditComponent } from "./company/company-employee-edit/company-employee-edit.component";
 
 @NgModule({
   declarations: [
@@ -88,6 +93,11 @@ import { RequestitemEditComponent } from "./request/requestitem-edit/requestitem
     StoreFormComponent,
     StoreitemEditComponent,
     RequestitemEditComponent,
+    CompanyCreateComponent,
+    CompanyDetailComponent,
+    CompanyEditComponent,
+    CompanyFormComponent,
+    CompanyListComponent,
   ],
   imports: [
     CommonModule,
