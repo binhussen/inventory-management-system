@@ -1,6 +1,7 @@
+import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { userCredentials } from "app/shared/models/security.model";
+import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { user, userCredentials } from "app/shared/models/security.model";
 
 @Component({
   selector: "app-user-form",
@@ -16,32 +17,38 @@ export class UserFormComponent implements OnInit {
   action: string = "Register";
 
   roles = [
-    "Admin",
-    "Store_Man",
-    "Procurer",
+    "Administrator",
+    "StoreMan",
+    "ProcurementManager",
     "Purchaser",
-    "Financier",
-    "Department_Head",
+    "FinanceManager",
+    "DepartmentHead",
   ];
   @Output()
-  onSubmit = new EventEmitter<userCredentials>();
+  onSubmit = new EventEmitter<user>();
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      email: [
-        "",
-        {
-          validators: [Validators.required, Validators.email],
-        },
-      ],
-      password: [
-        "",
-        {
-          validators: [Validators.required],
-        },
-      ],
-      role: [""],
+      firstName: ["", [Validators.required]],
+      lastName: ["", [Validators.required]],
+      userName: ["", [Validators.required]],
+      email: ["", [Validators.required, Validators.email]],
+      password: ["", [Validators.required]],
+      phoneNumber: ["", [Validators.required]],
+      roles: this.formBuilder.array([]),
     });
+  }
+
+  get getRole() {
+    return this.form.controls["roles"] as FormArray;
+  }
+  // function which pushed new value to collections array
+  addRole(val) {
+    const roles = this.form.get("roles");
+    if (!roles.value.includes(val)) {
+      this.getRole.clear();
+      this.getRole.push(this.formBuilder.control(val));
+    }
   }
 
   getEmailErrorMessage() {
@@ -49,11 +56,9 @@ export class UserFormComponent implements OnInit {
     if (field.hasError("required")) {
       return "The email field is required";
     }
-
     if (field.hasError("email")) {
       return "The email is invalid";
     }
-
     return "";
   }
 }

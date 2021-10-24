@@ -18,6 +18,8 @@
     </div>
   </div>
   <!--  -->
+  <app-request-edit></app-request-edit>
+  <!--  -->
   <div class="ml-05 mr-05 mt-05 pb-1">
     <div class="mat-elevation-z8">
       <mat-table [dataSource]="request" matSort>
@@ -89,8 +91,6 @@
             Actions
           </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <mat-icon class="add-course-btn" (click)="addItem()">add</mat-icon>
-
             <mat-icon
               routerLink="/requestitem/{{ paramsId }}/edit/{{ element.id }}"
               mat-flat-button

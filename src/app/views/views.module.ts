@@ -3,10 +3,6 @@ import { CommonModule } from "@angular/common";
 import { SweetAlert2Module } from "@sweetalert2/ngx-sweetalert2";
 
 import { ViewsRoutingModule } from "./views-routing.module";
-import { FormCompanyComponent } from "./companies/form-company/form-company.component";
-import { IndexCompaniesComponent } from "./companies/index-companies/index-companies.component";
-import { CreateCompanyComponent } from "./companies/create-company/create-company.component";
-import { EditCompanyComponent } from "./companies/edit-company/edit-company.component";
 import { MatInputModule } from "@angular/material/input";
 import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatSortModule } from "@angular/material/sort";
@@ -40,9 +36,6 @@ import { UserFormComponent } from "./users/user-form/user-form.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
 import { UserProfileComponent } from "./users/user-profile/user-profile.component";
-import { CompanyEmployeeFormComponent } from "./company-employee/company-employee-form/company-employee-form.component";
-import { CompanyEmployeeCreateComponent } from "./company-employee/company-employee-create/company-employee-create.component";
-import { CompanyEmployeeListComponent } from "./company-employee/company-employee-list/company-employee-list.component";
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
 import { RequestEditComponent } from "./request/request-edit/request-edit.component";
 import { RequestFormComponent } from "./request/request-form/request-form.component";
@@ -64,10 +57,6 @@ import { CompanyEmployeeEditComponent } from "./company/company-employee-edit/co
 
 @NgModule({
   declarations: [
-    FormCompanyComponent,
-    IndexCompaniesComponent,
-    CreateCompanyComponent,
-    EditCompanyComponent,
     IndexEmployeesComponent,
     CreateEmployeeComponent,
     EditEmployeeComponent,
@@ -77,9 +66,6 @@ import { CompanyEmployeeEditComponent } from "./company/company-employee-edit/co
     UserRegisterComponent,
     UserEditComponent,
     UserProfileComponent,
-    CompanyEmployeeFormComponent,
-    CompanyEmployeeCreateComponent,
-    CompanyEmployeeListComponent,
     CompanyEmployeeEditComponent,
     RequestCreateComponent,
     RequestEditComponent,

@@ -32,18 +32,34 @@ export class CompanyService {
   }
   // items
   getAllEmployee(id): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.uriItem + "/" + id + "/employees");
+    return this.http.get<Employee[]>(this.apiURL + "/" + id + "/employees");
   }
   deleteEmployee(headerId, id) {
-    return this.http.delete(`${this.uriItem}/${headerId}/employees/${id}`);
+    return this.http.delete(`${this.apiURL}/${headerId}/employees/${id}`);
   }
   public getEmployeeById(headerId, id) {
-    return this.http.get(`${this.uriItem}/${headerId}/employees/${id}`);
+    return this.http.get(`${this.apiURL}/${headerId}/employees/${id}`);
   }
-  public editEmployeee(headerId, id, employee: Employee) {
+  public editEmployee(headerId, id, employee: Employee) {
     return this.http.put(
-      `${this.uriItem}/${headerId}/employees/${id}`,
+      `${this.apiURL}/${headerId}/employees/${id}`,
       employee
     );
+  }
+  //employees
+  createEmp(employee: Employee): Observable<Employee[]> {
+    return this.http.post<Employee[]>(this.uriItem, employee);
+  }
+  getAllEmp(): Observable<Employee[]> {
+    return this.http.get<Employee[]>(this.uriItem);
+  }
+  deleteEmp(id) {
+    return this.http.delete(`${this.uriItem}/${id}`);
+  }
+  public getEmpById(id) {
+    return this.http.get<Employee>(`${this.uriItem}/${id}`);
+  }
+  public editEmp(id, employee: Employee) {
+    return this.http.put(`${this.uriItem}/${id}`, employee);
   }
 }

@@ -1,12 +1,7 @@
+<h2 fxLayout="row" fxLayoutAlign="center center">Companies</h2>
 <button mat-flat-button color="primary" routerLink="/company/create">
   Create
 </button>
-<!-- "Name",
-    "Phone Number",
-    "Email",
-    "Website",
-    "Address",
-    "Actions", -->
 <div class="ml-05 mr-05 mt-05 pb-1">
   <div class="mat-elevation-z8">
     <mat-table [dataSource]="company" matSort>
@@ -51,7 +46,7 @@
           Address
         </mat-header-cell>
         <mat-cell *matCellDef="let element" data-label="address">
-          {{ element.country + element.address }}
+          {{ element.country + " " + element.address }}
         </mat-cell>
       </ng-container>
 
@@ -59,12 +54,12 @@
         <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
         <mat-cell *matCellDef="let element">
           <mat-icon
-            routerLink="/companies/edit/{{ element.id }}"
+            routerLink="/company/edit/{{ element.id }}"
             mat-flat-button
             color="primary"
             >edit
           </mat-icon>
-          <mat-icon routerLink="/companies/{{ element.id }}">info </mat-icon>
+          <mat-icon routerLink="/company/{{ element.id }}">info </mat-icon>
           <mat-icon
             class="delete-btn"
             mat-flat-button

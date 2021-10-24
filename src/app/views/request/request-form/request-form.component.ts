@@ -22,6 +22,7 @@ import { CustomValidators } from "ngx-custom-validators";
   styleUrls: ["./request-form.component.scss"],
 })
 export class RequestFormComponent implements OnInit {
+  visible = false;
   form = this.formBuilder.group({
     requestItems: this.formBuilder.array([]),
   });
@@ -57,9 +58,13 @@ export class RequestFormComponent implements OnInit {
       description: ["", Validators.required],
     });
     this.requestItems.push(requestItems);
+    this.visible = true;
   }
 
   deleteItem(Index: number) {
     this.requestItems.removeAt(Index);
+    if (this.requestItems.length == 0) {
+      this.visible = false;
+    }
   }
 }

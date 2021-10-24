@@ -3,7 +3,6 @@ import { Router } from "@angular/router";
 import { companyWithEmployee } from "app/shared/models/companies.model";
 import { employeeCreationDTO } from "app/shared/models/employees.model";
 import { RequestCreate } from "app/shared/models/requests.model";
-import { CompaniesService } from "app/shared/services/companies.service";
 import { EmployeesService } from "app/shared/services/employees.service";
 import { RequestService } from "app/shared/services/requests.service";
 

@@ -1,9 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
+import { Employee } from "app/shared/models/company.model";
 import {
   employeeCreationDTO,
   employeeDTO,
 } from "app/shared/models/employees.model";
+import { CompanyService } from "app/shared/services/company.service";
 import { EmployeesService } from "app/shared/services/employees.service";
 
 @Component({
@@ -14,25 +16,23 @@ import { EmployeesService } from "app/shared/services/employees.service";
 export class EditEmployeeComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
-    private employeesService: EmployeesService,
+    private companyService: CompanyService,
     private router: Router
   ) {}
 
-  model: employeeDTO;
+  model: Employee;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
-      this.employeesService.getById(params.id).subscribe((employees) => {
+      this.companyService.getEmpById(params.id).subscribe((employees) => {
         this.model = employees;
       });
     });
   }
 
-  saveChanges(employeeCreationDTO: employeeCreationDTO) {
-    this.employeesService
-      .edit(this.model.id, employeeCreationDTO)
-      .subscribe(() => {
-        this.router.navigate(["/view/employees"]);
-      });
+  saveChanges(employee: Employee) {
+    this.companyService.editEmp(this.model.id, employee).subscribe(() => {
+      this.router.navigate(["/employees"]);
+    });
   }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
+import { Employee } from "app/shared/models/company.model";
 import { employeeCreationDTO } from "app/shared/models/employees.model";
+import { CompanyService } from "app/shared/services/company.service";
 import { EmployeesService } from "app/shared/services/employees.service";
 
 @Component({
@@ -11,17 +13,14 @@ import { EmployeesService } from "app/shared/services/employees.service";
 export class CreateEmployeeComponent implements OnInit {
   errors: string[] = [];
 
-  constructor(
-    private router: Router,
-    private employeesService: EmployeesService
-  ) {}
+  constructor(private router: Router, private companyService: CompanyService) {}
 
   ngOnInit(): void {}
 
-  saveChanges(employeeCreationDTO: employeeCreationDTO) {
-    this.employeesService.create(employeeCreationDTO).subscribe(
+  saveChanges(employee: Employee) {
+    this.companyService.createEmp(employee).subscribe(
       () => {
-        this.router.navigate(["/view/employees"]);
+        this.router.navigate(["/employees"]);
       }
       // , error => this.errors = parseWebAPIErrors(error)
     );

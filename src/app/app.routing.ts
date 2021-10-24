@@ -2,7 +2,6 @@ import { Routes } from "@angular/router";
 import { AdminLayoutComponent } from "./shared/components/layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from "./shared/components/layouts/auth-layout/auth-layout.component";
 import { AuthGuard } from "./shared/guards/auth.guard";
-import { IndexCompaniesComponent } from "./views/companies/index-companies/index-companies.component";
 
 export const rootRouterConfig: Routes = [
   {

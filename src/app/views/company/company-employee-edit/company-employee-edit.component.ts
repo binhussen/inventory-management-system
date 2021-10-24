@@ -7,7 +7,6 @@ import {
 } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { Employee } from "app/shared/models/company.model";
-import { CompaniesService } from "app/shared/services/companies.service";
 import { CompanyService } from "app/shared/services/company.service";
 
 @Component({
@@ -49,9 +48,9 @@ export class CompanyEmployeeEditComponent implements OnInit {
   saveChanges() {
     this.activatedRoute.params.subscribe((params) => {
       this.companyService
-        .editEmployeee(params.headId, params.id, this.form.value)
+        .editEmployee(params.headId, params.id, this.form.value)
         .subscribe(() => {
-          this.router.navigate(["/view/store/" + params.headId]);
+          this.router.navigate(["/company/" + params.headId]);
         });
     });
   }

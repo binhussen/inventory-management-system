@@ -1,8 +1,10 @@
 import { HttpResponse } from "@angular/common/http";
 import { Component, OnInit } from "@angular/core";
 import { PageEvent } from "@angular/material/paginator";
+import { MatSlideToggleChange } from "@angular/material/slide-toggle";
 import { Role } from "app/shared/models/role.model";
-import { userDTO } from "app/shared/models/security.model";
+import { user, userDTO } from "app/shared/models/security.model";
+import { User } from "app/shared/models/user.model";
 import { SecurityService } from "app/shared/services/security.service";
 import Swal from "sweetalert2";
 
@@ -13,20 +15,27 @@ import Swal from "sweetalert2";
 })
 export class UserIndexComponent implements OnInit {
   constructor(private securityService: SecurityService) {}
-
-  users: userDTO[];
-  role: string[];
+  users: user[];
+  xrole: Array<string>;
+  roles = [
+    "Administrator",
+    "StoreMan",
+    "ProcurementManager",
+    "Purchaser",
+    "FinanceManager",
+    "DepartmentHead",
+  ];
   page: number = 1;
   pageSize: number = 10;
   totalAmountOfRecords;
-  columnsToDisplay = ["Email", "Role"];
-  roles = [
-    "Admin",
-    "Store_Man",
-    "Procurer",
-    "Purchaser",
-    "Financier",
-    "Department_Head",
+  columnsToDisplay = [
+    "First Name",
+    "Last Name",
+    "UserName",
+    "Email",
+    "Phone Number",
+    "Status",
+    "Role",
   ];
 
   ngOnInit(): void {
@@ -36,29 +45,24 @@ export class UserIndexComponent implements OnInit {
   LoadData() {
     this.securityService
       .getUsers(this.page, this.pageSize)
-      .subscribe((httpResponse: HttpResponse<userDTO[]>) => {
+      .subscribe((httpResponse: HttpResponse<user[]>) => {
         this.users = httpResponse.body;
         this.totalAmountOfRecords = httpResponse.headers.get(
           "totalAmountOfRecords"
         );
       });
   }
-  makeAdmin(userId: string) {
-    this.securityService.makeAdmin(userId).subscribe(() => {
+
+  ChangeRole(userId: string, role) {
+    this.xrole = [];
+    this.xrole.push(role);
+    this.securityService.changeRole(userId, this.xrole).subscribe(() => {
       Swal.fire("Success", "The operation was successful", "success");
     });
   }
 
-  ChangeRole(userId: string, role: string) {
-    this.role = [userId, role];
-
-    this.securityService.changeRole(this.role).subscribe(() => {
-      Swal.fire("Success", "The operation was successful", "success");
-    });
-  }
-
-  removeAdmin(userId: string) {
-    this.securityService.removeAdmin(userId).subscribe(() => {
+  ChangeStatus(userId: string, status: MatSlideToggleChange) {
+    this.securityService.changeStatus(userId, status.checked).subscribe(() => {
       Swal.fire("Success", "The operation was successful", "success");
     });
   }

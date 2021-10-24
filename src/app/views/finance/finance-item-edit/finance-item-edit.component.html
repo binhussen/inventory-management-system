@@ -1,9 +1,0 @@
-<h2>Edit FinanceItem</h2>
-
-<app-finance-item-form
-  *ngIf="model"
-  [model]="model"
-  (onSaveChanges)="saveChanges($event)"
-></app-finance-item-form>
-
-<mat-spinner *ngIf="!model"></mat-spinner>

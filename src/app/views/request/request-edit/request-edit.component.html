@@ -1,9 +1,2 @@
-<h2 fxLayout="row" fxLayoutAlign="center center">Edit Request</h2>
-
-<app-request-form
-  *ngIf="model"
-  [model]="model"
-  (onSaveChanges)="saveChanges($event)"
-></app-request-form>
-
+<app-request-form (onSaveChanges)="saveChanges($event)"></app-request-form>
 <mat-spinner *ngIf="!model"></mat-spinner>

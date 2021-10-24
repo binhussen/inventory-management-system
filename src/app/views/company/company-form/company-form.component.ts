@@ -53,7 +53,7 @@ export class CompanyFormComponent implements OnInit {
     this.employees.push(employees);
   }
 
-  deleteItem(Index: number) {
+  deleteEmployee(Index: number) {
     this.employees.removeAt(Index);
   }
 }

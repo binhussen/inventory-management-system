@@ -14,8 +14,8 @@
       <div fxLayout="column">
         <div>Receiver :{{ header.fax }}</div>
         <div>Checked By :{{ header.website }}</div>
-        <div>Date :{{ header.address }}</div>
-        <div>Date :{{ header.description }}</div>
+        <div>Address :{{ header.address }}</div>
+        <div>Description :{{ header.description }}</div>
         <div></div>
       </div>
     </div>
@@ -47,7 +47,7 @@
             Phone
           </mat-header-cell>
           <mat-cell *matCellDef="let element" data-label="phoneNo">
-            {{ element.unit }}
+            {{ element.phoneNo }}
           </mat-cell>
         </ng-container>
 
@@ -84,7 +84,7 @@
           </mat-header-cell>
           <mat-cell *matCellDef="let element">
             <mat-icon
-              routerLink="/employee/{{ paramsId }}/edit/{{ element.id }}"
+              routerLink="/company/{{ paramsId }}/edit/{{ element.id }}"
               mat-flat-button
               color="primary"
               >edit

@@ -1,9 +1,0 @@
-<h2>Create Finance</h2>
-
-<app-finance-form
-  *ngIf="nonSelectedItems"
-  [nonSelectedItems]="nonSelectedItems"
-  (onSaveChanges)="saveChanges($event)"
-></app-finance-form>
-
-<mat-spinner *ngIf="!nonSelectedItems"></mat-spinner>

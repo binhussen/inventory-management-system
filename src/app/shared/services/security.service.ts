@@ -6,6 +6,7 @@ import { Observable } from "rxjs";
 import { Role } from "../models/role.model";
 import {
   authenticationResponse,
+  user,
   userCredentials,
   userDTO,
 } from "../models/security.model";
@@ -20,7 +21,8 @@ export class SecurityService {
     private router: Router // private jwtHelper: JwtHelperService
   ) {}
 
-  private apiURL = environment.apiURL + "authentication";
+  private apiURL = environment.apiURL;
+
   private readonly tokenKey: string = "token";
   private readonly expirationTokenKey: string = "token-expiration";
   private readonly roleField = "role";
@@ -30,38 +32,22 @@ export class SecurityService {
     let params = new HttpParams();
     params = params.append("page", page.toString());
     params = params.append("recordsPerPage", recordsPerPage.toString());
-    return this.http.get<userDTO[]>(`${this.apiURL}/listusers`, {
+    return this.http.get<user[]>(`${this.apiURL}users`, {
       observe: "response",
       params,
     });
   }
 
-  makeAdmin(userId: string) {
+  changeRole(id: string, role: string[]) {
     const headers = new HttpHeaders("Content-Type: application/json");
-    return this.http.post(`${this.apiURL}/makeadmin`, JSON.stringify(userId), {
+    console.log(role);
+    return this.http.put(`${this.apiURL}users/role/${id}`, role, {
       headers,
     });
   }
 
-  changeRole(role: string[]) {
-    const headers = new HttpHeaders("Content-Type: application/json");
-    return this.http.post(
-      `${this.apiURL}/changeRole`,
-      role,
-
-      {
-        headers,
-      }
-    );
-  }
-
-  removeAdmin(userId: string) {
-    const headers = new HttpHeaders("Content-Type: application/json");
-    return this.http.post(
-      `${this.apiURL}/removeadmin`,
-      JSON.stringify(userId),
-      { headers }
-    );
+  changeStatus(id: string, status: boolean) {
+    return this.http.put(`${this.apiURL}users/lock/${id}`, status);
   }
 
   isAuthenticated(): boolean {
@@ -106,18 +92,14 @@ export class SecurityService {
     return this.getFieldFromJWT(this.userName);
   }
 
-  register(
-    userCredentials: userCredentials
-  ): Observable<authenticationResponse> {
-    return this.http.post<authenticationResponse>(
-      this.apiURL + "/create",
-      userCredentials
-    );
+  register(user: user): Observable<user> {
+    console.log(user);
+    return this.http.post<user>(this.apiURL + "authentication", user);
   }
 
   login(userCredentials: userCredentials): Observable<authenticationResponse> {
     return this.http.post<authenticationResponse>(
-      this.apiURL + "/login",
+      this.apiURL + "authentication/login",
       userCredentials
     );
   }

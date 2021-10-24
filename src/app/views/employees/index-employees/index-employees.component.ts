@@ -1,46 +1,52 @@
-import { HttpResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
-import { employeeDTO } from 'app/shared/models/employees.model';
-import { EmployeesService } from 'app/shared/services/employees.service';
+import { HttpResponse } from "@angular/common/http";
+import { Component, OnInit } from "@angular/core";
+import { PageEvent } from "@angular/material/paginator";
+import { Employee } from "app/shared/models/company.model";
+import { employeeDTO } from "app/shared/models/employees.model";
+import { CompanyService } from "app/shared/services/company.service";
+import { EmployeesService } from "app/shared/services/employees.service";
 
 @Component({
-  selector: 'app-index-employees',
-  templateUrl: './index-employees.component.html',
-  styleUrls: ['./index-employees.component.scss']
+  selector: "app-index-employees",
+  templateUrl: "./index-employees.component.html",
+  styleUrls: ["./index-employees.component.scss"],
 })
 export class IndexEmployeesComponent implements OnInit {
-
-  employees: employeeDTO[];
+  employees: Employee[];
   totalAmountOfRecords;
   currentPage = 1;
   pageSize = 5;
-  columnsToDisplay = ['Name','Age','Email','Phone','Department','Position','Actions'];
-  constructor(private employeesService: EmployeesService) { }
+  columnsToDisplay = [
+    "Name",
+    "Age",
+    "Email",
+    "Phone",
+    "Department",
+    "Position",
+    "Actions",
+  ];
+  constructor(private companyService: CompanyService) {}
 
   ngOnInit(): void {
-  this.loadData();
-  console.log(this.loadData);
+    this.loadData();
+    console.log(this.loadData);
   }
 
-  delete(id: number){
-    this.employeesService.delete(id)
-    .subscribe(() => {
+  delete(id: number) {
+    this.companyService.deleteEmp(id).subscribe(() => {
       this.loadData();
     });
   }
 
-loadData(){
-  this.employeesService.get(this.currentPage, this.pageSize).subscribe((response: HttpResponse<employeeDTO[]>) => {
-    this.employees = response.body;
-    this.totalAmountOfRecords = response.headers.get("totalAmountOfRecords");
-  });
-}
+  loadData() {
+    this.companyService.getAllEmp().subscribe((response) => {
+      this.employees = response;
+    });
+  }
 
-updatePagination(event: PageEvent){
-  this.currentPage = event.pageIndex + 1;
-  this.pageSize = event.pageSize;
-  this.loadData();
-}
-
+  updatePagination(event: PageEvent) {
+    this.currentPage = event.pageIndex + 1;
+    this.pageSize = event.pageSize;
+    this.loadData();
+  }
 }

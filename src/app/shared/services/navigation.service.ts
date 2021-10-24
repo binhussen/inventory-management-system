@@ -47,7 +47,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Forms",
       icon: "description",
-      state: "view/purchases/create",
+      state: "user/register",
       role: ["Administrator"],
     },
     {
@@ -55,7 +55,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Forms",
       icon: "description",
-      state: "view/purchases",
+      state: "users",
       role: ["Administrator"],
     },
     {
@@ -100,7 +100,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Forms",
       icon: "description",
-      state: "employee",
+      state: "employee/create",
       role: ["Administrator"],
     },
     {
@@ -116,7 +116,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Forms",
       icon: "description",
-      state: "view/purchases",
+      state: "company/create",
       role: ["Administrator"],
     },
     {
@@ -124,15 +124,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Forms",
       icon: "description",
-      state: "view/purchases",
-      role: ["Administrator"],
-    },
-    {
-      name: "Audit",
-      type: "link",
-      tooltip: "Forms",
-      icon: "description",
-      state: "view/purchases",
+      state: "companies",
       role: ["Administrator"],
     },
   ];

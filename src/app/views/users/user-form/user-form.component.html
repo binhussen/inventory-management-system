@@ -6,6 +6,65 @@
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
+                type="text"
+                matInput
+                formControlName="firstName"
+                placeholder="First Name"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['firstName'].hasError('required') &&
+                form.controls['firstName'].touched
+              "
+              class="form-error-msg"
+            >
+              First Name is Required
+            </small>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                type="text"
+                matInput
+                name="Last"
+                formControlName="lastName"
+                placeholder="Last Name"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['lastName'].hasError('required') &&
+                form.controls['lastName'].touched
+              "
+              class="form-error-msg"
+            >
+              Last Name is Required
+            </small>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                type="text"
+                matInput
+                name="user"
+                formControlName="userName"
+                placeholder="User Name"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['userName'].hasError('required') &&
+                form.controls['userName'].touched
+              "
+              class="form-error-msg"
+            >
+              User Name is Required
+            </small>
+          </div>
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
                 matInput
                 type="email"
                 name="email"
@@ -25,7 +84,7 @@
             </small>
             <small
               *ngIf="
-                form.controls['email'].hasError('email') &&
+                form.controls['email'].hasError('required') &&
                 form.controls['email'].touched
               "
               class="form-error-msg"
@@ -46,7 +105,7 @@
             </mat-form-field>
             <small
               *ngIf="
-                form.controls['password'].hasError('password') &&
+                form.controls['password'].hasError('required') &&
                 form.controls['password'].touched
               "
               class="form-error-msg"
@@ -57,22 +116,38 @@
 
           <div class="pb-1">
             <mat-form-field class="full-width">
+              <input
+                type="text"
+                matInput
+                name="password"
+                formControlName="phoneNumber"
+                placeholder="Phone Number"
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['phoneNumber'].hasError('required') &&
+                form.controls['phoneNumber'].touched
+              "
+              class="form-error-msg"
+            >
+              Phone Number is Required
+            </small>
+          </div>
+
+          <div class="pb-1">
+            <mat-form-field class="full-width">
               <mat-label>Role</mat-label>
-              <mat-select formControlName="role">
-                <mat-option *ngFor="let role of roles" [value]="role">
+              <mat-select>
+                <mat-option
+                  *ngFor="let role of roles"
+                  [value]="role"
+                  (click)="addRole(role)"
+                >
                   {{ role }}
                 </mat-option>
               </mat-select>
             </mat-form-field>
-            <small
-              *ngIf="
-                form.controls['role'].hasError('role') &&
-                form.controls['role'].touched
-              "
-              class="form-error-msg"
-            >
-              Role is Required
-            </small>
           </div>
         </div>
       </div>
@@ -83,3 +158,4 @@
     </form>
   </mat-card-content>
 </mat-card>
+<!--  -->

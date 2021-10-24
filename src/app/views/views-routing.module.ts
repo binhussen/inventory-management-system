@@ -1,14 +1,10 @@
 import { Routes } from "@angular/router";
-import { CreateCompanyComponent } from "./companies/create-company/create-company.component";
-import { EditCompanyComponent } from "./companies/edit-company/edit-company.component";
-import { IndexCompaniesComponent } from "./companies/index-companies/index-companies.component";
 import { CreateEmployeeComponent } from "./employees/create-employee/create-employee.component";
 import { EditEmployeeComponent } from "./employees/edit-employee/edit-employee.component";
 import { IndexEmployeesComponent } from "./employees/index-employees/index-employees.component";
 import { UserIndexComponent } from "./users/user-index/user-index.component";
 import { UserRegisterComponent } from "./users/user-register/user-register.component";
 import { UserEditComponent } from "./users/user-edit/user-edit.component";
-import { CompanyEmployeeCreateComponent } from "./company-employee/company-employee-create/company-employee-create.component";
 import { RequestCreateComponent } from "./request/request-create/request-create.component";
 import { StoreListComponent } from "./stores/store-list/store-list.component";
 import { StoreCreateComponent } from "./stores/store-create/store-create.component";
@@ -19,24 +15,32 @@ import { RequestListComponent } from "./request/request-list/request-list.compon
 import { RequestEditComponent } from "./request/request-edit/request-edit.component";
 import { RequestDetailComponent } from "./request/request-detail/request-detail.component";
 import { RequestitemEditComponent } from "./request/requestitem-edit/requestitem-edit.component";
+import { CompanyCreateComponent } from "./company/company-create/company-create.component";
+import { CompanyEditComponent } from "./company/company-edit/company-edit.component";
+import { CompanyListComponent } from "./company/company-list/company-list.component";
+import { CompanyDetailComponent } from "./company/company-detail/company-detail.component";
+import { CompanyEmployeeEditComponent } from "./company/company-employee-edit/company-employee-edit.component";
 
 export const ViewsRoutingModule: Routes = [
   {
+    path: "company/create",
+    component: CompanyCreateComponent,
+  },
+  {
+    path: "company/edit/:id",
+    component: CompanyEditComponent,
+  },
+  {
     path: "companies",
-    component: IndexCompaniesComponent,
-    data: { title: "Companies", breadcrumb: "Companies" },
+    component: CompanyListComponent,
   },
   {
-    path: "trys",
-    component: CompanyEmployeeCreateComponent,
+    path: "company/:id",
+    component: CompanyDetailComponent,
   },
   {
-    path: "companies/create",
-    component: CreateCompanyComponent,
-  },
-  {
-    path: "companies/edit/:id",
-    component: EditCompanyComponent,
+    path: "company/:headId/edit/:id",
+    component: CompanyEmployeeEditComponent,
   },
   {
     path: "employees",
@@ -44,11 +48,11 @@ export const ViewsRoutingModule: Routes = [
     data: { title: "Employees", breadcrumb: "Employees" },
   },
   {
-    path: "employees/create",
+    path: "employee/create",
     component: CreateEmployeeComponent,
   },
   {
-    path: "employees/edit/:id",
+    path: "employee/edit/:id",
     component: EditEmployeeComponent,
   },
   {

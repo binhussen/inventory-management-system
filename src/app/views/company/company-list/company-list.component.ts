@@ -15,7 +15,7 @@ export class CompanyListComponent implements OnInit {
   pageSize = 5;
   columnsToDisplay = [
     "Name",
-    "Phone Number",
+    "PhoneNo",
     "Email",
     "Website",
     "Address",
@@ -28,7 +28,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.companyService.delete(id).subscribe(() => {
+    this.companyService.deleteEmp(id).subscribe(() => {
       this.loadData();
     });
   }

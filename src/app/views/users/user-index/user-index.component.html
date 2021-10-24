@@ -1,16 +1,67 @@
-<button mat-flat-button color="primary" routerLink="/view/user/register">
+<button mat-flat-button color="primary" routerLink="/user/register">
   Register
 </button>
 
 <div class="ml-05 mr-05 mt-05 pb-1">
   <div class="mat-elevation-z8">
     <mat-table [dataSource]="users" matSort>
+      <ng-container matColumnDef="First Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          First Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="firstName">
+          {{ element.firstName }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Last Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Last Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="lastName">
+          {{ element.lastName }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="UserName">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          UserName
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="userName">
+          {{ element.userName }}
+        </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="Email">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           Email
         </mat-header-cell>
         <mat-cell *matCellDef="let element" data-label="email">
           {{ element.email }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Phone Number">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Phone Number
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="phoneNumber">
+          {{ element.phoneNumber }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Status
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="status">
+          <mat-slide-toggle
+            [checked]="element.isEnabled"
+            (change)="ChangeStatus(element.id, $event)"
+          >
+            <div *ngIf="element.isEnabled">Active</div>
+            <div *ngIf="!element.isEnabled">DeActive</div></mat-slide-toggle
+          >
         </mat-cell>
       </ng-container>
 

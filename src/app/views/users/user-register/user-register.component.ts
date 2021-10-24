@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { userCredentials } from "app/shared/models/security.model";
+import { user, userCredentials } from "app/shared/models/security.model";
 import { SecurityService } from "app/shared/services/security.service";
 
 @Component({
@@ -18,13 +18,11 @@ export class UserRegisterComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  register(userCredentials: userCredentials) {
+  register(user: user) {
     this.errors = [];
-    this.securityService
-      .register(userCredentials)
-      .subscribe((authenticationResponse) => {
-        this.router.navigate(["/view/users"]);
-      });
+    this.securityService.register(user).subscribe((authenticationResponse) => {
+      this.router.navigate(["/users"]);
+    });
     // , error => this.errors = parseWebAPIErrors(error));
   }
 }
