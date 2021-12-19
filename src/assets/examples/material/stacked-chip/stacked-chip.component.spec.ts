@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StackedChipComponent } from './stacked-chip.component';
+import {StackedChipComponent} from './stacked-chip.component';
 
 describe('StackedChipComponent', () => {
   let component: StackedChipComponent;

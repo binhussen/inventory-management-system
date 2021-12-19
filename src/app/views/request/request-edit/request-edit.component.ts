@@ -1,12 +1,14 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RequestCreate, RequestHeader } from "app/shared/models/requests.model";
-import { RequestService } from "app/shared/services/requests.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import {
+  RequestHeader,
+} from '../../../shared/models/request.model';
+import { RequestService } from '../../../shared/services/requests.service';
 
 @Component({
-  selector: "app-request-edit",
-  templateUrl: "./request-edit.component.html",
-  styleUrls: ["./request-edit.component.scss"],
+  selector: 'app-request-edit',
+  templateUrl: './request-edit.component.html',
+  styleUrls: ['./request-edit.component.scss'],
 })
 export class RequestEditComponent implements OnInit {
   constructor(
@@ -25,10 +27,10 @@ export class RequestEditComponent implements OnInit {
     });
   }
 
-  saveChanges(request: RequestCreate) {
+  saveChanges(request: RequestHeader) {
     this.activatedRoute.params.subscribe((params) => {
       this.requestService.edit(params.id, request).subscribe(() => {
-        this.router.navigate(["/view/requests"]);
+        this.router.navigate(['/requests']);
       });
     });
   }

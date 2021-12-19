@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FlatTreeComponent } from './flat-tree.component';
+import {FlatTreeComponent} from './flat-tree.component';
 
 describe('FlatTreeComponent', () => {
   let component: FlatTreeComponent;

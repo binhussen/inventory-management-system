@@ -1,4 +1,4 @@
-import { NgMatXPage } from './app.po';
+import {NgMatXPage} from './app.po';
 
 describe('ng-matx App', () => {
   let page: NgMatXPage;

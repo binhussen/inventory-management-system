@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicSortHeaderComponent } from './basic-sort-header.component';
+import {BasicSortHeaderComponent} from './basic-sort-header.component';
 
 describe('BasicSortHeaderComponent', () => {
   let component: BasicSortHeaderComponent;

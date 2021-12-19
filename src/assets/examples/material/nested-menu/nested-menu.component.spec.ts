@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NestedMenuComponent } from './nested-menu.component';
+import {NestedMenuComponent} from './nested-menu.component';
 
 describe('NestedMenuComponent', () => {
   let component: NestedMenuComponent;

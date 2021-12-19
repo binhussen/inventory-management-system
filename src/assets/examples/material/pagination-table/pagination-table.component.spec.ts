@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PaginationTableComponent } from './pagination-table.component';
+import {PaginationTableComponent} from './pagination-table.component';
 
 describe('PaginationTableComponent', () => {
   let component: PaginationTableComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AutocompleteOverviewComponent } from './autocomplete-overview.component';
+import {AutocompleteOverviewComponent} from './autocomplete-overview.component';
 
 describe('AutocompleteOverviewComponent', () => {
   let component: AutocompleteOverviewComponent;

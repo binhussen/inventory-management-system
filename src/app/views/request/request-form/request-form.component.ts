@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   Form,
   FormArray,
@@ -6,20 +6,14 @@ import {
   FormControl,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { MatTableDataSource } from "@angular/material/table";
-import { companyWithEmployee } from "app/shared/models/companies.model";
-import {
-  employeeCreationDTO,
-  employeeDTO,
-} from "app/shared/models/employees.model";
-import { RequestCreate } from "app/shared/models/requests.model";
-import { CustomValidators } from "ngx-custom-validators";
+} from '@angular/forms';
+import { MatTableDataSource } from '@angular/material/table';
+import {RequestHeader} from '../../../shared/models/request.model';
 
 @Component({
-  selector: "app-request-form",
-  templateUrl: "./request-form.component.html",
-  styleUrls: ["./request-form.component.scss"],
+  selector: 'app-request-form',
+  templateUrl: './request-form.component.html',
+  styleUrls: ['./request-form.component.scss'],
 })
 export class RequestFormComponent implements OnInit {
   visible = false;
@@ -27,10 +21,10 @@ export class RequestFormComponent implements OnInit {
     requestItems: this.formBuilder.array([]),
   });
   @Input()
-  model: employeeCreationDTO;
+  model: RequestHeader;
 
   @Output()
-  onSaveChanges: EventEmitter<RequestCreate> = new EventEmitter<RequestCreate>();
+  onSaveChanges: EventEmitter<RequestHeader> = new EventEmitter<RequestHeader>();
 
   constructor(private formBuilder: FormBuilder) {}
 
@@ -45,17 +39,17 @@ export class RequestFormComponent implements OnInit {
   }
 
   get requestItems() {
-    return this.form.controls["requestItems"] as FormArray;
+    return this.form.controls['requestItems'] as FormArray;
   }
 
   addItem() {
     const requestItems = this.formBuilder.group({
-      name: ["", Validators.required],
-      type: ["", Validators.required],
-      quantity: ["", Validators.required],
-      unitPrice: ["", Validators.required],
-      use: ["", Validators.required],
-      description: ["", Validators.required],
+      name: ['', [Validators.required]],
+      type: ['', [Validators.required]],
+      quantity: ['', [Validators.required, Validators.min(1)]],
+      unitPrice: ['', Validators.required, Validators.min(1)],
+      use: ['', [Validators.required]],
+      description: '',
     });
     this.requestItems.push(requestItems);
     this.visible = true;

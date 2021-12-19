@@ -1,6 +1,6 @@
-import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
-import { DataDialogOverviewComponent } from './data-dialog-overview/data-dialog-overview.component';
+import {MatDialog} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {DataDialogOverviewComponent} from './data-dialog-overview/data-dialog-overview.component';
 
 export interface DialogData {
   animal: 'panda' | 'unicorn' | 'lion';

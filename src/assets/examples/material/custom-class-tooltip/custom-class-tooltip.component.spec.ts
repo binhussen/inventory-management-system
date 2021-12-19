@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomClassTooltipComponent } from './custom-class-tooltip.component';
+import {CustomClassTooltipComponent} from './custom-class-tooltip.component';
 
 describe('CustomClassTooltipComponent', () => {
   let component: CustomClassTooltipComponent;

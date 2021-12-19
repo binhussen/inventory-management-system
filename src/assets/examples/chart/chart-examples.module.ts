@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { CHART_EXAMPLE_COMPONENT_LIST } from '.';
-import { SharedMaterialModule } from 'app/shared/shared-material.module';
-import { NgxEchartsModule } from 'ngx-echarts';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {CHART_EXAMPLE_COMPONENT_LIST} from '.';
+import {SharedMaterialModule} from 'app/shared/shared-material.module';
+import {NgxEchartsModule} from 'ngx-echarts';
 
 @NgModule({
   declarations: [...CHART_EXAMPLE_COMPONENT_LIST],

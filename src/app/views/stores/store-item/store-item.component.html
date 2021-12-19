@@ -1,0 +1,70 @@
+<h1 fxLayout="row" fxLayoutAlign="center center">Stores</h1>
+<!-- header -->
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <mat-icon class="noprint" (click)="printPage()">print</mat-icon>
+</div>
+<div>
+  <!--  -->
+  <div class="ml-05 mr-05 mt-05 pb-1">
+    <div class="mat-elevation-z8">
+      <mat-table [dataSource]="stores" matSort>
+        <ng-container matColumnDef="Name">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Name
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="name">
+            {{ element.name }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Item Specification">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Item Specification
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="itemSpecification">
+            {{ element.itemSpecification }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Unit">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Unit
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="unit">
+            {{ element.unit }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Quantity">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Quantity Remain
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="qtyRemain">
+            {{ element.qtyRemain }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Unit Price">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Unit Price
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="unitPrice">
+            {{ element.unitPrice }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Total Price">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Total Price
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="totalPrice">
+            {{ element.totalPrice }}
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let element; columns: columnsToDisplay"> </mat-row>
+      </mat-table>
+    </div>
+  </div>
+  <!--  -->
+</div>

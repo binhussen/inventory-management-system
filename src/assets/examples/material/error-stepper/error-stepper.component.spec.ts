@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ErrorStepperComponent } from './error-stepper.component';
+import {ErrorStepperComponent} from './error-stepper.component';
 
 describe('ErrorStepperComponent', () => {
   let component: ErrorStepperComponent;

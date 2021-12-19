@@ -1,16 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute, Router } from "@angular/router";
-import {
-  storeCreate,
-  StoreHeaderDTO,
-  storeItemDto,
-} from "app/shared/models/stores.model";
-import { StoresService } from "app/shared/services/stores.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { StoreHeader } from '../../../shared/models/store.model';
+import { StoresService } from '../../../shared/services/stores.service';
 
 @Component({
-  selector: "app-store-edit",
-  templateUrl: "./store-edit.component.html",
-  styleUrls: ["./store-edit.component.scss"],
+  selector: 'app-store-edit',
+  templateUrl: './store-edit.component.html',
+  styleUrls: ['./store-edit.component.scss'],
 })
 export class StoreEditComponent implements OnInit {
   constructor(
@@ -19,7 +15,7 @@ export class StoreEditComponent implements OnInit {
     private router: Router
   ) {}
 
-  model: StoreHeaderDTO;
+  model: StoreHeader;
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe((params) => {
@@ -29,10 +25,10 @@ export class StoreEditComponent implements OnInit {
     });
   }
 
-  saveChanges(store: storeCreate) {
+  saveChanges(store: StoreHeader) {
     this.activatedRoute.params.subscribe((params) => {
       this.storeService.edit(params.id, store).subscribe(() => {
-        this.router.navigate(["/view/stores"]);
+        this.router.navigate(['/stores']);
       });
     });
   }

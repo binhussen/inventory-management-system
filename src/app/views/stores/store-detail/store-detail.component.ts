@@ -1,29 +1,33 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { StoreHeaderDTO, storeItem } from "app/shared/models/stores.model";
-import { StoreItemsService } from "app/shared/services/store-items.service";
-import { StoresService } from "app/shared/services/stores.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { StoreHeader, StoreItem } from '../../../shared/models/store.model';
+import { StoresService } from '../../../shared/services/stores.service';
 
 @Component({
-  selector: "app-store-detail",
-  templateUrl: "./store-detail.component.html",
-  styleUrls: ["./store-detail.component.scss"],
+  selector: 'app-store-detail',
+  templateUrl: './store-detail.component.html',
+  styleUrls: ['./store-detail.component.scss'],
 })
 export class StoreDetailComponent implements OnInit {
-  stores: storeItem[];
-  header: StoreHeaderDTO;
+  Procurement = 'ProcurementManager';
+  Purchaser = 'Purchaser';
+
+  stores: StoreItem[];
+  header: StoreHeader;
   totalAmountOfRecords;
   currentPage = 1;
   pageSize = 5;
   columnsToDisplay = [
-    "Name",
-    "Item Specification",
-    "Unit",
-    "Quantity Ordered",
-    "Quantity Received",
-    "Unit Price",
-    "Total Price",
-    "Actions",
+    'Name',
+    'Item Specification',
+    'Unit',
+    'Quantity Ordered',
+    'Quantity Received',
+     'Quantity Remain',
+    'Unit Price',
+    'Total Price',
+      'Status',
+    'Actions',
   ];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -35,7 +39,6 @@ export class StoreDetailComponent implements OnInit {
     this.activatedRoute.params.subscribe((params) => {
       this.paramsId = params.id;
     });
-
     this.getDetail();
     this.getHeader();
   }
@@ -56,5 +59,9 @@ export class StoreDetailComponent implements OnInit {
     this.storeService.deleteItem(this.paramsId, id).subscribe(() => {
       this.getDetail();
     });
+  }
+
+  printPage() {
+    window.print();
   }
 }

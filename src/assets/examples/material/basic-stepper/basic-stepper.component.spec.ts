@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicStepperComponent } from './basic-stepper.component';
+import {BasicStepperComponent} from './basic-stepper.component';
 
 describe('BasicStepperComponent', () => {
   let component: BasicStepperComponent;

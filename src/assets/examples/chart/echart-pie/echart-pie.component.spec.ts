@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EchartPieComponent } from './echart-pie.component';
+import {EchartPieComponent} from './echart-pie.component';
 
 describe('EchartPieComponent', () => {
   let component: EchartPieComponent;

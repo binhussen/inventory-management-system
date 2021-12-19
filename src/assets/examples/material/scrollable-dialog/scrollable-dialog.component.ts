@@ -1,6 +1,6 @@
-import { MatDialog } from '@angular/material/dialog';
-import { Component, OnInit } from '@angular/core';
-import { ScrollableDialogOverviewComponent } from './scrollable-dialog-overview/scrollable-dialog-overview.component';
+import {MatDialog} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import {ScrollableDialogOverviewComponent} from './scrollable-dialog-overview/scrollable-dialog-overview.component';
 
 @Component({
   selector: 'app-scrollable-dialog',

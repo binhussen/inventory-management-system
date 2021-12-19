@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from "@angular/core";
-import { SecurityService } from "app/shared/services/security.service";
+import { Component, Input, OnInit } from '@angular/core';
+import { SecurityService } from '../../services/security.service';
 
 @Component({
-  selector: "app-authorize-view",
-  templateUrl: "./authorize-view.component.html",
-  styleUrls: ["./authorize-view.component.scss"],
+  selector: 'app-authorize-view',
+  templateUrl: './authorize-view.component.html',
+  styleUrls: ['./authorize-view.component.scss'],
 })
 export class AuthorizeViewComponent implements OnInit {
   constructor(private securityService: SecurityService) {}

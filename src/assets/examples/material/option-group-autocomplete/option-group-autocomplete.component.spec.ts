@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OptionGroupAutocompleteComponent } from './option-group-autocomplete.component';
+import {OptionGroupAutocompleteComponent} from './option-group-autocomplete.component';
 
 describe('OptionGroupAutocompleteComponent', () => {
   let component: OptionGroupAutocompleteComponent;

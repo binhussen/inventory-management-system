@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CheckboxTreeComponent } from './checkbox-tree.component';
+import {CheckboxTreeComponent} from './checkbox-tree.component';
 
 describe('CheckboxTreeComponent', () => {
   let component: CheckboxTreeComponent;

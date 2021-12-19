@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { EchartHeatmapComponent } from './echart-heatmap.component';
+import {EchartHeatmapComponent} from './echart-heatmap.component';
 
 describe('EchartHeatmapComponent', () => {
   let component: EchartHeatmapComponent;

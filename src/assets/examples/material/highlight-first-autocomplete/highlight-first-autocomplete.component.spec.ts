@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HighlightFirstAutocompleteComponent } from './highlight-first-autocomplete.component';
+import {HighlightFirstAutocompleteComponent} from './highlight-first-autocomplete.component';
 
 describe('HighlightFirstAutocompleteComponent', () => {
   let component: HighlightFirstAutocompleteComponent;

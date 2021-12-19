@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SimpleFormFieldComponent } from './simple-form-field.component';
+import {SimpleFormFieldComponent} from './simple-form-field.component';
 
 describe('SimpleFormFieldComponent', () => {
   let component: SimpleFormFieldComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FormSelectComponent } from './form-select.component';
+import {FormSelectComponent} from './form-select.component';
 
 describe('FormSelectComponent', () => {
   let component: FormSelectComponent;

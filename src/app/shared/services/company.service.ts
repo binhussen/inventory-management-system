@@ -1,15 +1,15 @@
-import { HttpClient } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "environments/environment";
-import { Observable } from "rxjs";
-import { Company, Employee } from "../models/company.model";
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { Company, Employee } from '../models/company.model';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class CompanyService {
-  private apiURL = environment.apiURL + "companies";
-  private uriItem = environment.apiURL + "employees";
+  private apiURL = environment.apiURL + 'companies';
+  private uriItem = environment.apiURL + 'employees';
 
   constructor(private http: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class CompanyService {
   }
   // items
   getAllEmployee(id): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.apiURL + "/" + id + "/employees");
+    return this.http.get<Employee[]>(this.apiURL + '/' + id + '/employees');
   }
   deleteEmployee(headerId, id) {
     return this.http.delete(`${this.apiURL}/${headerId}/employees/${id}`);

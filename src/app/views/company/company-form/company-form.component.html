@@ -87,18 +87,19 @@
             Email is required
           </small>
           <small
-            *ngIf="
-              form.controls['email'].hasError('email') &&
-              form.controls['email'].touched
-            "
-            class="form-error-msg"
+                  *ngIf="
+                form.controls['email'].hasError('email') &&
+                form.controls['email'].touched
+              "
+                  class="form-error-msg"
           >
-            company email address is required
+            Invalid email address
           </small>
         </div>
         <div>
           <mat-form-field>
             <input
+                    type="number"
               matInput
               name="phone"
               formControlName="phoneNo"
@@ -154,7 +155,7 @@
           "
           class="form-error-msg"
         >
-          Company web address is required</small
+          website is required</small
         >
         <small
           *ngIf="
@@ -163,7 +164,7 @@
           "
           class="form-error-msg"
         >
-          Company web address must be valid url</small
+         Invalid url</small
         >
       </div>
       <div>
@@ -213,6 +214,7 @@
             </mat-form-field>
             <mat-form-field>
               <input
+                type="number"
                 matInput
                 name="age"
                 formControlName="age"
@@ -232,6 +234,7 @@
             </mat-form-field>
             <mat-form-field>
               <input
+                type="number"
                 matInput
                 name="phoneNo"
                 formControlName="phoneNo"

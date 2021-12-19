@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TwoWayBindingSelectComponent } from './two-way-binding-select.component';
+import {TwoWayBindingSelectComponent} from './two-way-binding-select.component';
 
 describe('TwoWayBindingSelectComponent', () => {
   let component: TwoWayBindingSelectComponent;

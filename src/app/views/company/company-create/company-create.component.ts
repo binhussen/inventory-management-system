@@ -1,12 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { Company } from "app/shared/models/company.model";
-import { CompanyService } from "app/shared/services/company.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Company } from '../../../shared/models/company.model';
+import { CompanyService } from '../../../shared/services/company.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: "app-company-create",
-  templateUrl: "./company-create.component.html",
-  styleUrls: ["./company-create.component.scss"],
+  selector: 'app-company-create',
+  templateUrl: './company-create.component.html',
+  styleUrls: ['./company-create.component.scss'],
 })
 export class CompanyCreateComponent implements OnInit {
   errors: string[] = [];
@@ -17,7 +18,14 @@ export class CompanyCreateComponent implements OnInit {
 
   saveChanges(company: Company) {
     this.companyService.createWithEmployee(company).subscribe(() => {
-      this.router.navigate(["/companies"]);
-    });
+      this.router.navigate(['/companies']);
+    },
+        // (error) => (this.errors = parseWebAPIErrors(error))
+        (error) => (
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: JSON.stringify(error.error).toString(),
+            })));
   }
 }

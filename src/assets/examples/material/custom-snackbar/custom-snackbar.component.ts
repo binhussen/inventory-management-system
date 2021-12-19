@@ -1,6 +1,6 @@
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Component, OnInit } from '@angular/core';
-import { CustomSnackbarOverviewComponent } from './custom-snackbar-overview/custom-snackbar-overview.component';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import {Component, OnInit} from '@angular/core';
+import {CustomSnackbarOverviewComponent} from './custom-snackbar-overview/custom-snackbar-overview.component';
 
 @Component({
   selector: 'app-custom-snackbar',

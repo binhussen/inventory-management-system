@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   Form,
   FormArray,
@@ -6,39 +6,41 @@ import {
   FormControl,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { MatTableDataSource } from "@angular/material/table";
-import { companyWithEmployee } from "app/shared/models/companies.model";
-import {
-  employeeCreationDTO,
-  employeeDTO,
-} from "app/shared/models/employees.model";
-import { storeCreate } from "app/shared/models/stores.model";
-import { CustomValidators } from "ngx-custom-validators";
+} from '@angular/forms';
+import { StoreHeader } from '../../../shared/models/store.model';
+import {CompanyService} from '../../../shared/services/company.service';
+import {Company} from '../../../shared/models/company.model';
 
 @Component({
-  selector: "app-store-form",
-  templateUrl: "./store-form.component.html",
-  styleUrls: ["./store-form.component.scss"],
+  selector: 'app-store-form',
+  templateUrl: './store-form.component.html',
+  styleUrls: ['./store-form.component.scss'],
 })
 export class StoreFormComponent implements OnInit {
+  visible = false;
+  company: Company[];
+
   form = this.formBuilder.group({
-    supplierId: ["", Validators.required],
-    graNo: ["", Validators.required],
+    supplierId: [''],
+    graNo: ['', Validators.required],
     storeItems: this.formBuilder.array([]),
   });
   @Input()
-  model: employeeCreationDTO;
+  model: StoreHeader;
 
   @Output()
-  onSaveChanges: EventEmitter<storeCreate> = new EventEmitter<storeCreate>();
+  onSaveChanges: EventEmitter<StoreHeader> = new EventEmitter<StoreHeader>();
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private companyService: CompanyService ) {}
 
   ngOnInit() {
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
     }
+    this.companyService.getAll().subscribe((company) => {
+          this.company = company;
+        }
+    );
   }
 
   saveChanges() {
@@ -46,22 +48,26 @@ export class StoreFormComponent implements OnInit {
   }
 
   get storeItems() {
-    return this.form.controls["storeItems"] as FormArray;
+    return this.form.controls['storeItems'] as FormArray;
   }
 
   addItem() {
     const storeItems = this.formBuilder.group({
-      name: ["", Validators.required],
-      itemSpecification: ["", Validators.required],
-      unit: ["", Validators.required],
-      qtyOrdered: ["", Validators.required],
-      qtyRecived: ["", Validators.required],
-      unitPrice: ["", Validators.required],
+      name: ['', [Validators.required]],
+      itemSpecification: ['', [Validators.required]],
+      unit: ['', [Validators.required]],
+      qtyOrdered: ['', [Validators.required, Validators.min(1)]],
+      qtyReceived: ['', [Validators.required, Validators.min(1)]],
+      unitPrice: ['', [Validators.required, Validators.min(1)]],
     });
     this.storeItems.push(storeItems);
+    this.visible = true;
   }
 
   deleteItem(Index: number) {
     this.storeItems.removeAt(Index);
+    if (this.storeItems.length == 0) {
+      this.visible = false;
+    }
   }
 }

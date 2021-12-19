@@ -14,15 +14,15 @@ export interface userDTO {
   username: string;
 }
 
-export interface user {
+export interface User {
   id?: string;
-  firstName: string;
-  lastName: string;
-  userName: string;
-  email: string;
-  phoneNumber: string;
-  isEnabled: boolean;
+  firstName?: string;
+  lastName?: string;
+  userName?: string;
+  email?: string;
+  phoneNumber?: string;
+  isEnabled?: boolean;
   lockoutEnd?: string;
   accessFailedCount?: boolean;
-  roles: Array<string>;
+  roles?: Array<string>;
 }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomDatepickerComponent } from './custom-datepicker.component';
+import {CustomDatepickerComponent} from './custom-datepicker.component';
 
 describe('CustomDatepickerComponent', () => {
   let component: CustomDatepickerComponent;

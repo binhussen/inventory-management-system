@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { HintsFormFieldComponent } from './hints-form-field.component';
+import {HintsFormFieldComponent} from './hints-form-field.component';
 
 describe('HintsFormFieldComponent', () => {
   let component: HintsFormFieldComponent;

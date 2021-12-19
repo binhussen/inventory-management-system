@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DisplayValueAutocompleteComponent } from './display-value-autocomplete.component';
+import {DisplayValueAutocompleteComponent} from './display-value-autocomplete.component';
 
 describe('DisplayValueAutocompleteComponent', () => {
   let component: DisplayValueAutocompleteComponent;

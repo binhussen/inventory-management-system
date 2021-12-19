@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MomentJsDatepickerComponent } from './moment-js-datepicker.component';
+import {MomentJsDatepickerComponent} from './moment-js-datepicker.component';
 
 describe('MomentJsDatepickerComponent', () => {
   let component: MomentJsDatepickerComponent;

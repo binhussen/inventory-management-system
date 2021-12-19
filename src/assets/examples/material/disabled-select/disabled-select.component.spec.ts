@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DisabledSelectComponent } from './disabled-select.component';
+import {DisabledSelectComponent} from './disabled-select.component';
 
 describe('DisabledSelectComponent', () => {
   let component: DisabledSelectComponent;

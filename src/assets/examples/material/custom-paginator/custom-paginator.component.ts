@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { PageEvent } from '@angular/material/paginator';
+import {Component, OnInit} from '@angular/core';
+import {PageEvent} from '@angular/material/paginator';
 
 @Component({
   selector: 'app-custom-paginator',

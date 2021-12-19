@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AutocompleteChipComponent } from './autocomplete-chip.component';
+import {AutocompleteChipComponent} from './autocomplete-chip.component';
 
 describe('AutocompleteChipComponent', () => {
   let component: AutocompleteChipComponent;

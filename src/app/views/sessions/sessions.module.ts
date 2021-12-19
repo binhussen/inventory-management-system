@@ -1,19 +1,18 @@
-import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { RouterModule } from "@angular/router";
-import { SharedMaterialModule } from "app/shared/shared-material.module";
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
-import { FlexLayoutModule } from "@angular/flex-layout";
-import { SharedComponentsModule } from "app/shared/components/shared-components.module";
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-// import { CommonDirectivesModule } from './sdirectives/common/common-directives.module';
-import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
-import { SigninComponent } from "./signin/signin.component";
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
-import { SessionsRoutes } from "./sessions.routing";
-import { NotFoundComponent } from "./not-found/not-found.component";
+import { SessionsRoutes } from './sessions.routing';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { SigninComponent } from './signin/signin.component';
+import {SharedMaterialModule} from '../../shared/shared-material.module';
+import {SharedComponentsModule} from '../../shared/components/shared-components.module';
 
 @NgModule({
   imports: [

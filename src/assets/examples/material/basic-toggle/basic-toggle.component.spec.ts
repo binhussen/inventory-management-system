@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicToggleComponent } from './basic-toggle.component';
+import {BasicToggleComponent} from './basic-toggle.component';
 
 describe('BasicToggleComponent', () => {
   let component: BasicToggleComponent;

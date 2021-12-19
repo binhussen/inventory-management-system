@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { StickyHeaderTableComponent } from './sticky-header-table.component';
+import {StickyHeaderTableComponent} from './sticky-header-table.component';
 
 describe('StickyHeaderTableComponent', () => {
   let component: StickyHeaderTableComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DynamicDataTreeComponent } from './dynamic-data-tree.component';
+import {DynamicDataTreeComponent} from './dynamic-data-tree.component';
 
 describe('DynamicDataTreeComponent', () => {
   let component: DynamicDataTreeComponent;

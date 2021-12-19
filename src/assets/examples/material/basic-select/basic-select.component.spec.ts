@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicSelectComponent } from './basic-select.component';
+import {BasicSelectComponent} from './basic-select.component';
 
 describe('BasicSelectComponent', () => {
   let component: BasicSelectComponent;

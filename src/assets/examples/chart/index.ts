@@ -1,7 +1,7 @@
-import { EchartPieComponent } from "./echart-pie/echart-pie.component";
-import { EchartBarComponent } from "./echart-bar/echart-bar.component";
-import { EchartHeatmapComponent } from "./echart-heatmap/echart-heatmap.component";
-import { EchartRadarComponent } from "./echart-radar/echart-radar.component";
+import {EchartPieComponent} from './echart-pie/echart-pie.component';
+import {EchartBarComponent} from './echart-bar/echart-bar.component';
+import {EchartHeatmapComponent} from './echart-heatmap/echart-heatmap.component';
+import {EchartRadarComponent} from './echart-radar/echart-radar.component';
 
 // ng g c ../assets/examples/chart/ --skip-import
 

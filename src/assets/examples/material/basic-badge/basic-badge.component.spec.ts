@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicBadgeComponent } from './basic-badge.component';
+import {BasicBadgeComponent} from './basic-badge.component';
 
 describe('BasicBadgeComponent', () => {
   let component: BasicBadgeComponent;

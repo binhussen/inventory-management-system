@@ -1,7 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { CdkTextareaAutosize } from "@angular/cdk/text-field";
-import { NgZone, ViewChild } from "@angular/core";
-import { take } from "rxjs/operators";
+import {Component, NgZone, OnInit, ViewChild} from '@angular/core';
+import {CdkTextareaAutosize} from '@angular/cdk/text-field';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: "app-auto-resizing-texarea",

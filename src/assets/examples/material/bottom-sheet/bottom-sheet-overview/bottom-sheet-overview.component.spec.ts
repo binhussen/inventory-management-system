@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BottomSheetOverviewComponent } from './bottom-sheet-overview.component';
+import {BottomSheetOverviewComponent} from './bottom-sheet-overview.component';
 
 describe('BottomSheetOverviewComponent', () => {
   let component: BottomSheetOverviewComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OptionGroupSelectComponent } from './option-group-select.component';
+import {OptionGroupSelectComponent} from './option-group-select.component';
 
 describe('OptionGroupSelectComponent', () => {
   let component: OptionGroupSelectComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomizedStepperComponent } from './customized-stepper.component';
+import {CustomizedStepperComponent} from './customized-stepper.component';
 
 describe('CustomizedStepperComponent', () => {
   let component: CustomizedStepperComponent;

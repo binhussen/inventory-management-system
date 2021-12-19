@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ResetSelectComponent } from './reset-select.component';
+import {ResetSelectComponent} from './reset-select.component';
 
 describe('ResetSelectComponent', () => {
   let component: ResetSelectComponent;

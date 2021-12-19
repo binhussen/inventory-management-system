@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicSnackbarComponent } from './basic-snackbar.component';
+import {BasicSnackbarComponent} from './basic-snackbar.component';
 
 describe('BasicSnackbarComponent', () => {
   let component: BasicSnackbarComponent;

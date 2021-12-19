@@ -1,18 +1,18 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { RequestItemDTO } from "app/shared/models/requests.model";
-import { RequestService } from "app/shared/services/requests.service";
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RequestService } from '../../../shared/services/requests.service';
+import {RequestItem} from '../../../shared/models/request.model';
 
 @Component({
-  selector: "app-requestitem-edit",
-  templateUrl: "./requestitem-edit.component.html",
-  styleUrls: ["./requestitem-edit.component.scss"],
+  selector: 'app-requestitem-edit',
+  templateUrl: './requestitem-edit.component.html',
+  styleUrls: ['./requestitem-edit.component.scss'],
 })
 export class RequestitemEditComponent implements OnInit {
   constructor(
@@ -22,16 +22,16 @@ export class RequestitemEditComponent implements OnInit {
     private router: Router
   ) {}
   form: FormGroup;
-  model: RequestItemDTO;
+  model: RequestItem;
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      name: new FormControl("", [Validators.required]),
-      type: new FormControl("", [Validators.required]),
-      quantity: new FormControl("", [Validators.required]),
-      unitPrice: new FormControl("", [Validators.required]),
-      use: new FormControl("", [Validators.required]),
-      description: new FormControl("", [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      type: new FormControl('', [Validators.required]),
+      quantity: new FormControl('', [Validators.required]),
+      unitPrice: new FormControl('', [Validators.required]),
+      use: new FormControl('', [Validators.required]),
+      description: new FormControl('', [Validators.required]),
     });
     this.loadData();
   }
@@ -50,7 +50,7 @@ export class RequestitemEditComponent implements OnInit {
       this.requestService
         .editItem(params.headId, params.id, this.form.value)
         .subscribe(() => {
-          this.router.navigate(["/view/request/" + params.headId]);
+          this.router.navigate(['/view/request/' + params.headId]);
         });
     });
   }

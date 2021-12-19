@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NestedTreeComponent } from './nested-tree.component';
+import {NestedTreeComponent} from './nested-tree.component';
 
 describe('NestedTreeComponent', () => {
   let component: NestedTreeComponent;

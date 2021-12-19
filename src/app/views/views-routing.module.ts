@@ -20,94 +20,142 @@ import { CompanyEditComponent } from "./company/company-edit/company-edit.compon
 import { CompanyListComponent } from "./company/company-list/company-list.component";
 import { CompanyDetailComponent } from "./company/company-detail/company-detail.component";
 import { CompanyEmployeeEditComponent } from "./company/company-employee-edit/company-employee-edit.component";
+import { StoreItemComponent } from "./stores/store-item/store-item.component";
+import {AuthGuard} from '../shared/guards/auth.guard';
+import {RoleGuard} from '../shared/guards/role.guard';
+import {ADMINISTRATOR, DEPARTMENT, FINANCE, PROCUREMENT, PURCHASER, STOREMAN} from '../shared/models/Common.model';
 
 export const ViewsRoutingModule: Routes = [
   {
     path: "company/create",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: CompanyCreateComponent,
   },
   {
     path: "company/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: CompanyEditComponent,
   },
   {
     path: "companies",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: CompanyListComponent,
   },
   {
     path: "company/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: CompanyDetailComponent,
   },
   {
     path: "company/:headId/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: CompanyEmployeeEditComponent,
   },
   {
     path: "employees",
-    component: IndexEmployeesComponent,
-    data: { title: "Employees", breadcrumb: "Employees" },
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
+    component: IndexEmployeesComponent
   },
   {
     path: "employee/create",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: CreateEmployeeComponent,
   },
   {
     path: "employee/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: EditEmployeeComponent,
   },
   {
     path: "stores",
     component: StoreListComponent,
-    data: { title: "Stores", breadcrumb: "Stores" },
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER, STOREMAN, PROCUREMENT, DEPARTMENT]}
   },
   {
     path: "store/create",
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER]},
     component: StoreCreateComponent,
   },
   {
     path: "store/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER]},
     component: StoreEditComponent,
   },
   {
     path: "store/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER, STOREMAN, PROCUREMENT, DEPARTMENT]},
     component: StoreDetailComponent,
   },
   {
     path: "storeitem/:headId/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER]},
     component: StoreitemEditComponent,
+  },
+  {
+    path: "storesitem",
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER, STOREMAN, PROCUREMENT, DEPARTMENT]},
+    component: StoreItemComponent,
   },
   {
     path: "requests",
     component: RequestListComponent,
-    data: { title: "Requests", breadcrumb: "Requests" },
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER, STOREMAN, PROCUREMENT, DEPARTMENT, FINANCE]},
   },
   {
     path: "request/create",
+    canActivate: [RoleGuard],
+    data: {roles: [DEPARTMENT]},
     component: RequestCreateComponent,
   },
   {
     path: "request/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [DEPARTMENT]},
     component: RequestEditComponent,
   },
   {
     path: "request/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [PURCHASER, STOREMAN, PROCUREMENT, DEPARTMENT, FINANCE]},
     component: RequestDetailComponent,
   },
   {
     path: "requestitem/:headId/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [DEPARTMENT]},
     component: RequestitemEditComponent,
   },
   {
     path: "users",
-    component: UserIndexComponent,
-    data: { title: "Users", breadcrumb: "users" },
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
+    component: UserIndexComponent
   },
   {
     path: "user/register",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: UserRegisterComponent,
   },
   {
     path: "user/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [ADMINISTRATOR]},
     component: UserEditComponent,
   },
 ];

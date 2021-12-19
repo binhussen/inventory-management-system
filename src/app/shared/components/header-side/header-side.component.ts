@@ -1,28 +1,38 @@
-import { Component, OnInit, EventEmitter, Input, Output, Renderer2 } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  EventEmitter,
+  Input,
+  Output,
+  Renderer2,
+} from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 import { LayoutService } from '../../services/layout.service';
-import { JwtAuthService } from 'app/shared/services/auth/jwt-auth.service';
-import { SecurityService } from 'app/shared/services/security.service';
+import { SecurityService } from '../../services/security.service';
 
 @Component({
   selector: 'app-header-side',
-  templateUrl: './header-side.template.html'
+  templateUrl: './header-side.template.html',
+    styleUrls: ['./header-side.component.scss']
 })
 export class HeaderSideComponent implements OnInit {
   @Input() notificPanel;
-  public availableLangs = [{
-    name: 'EN',
-    code: 'en',
-    flag: 'flag-icon-us'
-  }, {
-    name: 'ES',
-    code: 'es',
-    flag: 'flag-icon-es'
-  }]
+  public availableLangs = [
+    {
+      name: 'EN',
+      code: 'en',
+      flag: 'flag-icon-us',
+    },
+    {
+      name: 'ES',
+      code: 'es',
+      flag: 'flag-icon-es',
+    },
+  ];
   currentLang = this.availableLangs[0];
 
   public matxThemes;
-  public layoutConf:any;
+  public layoutConf: any;
   constructor(
     private themeService: ThemeService,
     private layout: LayoutService,
@@ -33,9 +43,7 @@ export class HeaderSideComponent implements OnInit {
     this.matxThemes = this.themeService.matxThemes;
     this.layoutConf = this.layout.layoutConf;
   }
-  setLang(lng) {
-    
-  }
+  setLang(lng) {}
   changeTheme(theme) {
     // this.themeService.changeTheme(theme);
   }
@@ -43,31 +51,36 @@ export class HeaderSideComponent implements OnInit {
     this.notificPanel.toggle();
   }
   toggleSidenav() {
-    if(this.layoutConf.sidebarStyle === 'closed') {
+    if (this.layoutConf.sidebarStyle === 'closed') {
       return this.layout.publishLayoutChange({
-        sidebarStyle: 'full'
-      })
+        sidebarStyle: 'full',
+      });
     }
     this.layout.publishLayoutChange({
-      sidebarStyle: 'closed'
-    })
+      sidebarStyle: 'closed',
+    });
   }
 
   toggleCollapse() {
     // compact --> full
-    if(this.layoutConf.sidebarStyle === 'compact') {
-      return this.layout.publishLayoutChange({
-        sidebarStyle: 'full',
-        sidebarCompactToggle: false
-      }, {transitionClass: true})
+    if (this.layoutConf.sidebarStyle === 'compact') {
+      return this.layout.publishLayoutChange(
+        {
+          sidebarStyle: 'full',
+          sidebarCompactToggle: false,
+        },
+        { transitionClass: true }
+      );
     }
 
     // * --> compact
-    this.layout.publishLayoutChange({
-      sidebarStyle: 'compact',
-      sidebarCompactToggle: true
-    }, {transitionClass: true})
-
+    this.layout.publishLayoutChange(
+      {
+        sidebarStyle: 'compact',
+        sidebarCompactToggle: true,
+      },
+      { transitionClass: true }
+    );
   }
 
   onSearch(e) {

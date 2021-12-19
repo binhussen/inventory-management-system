@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomPanelSelectComponent } from './custom-panel-select.component';
+import {CustomPanelSelectComponent} from './custom-panel-select.component';
 
 describe('CustomPanelSelectComponent', () => {
   let component: CustomPanelSelectComponent;

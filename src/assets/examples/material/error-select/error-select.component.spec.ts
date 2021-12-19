@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ErrorSelectComponent } from './error-select.component';
+import {ErrorSelectComponent} from './error-select.component';
 
 describe('ErrorSelectComponent', () => {
   let component: ErrorSelectComponent;

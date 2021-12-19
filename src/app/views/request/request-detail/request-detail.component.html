@@ -1,24 +1,41 @@
 <!-- header -->
+<h2 fxLayout="row" fxLayoutAlign="center center">Request Items</h2>
+
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <mat-icon class="noprint" (click)="printPage()">print</mat-icon>
+</div>
 <div>
   <div fxLayout="row">
     <div fxFlex="5"></div>
     <div fxFlex="75">
-      <div fxLayout="column">
-        <div>Asked By : {{ header.askedBy }}</div>
-        <div>Checked BY : {{ header.checkedBy }}</div>
-        <div></div>
-      </div>
+      <div>Requested By : {{ header.createdByUser }}</div>
+      <div>Requested Date : {{ header.createdDate|date }}</div>
+      <app-authorize-role [role]="Procurement">
+        <div *ngIf="header.modifiedByUser">
+          <div>Modified By : {{ header.modifiedByUser }}</div>
+          <div>Modified Date : {{ header.modifiedDate|date }}</div>
+        </div>
+      </app-authorize-role>
     </div>
     <div fxFlex="20">
       <div fxLayout="column">
-        <div>Approved By :{{ header.approvedBy }}</div>
-        <div>Date :{{ header.date }}</div>
-        <div></div>
+        <div>Status : {{ header.status }}</div>
+        <div>Budget Code : {{ header.budgetCode }}</div>
+        <app-authorize-role [role]="Procurement">
+          <div *ngIf="header.budgetCode">
+            <div>Budget By : {{ header.budgetBy }}</div>
+            <div>Budget date : {{ header.budgetDate |date}}</div>
+          </div>
+        </app-authorize-role>
       </div>
     </div>
   </div>
   <!--  -->
-  <app-request-edit></app-request-edit>
+  <app-authorize-role [role]="Department">
+    <ng-container authorized>
+      <app-request-edit *ngIf="header.status==0"></app-request-edit>
+    </ng-container>
+  </app-authorize-role>
   <!--  -->
   <div class="ml-05 mr-05 mt-05 pb-1">
     <div class="mat-elevation-z8">
@@ -86,30 +103,239 @@
           </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="Actions">
+        <ng-container matColumnDef="Status">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Status
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status">
+            <div *ngIf="element.status == 0">Requested</div>
+            <div *ngIf="element.status == 1">Approved</div>
+            <div *ngIf="element.status == 2">Rejected</div>
+            <div *ngIf="element.status == 3">Buy</div>
+            <div *ngIf="element.status == 4">Approved</div>
+            <div *ngIf="element.status == 5">Distributed</div>
+            <div *ngIf="element.status == 6">Buy</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Approved Qty">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Approved Qty
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" >
+            {{ element.approvedQuantity }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Approved By">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="showColumn()">
+            Approved By
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" [ngClass]="showColumn()">
+            {{ element.approvedBy }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Approved Date">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="showColumn()">
+            Approved Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" [ngClass]="showColumn()">
+            <div
+              *ngIf="
+                element.approvedDate != '2021-10-29T05:19:12.8865034+00:00'
+              "
+            >
+              {{ element.approvedDate | date }}
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Purchased By">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="showColumn()">
+            Purchased By
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" [ngClass]="showColumn()">
+            {{ element.buyBy }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Purchased Date">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="showColumn()">
+            Purchased Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" [ngClass]="showColumn()">
+            <div *ngIf="element.buyDate != '2021-10-29T05:19:12.8865034+00:00'">
+              {{ element.buyDate | date }}
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Distributed By">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="showColumn()">
+            Distributed By
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" [ngClass]="showColumn()">
+            {{ element.distributeBy }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Distributed Date">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [ngClass]="showColumn()">
+            Distributed Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="status" [ngClass]="showColumn()">
+            <div
+              *ngIf="
+                element.distributeDate != '2021-10-29T05:19:12.8865034+00:00'
+              "
+            >
+              {{ element.distributeDate | date }}
+            </div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="noprint">
             Actions
           </mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <mat-icon
-              routerLink="/requestitem/{{ paramsId }}/edit/{{ element.id }}"
-              mat-flat-button
-              color="primary"
-              >edit
-            </mat-icon>
-            <mat-icon
-              class="delete-btn"
-              mat-flat-button
-              color="warn"
-              [swal]="{
-                title: 'Confirmation',
-                text: 'Are you sure that you want to delete the record?',
-                showCancelButton: true
-              }"
-              (confirm)="delete(element.id)"
-            >
-              delete_forever</mat-icon
-            >
+          <mat-cell *matCellDef="let element" class="noprint">
+
+            <div *ngIf="header.status==0">
+              <app-authorize-role [role]="Department">
+                <ng-container authorized>
+                  <div *ngIf="element.status == 0">
+                    <mat-icon
+                      routerLink="/requestitem/{{ paramsId }}/edit/{{
+                        element.id
+                      }}"
+                      mat-flat-button
+                      color="primary"
+                      >edit
+                    </mat-icon>
+                    <mat-icon
+                      class="delete-btn"
+                      mat-flat-button
+                      color="warn"
+                      [swal]="{
+                        title: 'Confirmation',
+                        text: 'Are you sure that you want to delete the record?',
+                        showCancelButton: true
+                      }"
+                      (confirm)="delete(element.id)"
+                    >
+                      delete_forever</mat-icon
+                    >
+                  </div></ng-container>
+              </app-authorize-role>
+            </div>
+
+<!--            <div *ngIf="header.status==1">-->
+              <app-authorize-role [role]="Procurement">
+                <ng-container authorized>
+                  <mat-icon
+                          *ngIf="element.status == 0"
+                          (click)="approve(element.id,element.quantity)"
+                  >done_all
+                  </mat-icon></ng-container>
+              </app-authorize-role>
+
+              <app-authorize-role [role]="Procurement">
+                <ng-container authorized>
+                  <mat-icon
+                          *ngIf="element.status == 2"
+                          (click)="approve(element.id,element.quantity)"
+                  >done_all
+                  </mat-icon></ng-container>
+              </app-authorize-role>
+
+              <app-authorize-role [role]="Procurement">
+                <ng-container authorized>
+                  <mat-icon
+                          *ngIf="element.status == 1"
+                          [swal]="{
+                    title: 'Confirmation',
+                    text: 'Are you sure that you Reject the Request?',
+                    showCancelButton: true
+                  }"
+                          (confirm)="rejected(element.id)"
+                  >clear</mat-icon
+                  ></ng-container
+                >
+              </app-authorize-role>
+<!--            </div>-->
+
+            <app-authorize-role [role]="Purchaser">
+              <ng-container authorized>
+                <mat-icon
+                  *ngIf="element.status == 1"
+                  [swal]="{
+                    title: 'Confirmation',
+                    text: 'Are you sure that you buy the Request?',
+                    showCancelButton: true
+                  }"
+                  (confirm)="buy(element.id)"
+                  >inventory
+                </mat-icon>
+              </ng-container>
+            </app-authorize-role>
+
+            <app-authorize-role [role]="Purchaser">
+              <ng-container authorized>
+                <mat-icon
+                  *ngIf="element.status == 3"
+                  [swal]="{
+                    title: 'Confirmation',
+                    text: 'Are you sure that you Do not Buy the Request?',
+                    showCancelButton: true
+                  }"
+                  (confirm)="notBuy(element.id)"
+                  >free_cancellation
+                </mat-icon>
+              </ng-container>
+            </app-authorize-role>
+
+            <app-authorize-role [role]="Purchaser">
+              <ng-container authorized>
+                <mat-icon
+                        *ngIf="element.status == 4"
+                        [swal]="{
+                    title: 'Confirmation',
+                    text: 'Are you sure that you buy the Request?',
+                    showCancelButton: true
+                  }"
+                        (confirm)="buy(element.id)"
+                >inventory
+                </mat-icon>
+              </ng-container>
+            </app-authorize-role>
+
+            <app-authorize-role [role]="StoreMan">
+              <ng-container authorized>
+                <mat-icon
+                  *ngIf="element.status == 3"
+                  (click)="distribute(element.id, element.approvedQuantity)"
+                  >vertical_distribute</mat-icon>
+              </ng-container>
+            </app-authorize-role>
+
+            <app-authorize-role [role]="StoreMan">
+              <ng-container authorized>
+                <mat-icon
+                        *ngIf="element.status == 1"
+                        (click)="distribute(element.id, element.approvedQuantity)"
+                >vertical_distribute</mat-icon>
+              </ng-container>
+            </app-authorize-role>
+
+            <app-authorize-role [role]="StoreMan">
+              <ng-container authorized>
+                <mat-icon
+                        *ngIf="element.status == 6"
+                        (click)="distribute(element.id, element.approvedQuantity)">vertical_distribute</mat-icon>
+              </ng-container>
+            </app-authorize-role>
+
           </mat-cell>
         </ng-container>
 

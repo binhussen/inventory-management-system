@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LabelFormFieldComponent } from './label-form-field.component';
+import {LabelFormFieldComponent} from './label-form-field.component';
 
 describe('LabelFormFieldComponent', () => {
   let component: LabelFormFieldComponent;

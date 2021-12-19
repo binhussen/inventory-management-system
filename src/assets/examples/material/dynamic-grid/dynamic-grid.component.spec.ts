@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DynamicGridComponent } from './dynamic-grid.component';
+import {DynamicGridComponent} from './dynamic-grid.component';
 
 describe('DynamicGridComponent', () => {
   let component: DynamicGridComponent;

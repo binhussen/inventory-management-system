@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AnimationTabGroupComponent } from './animation-tab-group.component';
+import {AnimationTabGroupComponent} from './animation-tab-group.component';
 
 describe('AnimationTabGroupComponent', () => {
   let component: AnimationTabGroupComponent;

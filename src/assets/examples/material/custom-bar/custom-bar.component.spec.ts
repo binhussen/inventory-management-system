@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomBarComponent } from './custom-bar.component';
+import {CustomBarComponent} from './custom-bar.component';
 
 describe('CustomBarComponent', () => {
   let component: CustomBarComponent;

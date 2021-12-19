@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ErrorMessageInputComponent } from './error-message-input.component';
+import {ErrorMessageInputComponent} from './error-message-input.component';
 
 describe('ErrorMessageInputComponent', () => {
   let component: ErrorMessageInputComponent;

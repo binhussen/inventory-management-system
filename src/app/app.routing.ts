@@ -1,98 +1,56 @@
-import { Routes } from "@angular/router";
-import { AdminLayoutComponent } from "./shared/components/layouts/admin-layout/admin-layout.component";
-import { AuthLayoutComponent } from "./shared/components/layouts/auth-layout/auth-layout.component";
-import { AuthGuard } from "./shared/guards/auth.guard";
+import { Routes } from '@angular/router';
+import { AdminLayoutComponent } from './shared/components/layouts/admin-layout/admin-layout.component';
+import { AuthLayoutComponent } from './shared/components/layouts/auth-layout/auth-layout.component';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 export const rootRouterConfig: Routes = [
   {
-    path: "",
-    redirectTo: "/dashboard/analytics",
-    pathMatch: "full",
+    path: '',
+    redirectTo: '/dashboard',
+    pathMatch: 'full',
   },
   {
-    path: "",
+    path: '',
     component: AuthLayoutComponent,
     children: [
       {
-        path: "sessions",
+        path: 'sessions',
         loadChildren: () =>
-          import("./views/sessions/sessions.module").then(
+          import('./views/sessions/sessions.module').then(
             (m) => m.SessionsModule
           ),
-        data: { title: "Session" },
+        data: { title: 'Session' },
       },
     ],
   },
   {
-    path: "",
+    path: '',
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: "dashboard",
+        path: '',
         loadChildren: () =>
-          import("./views/dashboard/dashboard.module").then(
+          import('./views/dashboard/dashboard.module').then(
             (m) => m.DashboardModule
           ),
       },
       {
-        path: "mat-kits",
+        path: '',
         loadChildren: () =>
-          import("./views/material-components/material-components.module").then(
-            (m) => m.MaterialComponentsModule
-          ),
-        data: { title: "Material Coponents", breadcrumb: "Material Coponents" },
+          import('./views/views.module').then((m) => m.ViewsModule),
       },
       {
-        path: "pages",
+        path: 'search',
         loadChildren: () =>
-          import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Pages", breadcrumb: "Pages" },
-      },
-      {
-        path: "",
-        loadChildren: () =>
-          import("./views/views.module").then((m) => m.ViewsModule),
-      },
-      {
-        path: "tables",
-        loadChildren: () =>
-          import("./views/tables/tables.module").then((m) => m.TablesModule),
-        data: { title: "Tables", breadcrumb: "Tables" },
-      },
-      {
-        path: "forms",
-        loadChildren: () =>
-          import("./views/forms/forms.module").then((m) => m.AppFormsModule),
-        data: { title: "Forms", breadcrumb: "Forms" },
-      },
-
-      {
-        path: "search",
-        loadChildren: () =>
-          import("./views/search-view/search-view.module").then(
+          import('./views/search-view/search-view.module').then(
             (m) => m.SearchViewModule
           ),
-      },
-
-      {
-        path: "orders",
-        loadChildren: () =>
-          import("./views/order/order.module").then((m) => m.OrderModule),
-        data: { title: "Orders", breadcrumb: "Orders" },
-      },
-      {
-        path: "icons",
-        loadChildren: () =>
-          import("./views/mat-icons/mat-icons.module").then(
-            (m) => m.MatIconsModule
-          ),
-        data: { title: "Icons", breadcrumb: "Mat icons" },
       },
     ],
   },
   {
-    path: "**",
-    redirectTo: "sessions/404",
+    path: '**',
+    redirectTo: 'sessions/404',
   },
 ];

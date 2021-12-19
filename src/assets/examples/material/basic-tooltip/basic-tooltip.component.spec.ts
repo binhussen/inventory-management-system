@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicTooltipComponent } from './basic-tooltip.component';
+import {BasicTooltipComponent} from './basic-tooltip.component';
 
 describe('BasicTooltipComponent', () => {
   let component: BasicTooltipComponent;

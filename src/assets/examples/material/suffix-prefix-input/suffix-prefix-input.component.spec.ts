@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SuffixPrefixInputComponent } from './suffix-prefix-input.component';
+import {SuffixPrefixInputComponent} from './suffix-prefix-input.component';
 
 describe('SuffixPrefixInputComponent', () => {
   let component: SuffixPrefixInputComponent;

@@ -27,6 +27,7 @@
           <div class="pb-1">
           <mat-form-field class="full-width">
             <input
+                    type="number"
               matInput
               name="age"
               formControlName="age"
@@ -43,6 +44,15 @@
           >
             Employee Age is required
           </small>
+            <small
+                    *ngIf="
+              form.controls['age'].hasError('min') &&
+              form.controls['age'].touched
+            "
+                    class="form-error-msg"
+            >
+              Minimum Employee Age  18
+            </small>
         </div>
 
         <div class="pb-1">
@@ -72,13 +82,14 @@
             "
             class="form-error-msg"
           >
-            Employee email address is required
+            Invalid email address
           </small>
         </div>
 
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
+                      type="number"
                 matInput
                 name="phoneNo"
                 formControlName="phoneNo"

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ClearButtonInputComponent } from './clear-button-input.component';
+import {ClearButtonInputComponent} from './clear-button-input.component';
 
 describe('ClearButtonInputComponent', () => {
   let component: ClearButtonInputComponent;

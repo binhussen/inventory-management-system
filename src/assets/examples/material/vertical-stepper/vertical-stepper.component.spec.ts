@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { VerticalStepperComponent } from './vertical-stepper.component';
+import {VerticalStepperComponent} from './vertical-stepper.component';
 
 describe('VerticalStepperComponent', () => {
   let component: VerticalStepperComponent;

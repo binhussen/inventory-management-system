@@ -1,4 +1,4 @@
-<mat-toolbar class="topbar">
+<mat-toolbar class="noprint topbar">
   <!-- Sidenav toggle button -->
   <button
     *ngIf="layoutConf.sidebarStyle !== 'compact'"
@@ -22,8 +22,6 @@
 
   <span fxFlex></span>
 
-  <matx-search-input-over placeholder="Country (e.g. US)" resultPage="/search">
-  </matx-search-input-over>
   <!-- Open "views/search-view/result-page.component" to understand how to subscribe to input field value -->
 
   <!-- Notification toggle button -->
@@ -43,7 +41,7 @@
     [matMenuTriggerFor]="accountMenu"
     class="topbar-button-right img-button"
   >
-    <img src="assets/images/face-7.jpg" alt="" />
+    <img src="assets/images/face-7.png" alt="" />
   </button>
 
   <mat-menu #accountMenu="matMenu">

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomSpinnerComponent } from './custom-spinner.component';
+import {CustomSpinnerComponent} from './custom-spinner.component';
 
 describe('CustomSpinnerComponent', () => {
   let component: CustomSpinnerComponent;

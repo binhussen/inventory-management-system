@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TriggerSelectComponent } from './trigger-select.component';
+import {TriggerSelectComponent} from './trigger-select.component';
 
 describe('TriggerSelectComponent', () => {
   let component: TriggerSelectComponent;

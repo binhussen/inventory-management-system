@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FooterTableComponent } from './footer-table.component';
+import {FooterTableComponent} from './footer-table.component';
 
 describe('FooterTableComponent', () => {
   let component: FooterTableComponent;

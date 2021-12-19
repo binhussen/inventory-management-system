@@ -1,3 +1,9 @@
+
+<h2 fxLayout="row" fxLayoutAlign="center center">Store Items</h2>
+
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <mat-icon class="noprint" (click)="printPage()">print</mat-icon>
+</div>
 <!-- header -->
 <div>
   <div fxLayout="row">
@@ -6,15 +12,31 @@
       <div fxLayout="column">
         <div>supplier : {{ header.supplierId }}</div>
         <div>Gra No : {{ header.graNo }}</div>
+        <app-authorize-role [role]="Procurement">
+          <ng-container authorized>
+        <div>Store By : {{ header.storeBy }}</div>
+          </ng-container>
+        </app-authorize-role>
+        <div>Store Date : {{ header.storeDate|date }}</div>
         <div></div>
       </div>
     </div>
     <div fxFlex="20">
       <div fxLayout="column">
-        <div>Receiver :{{ header.reciverId }}</div>
-        <div>Checked By :{{ header.checkedBy }}</div>
-        <div>Date :{{ header.date }}</div>
-        <div></div>
+          <div *ngIf="header.status==0">Status : Purchased</div>
+          <div *ngIf="header.status==1">Status : Stored</div>
+        <app-authorize-role [role]="Procurement">
+          <ng-container authorized>
+        <div>Receiver :{{ header.createdByUser }}</div>
+          </ng-container>
+        </app-authorize-role>
+        <div>Received Date :{{ header.createdDate|date }}</div>
+        <app-authorize-role [role]="Procurement">
+          <ng-container authorized>
+        <div>Modified BY :{{ header.modifiedByUser }}</div>
+        <div>Modified Date: {{ header.modifiedDate|date }}</div>
+          </ng-container>
+        </app-authorize-role>
       </div>
     </div>
   </div>
@@ -63,7 +85,16 @@
             Quantity Received
           </mat-header-cell>
           <mat-cell *matCellDef="let element" data-label="qtyRecived">
-            {{ element.qtyRecived }}
+            {{ element.qtyReceived }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Quantity Remain">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Quantity Remain
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="qtyRemain">
+            {{ element.qtyRemain}}
           </mat-cell>
         </ng-container>
 
@@ -85,12 +116,25 @@
           </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="Actions">
+        <ng-container matColumnDef="Status">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Status
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="totalPrice">
+            <div *ngIf="element.status==0">Store</div>
+            <div *ngIf="element.status==1">Distributed</div>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Actions">
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="noprint">
             Actions
           </mat-header-cell>
-          <mat-cell *matCellDef="let element">
+          <mat-cell *matCellDef="let element" class="noprint">
+            <app-authorize-role [role]="Purchaser">
+              <ng-container authorized>
             <mat-icon
+                    *ngIf="header.status==0"
               routerLink="/storeitem/{{ paramsId }}/edit/{{ element.id }}"
               mat-flat-button
               color="primary"
@@ -109,6 +153,8 @@
             >
               delete_forever</mat-icon
             >
+              </ng-container>
+            </app-authorize-role>
           </mat-cell>
         </ng-container>
 

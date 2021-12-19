@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomPositionTooltipComponent } from './custom-position-tooltip.component';
+import {CustomPositionTooltipComponent} from './custom-position-tooltip.component';
 
 describe('CustomPositionTooltipComponent', () => {
   let component: CustomPositionTooltipComponent;

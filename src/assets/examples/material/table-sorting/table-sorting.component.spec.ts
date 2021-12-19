@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TableSortingComponent } from './table-sorting.component';
+import {TableSortingComponent} from './table-sorting.component';
 
 describe('TableSortingComponent', () => {
   let component: TableSortingComponent;

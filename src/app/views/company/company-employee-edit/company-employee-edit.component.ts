@@ -1,18 +1,19 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
   FormGroup,
   Validators,
-} from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
-import { Employee } from "app/shared/models/company.model";
-import { CompanyService } from "app/shared/services/company.service";
+} from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Employee } from '../../../shared/models/company.model';
+import { CompanyService } from '../../../shared/services/company.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: "app-company-employee-edit",
-  templateUrl: "./company-employee-edit.component.html",
-  styleUrls: ["./company-employee-edit.component.scss"],
+  selector: 'app-company-employee-edit',
+  templateUrl: './company-employee-edit.component.html',
+  styleUrls: ['./company-employee-edit.component.scss'],
 })
 export class CompanyEmployeeEditComponent implements OnInit {
   constructor(
@@ -26,12 +27,12 @@ export class CompanyEmployeeEditComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      name: new FormControl("", [Validators.required]),
-      age: new FormControl("", [Validators.required]),
-      position: new FormControl("", [Validators.required]),
-      department: new FormControl("", [Validators.required]),
-      phoneNo: new FormControl("", [Validators.required]),
-      email: new FormControl("", [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      age: new FormControl('', [Validators.required]),
+      position: new FormControl('', [Validators.required]),
+      department: new FormControl('', [Validators.required]),
+      phoneNo: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required]),
     });
     this.loadData();
   }
@@ -50,8 +51,15 @@ export class CompanyEmployeeEditComponent implements OnInit {
       this.companyService
         .editEmployee(params.headId, params.id, this.form.value)
         .subscribe(() => {
-          this.router.navigate(["/company/" + params.headId]);
-        });
+          this.router.navigate(['/company/' + params.headId]);
+        },
+            // (error) => (this.errors = parseWebAPIErrors(error))
+            (error) => (
+                Swal.fire({
+                  icon: 'error',
+                  title: 'Oops...',
+                  text: JSON.stringify(error.error).toString(),
+                })));
     });
   }
 }

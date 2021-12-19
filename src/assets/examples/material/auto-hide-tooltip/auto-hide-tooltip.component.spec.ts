@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AutoHideTooltipComponent } from './auto-hide-tooltip.component';
+import {AutoHideTooltipComponent} from './auto-hide-tooltip.component';
 
 describe('AutoHideTooltipComponent', () => {
   let component: AutoHideTooltipComponent;

@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { PageEvent } from "@angular/material/paginator";
-import { Company } from "app/shared/models/company.model";
-import { CompanyService } from "app/shared/services/company.service";
+import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { Company } from '../../../shared/models/company.model';
+import { CompanyService } from '../../../shared/services/company.service';
 
 @Component({
-  selector: "app-company-list",
-  templateUrl: "./company-list.component.html",
-  styleUrls: ["./company-list.component.scss"],
+  selector: 'app-company-list',
+  templateUrl: './company-list.component.html',
+  styleUrls: ['./company-list.component.scss'],
 })
 export class CompanyListComponent implements OnInit {
   company: Company[];
@@ -14,12 +14,17 @@ export class CompanyListComponent implements OnInit {
   currentPage = 1;
   pageSize = 5;
   columnsToDisplay = [
-    "Name",
-    "PhoneNo",
-    "Email",
-    "Website",
-    "Address",
-    "Actions",
+    'Name',
+    'PhoneNo',
+    'Email',
+    'Website',
+    'Address',
+      'Fax',
+    'Created By',
+    'Created Date',
+    'Modified By',
+    'Modified Date',
+    'Actions',
   ];
   constructor(private companyService: CompanyService) {}
 
@@ -28,7 +33,7 @@ export class CompanyListComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.companyService.deleteEmp(id).subscribe(() => {
+    this.companyService.delete(id).subscribe(() => {
       this.loadData();
     });
   }
@@ -43,5 +48,9 @@ export class CompanyListComponent implements OnInit {
     this.currentPage = event.pageIndex + 1;
     this.pageSize = event.pageSize;
     this.loadData();
+  }
+
+  printPage() {
+    window.print();
   }
 }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DisabledTooltipComponent } from './disabled-tooltip.component';
+import {DisabledTooltipComponent} from './disabled-tooltip.component';
 
 describe('DisabledTooltipComponent', () => {
   let component: DisabledTooltipComponent;

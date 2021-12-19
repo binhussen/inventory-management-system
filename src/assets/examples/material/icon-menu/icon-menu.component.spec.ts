@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { IconMenuComponent } from './icon-menu.component';
+import {IconMenuComponent} from './icon-menu.component';
 
 describe('IconMenuComponent', () => {
   let component: IconMenuComponent;

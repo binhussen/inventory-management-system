@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SelectedValueDatepickerComponent } from './selected-value-datepicker.component';
+import {SelectedValueDatepickerComponent} from './selected-value-datepicker.component';
 
 describe('SelectedValueDatepickerComponent', () => {
   let component: SelectedValueDatepickerComponent;

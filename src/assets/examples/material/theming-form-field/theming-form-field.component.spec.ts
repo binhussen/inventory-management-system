@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ThemingFormFieldComponent } from './theming-form-field.component';
+import {ThemingFormFieldComponent} from './theming-form-field.component';
 
 describe('ThemingFormFieldComponent', () => {
   let component: ThemingFormFieldComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomLoadingButtonsComponent } from './custom-loading-buttons.component';
+import {CustomLoadingButtonsComponent} from './custom-loading-buttons.component';
 
 describe('CustomLoadingButtonsComponent', () => {
   let component: CustomLoadingButtonsComponent;

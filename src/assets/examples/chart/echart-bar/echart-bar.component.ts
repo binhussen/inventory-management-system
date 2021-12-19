@@ -1,6 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import * as echarts from "echarts";
-import { Z } from "@angular/cdk/keycodes";
+import {Component, OnInit} from '@angular/core';
+import * as echarts from 'echarts';
 
 @Component({
   selector: "app-echart-bar",

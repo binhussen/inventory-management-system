@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { PrefixSuffixFormFieldComponent } from './prefix-suffix-form-field.component';
+import {PrefixSuffixFormFieldComponent} from './prefix-suffix-form-field.component';
 
 describe('PrefixSuffixFormFieldComponent', () => {
   let component: PrefixSuffixFormFieldComponent;

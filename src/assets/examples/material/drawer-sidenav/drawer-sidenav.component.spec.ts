@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DrawerSidenavComponent } from './drawer-sidenav.component';
+import {DrawerSidenavComponent} from './drawer-sidenav.component';
 
 describe('DrawerSidenavComponent', () => {
   let component: DrawerSidenavComponent;

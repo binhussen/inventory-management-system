@@ -1,9 +1,0 @@
-<h2>Edit PurchaseItem</h2>
-
-<app-purchase-item-form
-  *ngIf="model"
-  [model]="model"
-  (onSaveChanges)="saveChanges($event)"
-></app-purchase-item-form>
-
-<mat-spinner *ngIf="!model"></mat-spinner>

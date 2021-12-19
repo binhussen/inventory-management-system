@@ -1,14 +1,14 @@
-import { Component, OnInit, OnDestroy, AfterViewInit } from "@angular/core";
-import { NavigationService } from "../../../shared/services/navigation.service";
-import { ThemeService } from "../../services/theme.service";
-import { Subscription } from "rxjs";
-import { ILayoutConf, LayoutService } from "app/shared/services/layout.service";
-import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
-import { SecurityService } from "app/shared/services/security.service";
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { NavigationService } from '../../../shared/services/navigation.service';
+import { ThemeService } from '../../services/theme.service';
+import { Subscription } from 'rxjs';
+import { ILayoutConf, LayoutService } from '../../services/layout.service';
+import { SecurityService } from '../../services/security.service';
 
 @Component({
-  selector: "app-sidebar-side",
-  templateUrl: "./sidebar-side.component.html"
+  selector: 'app-sidebar-side',
+  templateUrl: './sidebar-side.component.html',
+  styleUrls: ['./sidebar-side.component.scss'],
 })
 export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
   public menuItems: any[];
@@ -26,11 +26,11 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.iconTypeMenuTitle = this.navService.iconTypeMenuTitle;
-    this.menuItemsSub = this.navService.menuItems$.subscribe(menuItem => {
+    this.menuItemsSub = this.navService.menuItems$.subscribe((menuItem) => {
       this.menuItems = menuItem;
       //Checks item list has any icon type.
       this.hasIconTypeMenuItem = !!this.menuItems.filter(
-        item => item.type === "icon"
+        (item) => item.type === 'icon'
       ).length;
     });
     this.layoutConf = this.layout.layoutConf;
@@ -43,7 +43,7 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
   }
   toggleCollapse() {
     this.layout.publishLayoutChange({
-      sidebarCompactToggle: !this.layoutConf.sidebarCompactToggle
+      sidebarCompactToggle: !this.layoutConf.sidebarCompactToggle,
     });
   }
 }

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicSpinnerComponent } from './basic-spinner.component';
+import {BasicSpinnerComponent} from './basic-spinner.component';
 
 describe('BasicSpinnerComponent', () => {
   let component: BasicSpinnerComponent;

@@ -1,15 +1,13 @@
-import { HttpResponse } from "@angular/common/http";
-import { Component, OnInit } from "@angular/core";
-import { PageEvent } from "@angular/material/paginator";
-import { Employee } from "app/shared/models/company.model";
-import { employeeDTO } from "app/shared/models/employees.model";
-import { CompanyService } from "app/shared/services/company.service";
-import { EmployeesService } from "app/shared/services/employees.service";
+import { HttpResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
+import { Employee } from '../../../shared/models/company.model';
+import { CompanyService } from '../../../shared/services/company.service';
 
 @Component({
-  selector: "app-index-employees",
-  templateUrl: "./index-employees.component.html",
-  styleUrls: ["./index-employees.component.scss"],
+  selector: 'app-index-employees',
+  templateUrl: './index-employees.component.html',
+  styleUrls: ['./index-employees.component.scss'],
 })
 export class IndexEmployeesComponent implements OnInit {
   employees: Employee[];
@@ -17,19 +15,22 @@ export class IndexEmployeesComponent implements OnInit {
   currentPage = 1;
   pageSize = 5;
   columnsToDisplay = [
-    "Name",
-    "Age",
-    "Email",
-    "Phone",
-    "Department",
-    "Position",
-    "Actions",
+    'Name',
+    'Age',
+    'Email',
+    'Phone',
+    'Department',
+    'Position',
+    'Created By',
+    'Created Date',
+    'Modified By',
+    'Modified Date',
+    'Actions',
   ];
   constructor(private companyService: CompanyService) {}
 
   ngOnInit(): void {
     this.loadData();
-    console.log(this.loadData);
   }
 
   delete(id: number) {
@@ -48,5 +49,9 @@ export class IndexEmployeesComponent implements OnInit {
     this.currentPage = event.pageIndex + 1;
     this.pageSize = event.pageSize;
     this.loadData();
+  }
+
+  printPage() {
+    window.print();
   }
 }

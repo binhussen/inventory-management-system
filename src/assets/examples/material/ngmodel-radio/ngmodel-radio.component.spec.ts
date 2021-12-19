@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { NgmodelRadioComponent } from './ngmodel-radio.component';
+import {NgmodelRadioComponent} from './ngmodel-radio.component';
 
 describe('NgmodelRadioComponent', () => {
   let component: NgmodelRadioComponent;

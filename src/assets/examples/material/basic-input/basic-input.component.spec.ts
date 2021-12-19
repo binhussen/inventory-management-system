@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicInputComponent } from './basic-input.component';
+import {BasicInputComponent} from './basic-input.component';
 
 describe('BasicInputComponent', () => {
   let component: BasicInputComponent;

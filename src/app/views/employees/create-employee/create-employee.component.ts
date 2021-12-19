@@ -1,14 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { Employee } from "app/shared/models/company.model";
-import { employeeCreationDTO } from "app/shared/models/employees.model";
-import { CompanyService } from "app/shared/services/company.service";
-import { EmployeesService } from "app/shared/services/employees.service";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Employee } from '../../../shared/models/company.model';
+import { CompanyService } from '../../../shared/services/company.service';
+import Swal from 'sweetalert2';
 
 @Component({
-  selector: "app-create-employee",
-  templateUrl: "./create-employee.component.html",
-  styleUrls: ["./create-employee.component.scss"],
+  selector: 'app-create-employee',
+  templateUrl: './create-employee.component.html',
+  styleUrls: ['./create-employee.component.scss'],
 })
 export class CreateEmployeeComponent implements OnInit {
   errors: string[] = [];
@@ -20,9 +19,15 @@ export class CreateEmployeeComponent implements OnInit {
   saveChanges(employee: Employee) {
     this.companyService.createEmp(employee).subscribe(
       () => {
-        this.router.navigate(["/employees"]);
-      }
-      // , error => this.errors = parseWebAPIErrors(error)
+        this.router.navigate(['/employees']);
+      },
+        // (error) => (this.errors = parseWebAPIErrors(error))
+        (error) => (
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: JSON.stringify(error.error).toString(),
+            }))
     );
   }
 }

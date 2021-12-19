@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { BasicDialogOverviewComponent } from './basic-dialog-overview/basic-dialog-overview.component';
+import {MatDialog} from '@angular/material/dialog';
+import {BasicDialogOverviewComponent} from './basic-dialog-overview/basic-dialog-overview.component';
 
 export interface DialogData {
   animal: string;

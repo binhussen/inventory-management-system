@@ -1,23 +1,35 @@
 <!-- header -->
+<h1 fxLayout="row" fxLayoutAlign="center center">{{header.name}} Employees</h1>
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <mat-icon class="noprint" (click)="printPage()">print</mat-icon>
+</div>
 <div>
   <div fxLayout="row">
     <div fxFlex="5"></div>
-    <div fxFlex="75">
+    <div fxFlex="40">
       <div fxLayout="column">
         <div>Name : {{ header.name }}</div>
         <div>Email : {{ header.email }}</div>
         <div>Phone : {{ header.phoneNo }}</div>
-        <div></div>
+        <div>Fax : {{ header.fax }}</div>
       </div>
     </div>
-    <div fxFlex="20">
+    <div fxFlex="30">
       <div fxLayout="column">
-        <div>Receiver :{{ header.fax }}</div>
-        <div>Checked By :{{ header.website }}</div>
+        <div>Website :{{ header.website }}</div>
         <div>Address :{{ header.address }}</div>
         <div>Description :{{ header.description }}</div>
-        <div></div>
       </div>
+    </div>
+      <div fxFlex="25">
+        <div fxLayout="column">
+          <div>Created By :{{ header.createdByUser }}</div>
+          <div>Created Date :{{ header.createdDate |date}}</div>
+          <div *ngIf="header.modifiedByUser">
+            <div>Modified By :{{ header.modifiedByUser }}</div>
+            <div>Modified Date :{{ header.modifiedDate|date }}</div>
+          </div>
+        </div>
     </div>
   </div>
   <!--  -->
@@ -77,12 +89,47 @@
             {{ element.position }}
           </mat-cell>
         </ng-container>
+        <ng-container matColumnDef="Created By">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Created By
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="created by">
+            {{ element.createdByUser }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Created Date">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Created Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="created date">
+            {{ element.createdDate | date }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Modified By">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Modified By
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="updated by">
+            {{ element.modifiedByUser }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="Modified Date">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Modified Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element" data-label="updated">
+            {{ element.modifiedDate | date }}
+          </mat-cell>
+        </ng-container>
 
         <ng-container matColumnDef="Actions">
-          <mat-header-cell *matHeaderCellDef mat-sort-header>
+          <mat-header-cell *matHeaderCellDef mat-sort-header class="noprint">
             Actions
           </mat-header-cell>
-          <mat-cell *matCellDef="let element">
+          <mat-cell *matCellDef="let element" class="noprint">
             <mat-icon
               routerLink="/company/{{ paramsId }}/edit/{{ element.id }}"
               mat-flat-button

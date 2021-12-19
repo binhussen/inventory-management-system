@@ -1,12 +1,12 @@
-import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
-import { Company, Employee } from "app/shared/models/company.model";
-import { CompanyService } from "app/shared/services/company.service";
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Company, Employee } from '../../../shared/models/company.model';
+import { CompanyService } from '../../../shared/services/company.service';
 
 @Component({
-  selector: "app-company-detail",
-  templateUrl: "./company-detail.component.html",
-  styleUrls: ["./company-detail.component.scss"],
+  selector: 'app-company-detail',
+  templateUrl: './company-detail.component.html',
+  styleUrls: ['./company-detail.component.scss'],
 })
 export class CompanyDetailComponent implements OnInit {
   employees: Employee[];
@@ -15,13 +15,17 @@ export class CompanyDetailComponent implements OnInit {
   currentPage = 1;
   pageSize = 5;
   columnsToDisplay = [
-    "Name",
-    "Age",
-    "Email",
-    "Phone No",
-    "Position",
-    "Department",
-    "Actions",
+    'Name',
+    'Age',
+    'Email',
+    'Phone No',
+    'Position',
+    'Department',
+    'Created By',
+    'Created Date',
+    'Modified By',
+    'Modified Date',
+    'Actions',
   ];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -54,5 +58,9 @@ export class CompanyDetailComponent implements OnInit {
     this.companyService.deleteEmployee(this.paramsId, id).subscribe(() => {
       this.getDetail();
     });
+  }
+
+  printPage() {
+    window.print();
   }
 }

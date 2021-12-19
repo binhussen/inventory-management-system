@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AutoResizingTexareaComponent } from './auto-resizing-texarea.component';
+import {AutoResizingTexareaComponent} from './auto-resizing-texarea.component';
 
 describe('AutoResizingTexareaComponent', () => {
   let component: AutoResizingTexareaComponent;

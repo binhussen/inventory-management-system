@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicToolbarComponent } from './basic-toolbar.component';
+import {BasicToolbarComponent} from './basic-toolbar.component';
 
 describe('BasicToolbarComponent', () => {
   let component: BasicToolbarComponent;

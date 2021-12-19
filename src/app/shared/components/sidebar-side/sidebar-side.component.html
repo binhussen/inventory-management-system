@@ -1,4 +1,4 @@
-<div class="sidebar-panel">
+<div class="noprint sidebar-panel">
   <div
     id="scroll-area"
     [perfectScrollbar]
@@ -30,7 +30,7 @@
       <!-- Sidebar user -->
       <div class="app-user">
         <div class="app-user-photo">
-          <img src="assets/images/face-7.jpg" class="mat-elevation-z1" alt="" />
+          <img src="assets/images/face-7.png" class="mat-elevation-z1" alt="" />
         </div>
         <div class="ml-16">
           <span class="app-user-name mb-4">
@@ -50,15 +50,6 @@
               class="text-muted"
               mat-icon-button
               mat-xs-button
-              matTooltip="Inbox"
-              routerLink="/inbox"
-            >
-              <mat-icon>email</mat-icon>
-            </button>
-            <button
-              class="text-muted"
-              mat-icon-button
-              mat-xs-button
               matTooltip="Sign Out"
               (click)="jwtAuth.logout()"
             >
@@ -68,14 +59,6 @@
               <button mat-menu-item routerLink="/profile/overview">
                 <mat-icon>account_box</mat-icon>
                 <span>Profile</span>
-              </button>
-              <button mat-menu-item routerLink="/profile/settings">
-                <mat-icon>settings</mat-icon>
-                <span>Account Settings</span>
-              </button>
-              <button mat-menu-item routerLink="/calendar">
-                <mat-icon>date_range</mat-icon>
-                <span>Calendar</span>
               </button>
               <button mat-menu-item (click)="jwtAuth.logout()">
                 <mat-icon>exit_to_app</mat-icon>

@@ -21,6 +21,24 @@
             >
               First Name is Required
             </small>
+            <small
+                    *ngIf="
+                form.controls['firstName'].hasError('pattern') &&
+                form.controls['firstName'].touched
+              "
+                    class="form-error-msg"
+            >
+              First Name Must Be Character Only
+            </small>
+            <small
+                    *ngIf="
+                form.controls['firstName'].hasError('minlength') &&
+                form.controls['firstName'].touched
+              "
+                    class="form-error-msg"
+            >
+              First Name Must Be at List 3 Words
+            </small>
           </div>
           <div class="pb-1">
             <mat-form-field class="full-width">
@@ -41,6 +59,24 @@
             >
               Last Name is Required
             </small>
+            <small
+                    *ngIf="
+                form.controls['lastName'].hasError('pattern') &&
+                form.controls['lastName'].touched
+              "
+                    class="form-error-msg"
+            >
+              Last Name Must Be Character Only
+            </small>
+            <small
+                    *ngIf="
+                form.controls['lastName'].hasError('minlength') &&
+                form.controls['lastName'].touched
+              "
+                    class="form-error-msg"
+            >
+              Last Name Must Be at List 3 Words
+            </small>
           </div>
           <div class="pb-1">
             <mat-form-field class="full-width">
@@ -60,6 +96,15 @@
               class="form-error-msg"
             >
               User Name is Required
+            </small>
+            <small
+                    *ngIf="
+                form.controls['userName'].hasError('minlength') &&
+                form.controls['userName'].touched
+              "
+                    class="form-error-msg"
+            >
+              User Name Must Be at List 3 Words
             </small>
           </div>
           <div class="pb-1">
@@ -84,7 +129,7 @@
             </small>
             <small
               *ngIf="
-                form.controls['email'].hasError('required') &&
+                form.controls['email'].hasError('email') &&
                 form.controls['email'].touched
               "
               class="form-error-msg"
@@ -112,12 +157,21 @@
             >
               Password is Required
             </small>
+            <small
+                    *ngIf="
+                form.controls['password'].hasError('minlength') &&
+                form.controls['password'].touched
+              "
+                    class="form-error-msg"
+            >
+              Password Must Be at List 6
+            </small>
           </div>
 
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
-                type="text"
+                type="number"
                 matInput
                 name="password"
                 formControlName="phoneNumber"
@@ -133,11 +187,21 @@
             >
               Phone Number is Required
             </small>
+            <small
+                    *ngIf="
+                form.controls['phoneNumber'].hasError('minlength') ||
+                 form.controls['phoneNumber'].hasError('maxlength') &&
+                form.controls['phoneNumber'].touched
+              "
+                    class="form-error-msg"
+            >
+              Invalid Phone Number
+            </small>
           </div>
 
           <div class="pb-1">
             <mat-form-field class="full-width">
-              <mat-label>Role</mat-label>
+              <mat-label>Choose User Role</mat-label>
               <mat-select>
                 <mat-option
                   *ngFor="let role of roles"

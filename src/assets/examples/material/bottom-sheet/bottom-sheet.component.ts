@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { BottomSheetOverviewComponent } from './bottom-sheet-overview/bottom-sheet-overview.component';
+import {Component, OnInit} from '@angular/core';
+import {MatBottomSheet} from '@angular/material/bottom-sheet';
+import {BottomSheetOverviewComponent} from './bottom-sheet-overview/bottom-sheet-overview.component';
 
 @Component({
   selector: 'app-bottom-sheet',

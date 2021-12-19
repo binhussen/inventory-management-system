@@ -4,7 +4,7 @@ import { AnalyticsComponent } from "./analytics/analytics.component";
 
 export const DashboardRoutes: Routes = [
   {
-    path: "analytics",
+    path: "dashboard",
     component: AnalyticsComponent
   }
 ];

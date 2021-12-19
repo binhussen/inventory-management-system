@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomSnackbarOverviewComponent } from './custom-snackbar-overview.component';
+import {CustomSnackbarOverviewComponent} from './custom-snackbar-overview.component';
 
 describe('CustomSnackbarOverviewComponent', () => {
   let component: CustomSnackbarOverviewComponent;

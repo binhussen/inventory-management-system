@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ConfigurableToggleComponent } from './configurable-toggle.component';
+import {ConfigurableToggleComponent} from './configurable-toggle.component';
 
 describe('ConfigurableToggleComponent', () => {
   let component: ConfigurableToggleComponent;

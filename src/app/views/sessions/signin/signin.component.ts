@@ -1,55 +1,59 @@
-import { Component, OnInit, AfterViewInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {
   FormGroup,
   FormBuilder,
   Validators,
   FormControl,
-} from "@angular/forms";
-import { CustomValidators } from "ngx-custom-validators";
-import { matxAnimations } from "app/shared/animations/matx-animations";
-import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
-import { AppLoaderService } from "app/shared/services/app-loader/app-loader.service";
-import { Router, ActivatedRoute } from "@angular/router";
-import { Subject } from "rxjs";
-import { takeUntil } from "rxjs/operators";
-import { userCredentials } from "app/shared/models/security.model";
-import { SecurityService } from "app/shared/services/security.service";
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { matxAnimations } from '../../../shared/animations/matx-animations';
+import { SecurityService } from '../../../shared/services/security.service';
+import Swal from 'sweetalert2';
+import {json} from '@angular-devkit/core';
 
 @Component({
-  selector: "app-signin",
-  templateUrl: "./signin.component.html",
-  styleUrls: ["./signin.component.scss"],
+  selector: 'app-signin',
+  templateUrl: './signin.component.html',
+  styleUrls: ['./signin.component.scss'],
   animations: matxAnimations,
 })
 export class SigninComponent implements OnInit {
   signinForm: FormGroup;
-  errorMsg = "";
+  errorMsg = '';
   return: string;
-  loading: Boolean;
+  loading: boolean;
 
   constructor(
-    private router: Router,
-    private securityService: SecurityService
-  ) {}
+      private router: Router,
+      private securityService: SecurityService
+  ) {
+  }
 
   form: FormGroup;
 
   ngOnInit() {
     this.signinForm = new FormGroup({
-      username: new FormControl("", [Validators.required]),
-      password: new FormControl("", Validators.required),
-      // rememberMe: new FormControl(true),
+      username: new FormControl('', [Validators.required]),
+      password: new FormControl('', Validators.required),
     });
   }
 
   signin() {
-    const signinData = this.signinForm.value;
-    this.securityService.login(signinData).subscribe(
-      (authenticationResponse) => {
-        this.securityService.saveToken(authenticationResponse);
-        this.router.navigate(["/"]);
-      }
-      // (error) => (this.errors = parseWebAPIErrors(error))
-    );
+    if (this.signinForm.valid) {
+      const signinData = this.signinForm.value;
+      this.securityService.login(signinData).subscribe(
+          (authenticationResponse) => {
+            this.securityService.saveToken(authenticationResponse);
+            this.router.navigate(['/']);
+          },
+          // (error) => (this.errors = parseWebAPIErrors(error))
+          (error) => (
+              Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: JSON.stringify(error.error).toString(),
+              }))
+      );
+    }
   }
 }

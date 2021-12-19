@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicGridComponent } from './basic-grid.component';
+import {BasicGridComponent} from './basic-grid.component';
 
 describe('BasicGridComponent', () => {
   let component: BasicGridComponent;

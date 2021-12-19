@@ -1,91 +1,20 @@
-import { HttpClient, HttpParams } from "@angular/common/http";
-import { Injectable } from "@angular/core";
-import { environment } from "environments/environment";
-import { Observable } from "rxjs";
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import {
-  FinanceHeaderCreationDTO,
-  FinanceHeaderDTO,
-  FinanceHeaderPostGetDTO,
-  FinanceHeaderPutGetDTO,
-} from "../models/finances.model";
-import {
-  RequestCreate,
-  RequestHeader,
-  RequestItemDTO,
-} from "../models/requests.model";
-import { StoreHeaderDTO } from "../models/stores.model";
+  RequestHeader, RequestItem,
+} from '../models/request.model';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class RequestService {
+  private apiURL = environment.apiURL + 'requestheaders';
+  private uriItem = environment.apiURL + 'requestitems';
   constructor(private http: HttpClient) {}
-  private apiURL = environment.apiURL + "requestheaders";
-  private uriItem = environment.apiURL + "requestitems";
 
-  // get(page: number, recordsPerPage: number): Observable<any> {
-  //   let params = new HttpParams();
-  //   params = params.append("page", page.toString());
-  //   params = params.append("recordsPerPage", recordsPerPage.toString());
-  //   return this.http.get<FinanceHeaderDTO[]>(this.apiURL, {
-  //     observe: "response",
-  //     params,
-  //   });
-  // }
-
-  // public putGet(id: number): Observable<FinanceHeaderPutGetDTO> {
-  //   return this.http.get<FinanceHeaderPutGetDTO>(`${this.apiURL}/putget/${id}`);
-  // }
-
-  // public edit(id: number, financeHeaderCreationDTO: FinanceHeaderCreationDTO) {
-  //   const formData = this.BuildFormData(financeHeaderCreationDTO);
-  //   return this.http.put(`${this.apiURL}/${id}`, formData);
-  // }
-
-  // public getById(id: number): Observable<FinanceHeaderDTO> {
-  //   return this.http.get<FinanceHeaderDTO>(`${this.apiURL}/${id}`);
-  // }
-
-  // public filter(values: any): Observable<any> {
-  //   const params = new HttpParams({ fromObject: values });
-  //   return this.http.get<FinanceHeaderDTO[]>(`${this.apiURL}/filter`, {
-  //     params,
-  //     observe: "response",
-  //   });
-  // }
-
-  // public postGet(): Observable<FinanceHeaderPostGetDTO> {
-  //   return this.http.get<FinanceHeaderPostGetDTO>(`${this.apiURL}/postget`);
-  // }
-
-  // public create(
-  //   financeCreationDTO: FinanceHeaderCreationDTO
-  // ): Observable<number> {
-  //   console.log(financeCreationDTO);
-  //   const formData = this.BuildFormData(financeCreationDTO);
-  //   return this.http.post<number>(this.apiURL, formData);
-  // }
-
-  // public delete(id: number) {
-  //   return this.http.delete(`${this.apiURL}/${id}`);
-  // }
-
-  // private BuildFormData(finance: FinanceHeaderCreationDTO): FormData {
-  //   const formData = new FormData();
-  //   formData.append("vendorId", finance.vendorId);
-  //   formData.append("shipId", finance.shipId);
-  //   formData.append("termsofPayment", finance.termsofPayment);
-  //   formData.append("termsOfDeliery", finance.termsOfDeliery);
-  //   formData.append("preparedBy", finance.preparedBy);
-  //   formData.append("checkedBy", finance.checkedBy);
-  //   formData.append("approvedBy", finance.approvedBy);
-
-  //   formData.append("financeItemsIds", JSON.stringify(finance.financeItemsIds));
-
-  //   return formData;
-  // }
-
-  createWithItem(request: RequestCreate) {
+  createWithItem(request: RequestHeader) {
     return this.http.post(this.apiURL, request);
   }
 
@@ -96,16 +25,16 @@ export class RequestService {
   public getById(id): Observable<RequestHeader> {
     return this.http.get<RequestHeader>(`${this.apiURL}/${id}`);
   }
-  public edit(id, request: RequestCreate) {
+  public edit(id, request: RequestHeader) {
     return this.http.put(`${this.apiURL}/${id}`, request);
   }
   public delete(id) {
     return this.http.delete(`${this.apiURL}/${id}`);
   }
   // items
-  getAllItem(id): Observable<RequestItemDTO[]> {
-    return this.http.get<RequestItemDTO[]>(
-      this.uriItem + "/" + id + "/requestitems"
+  getAllItem(id): Observable<RequestItem[]> {
+    return this.http.get<RequestItem[]>(
+      this.uriItem + '/' + id + '/requestitems'
     );
   }
   deleteItem(headerId, id) {
@@ -114,10 +43,51 @@ export class RequestService {
   public getItemById(headerId, id) {
     return this.http.get(`${this.uriItem}/${headerId}/requestitems/${id}`);
   }
-  public editItem(headerId, id, request: RequestItemDTO) {
+  public editItem(headerId, id, request: RequestItem) {
     return this.http.put(
       `${this.uriItem}/${headerId}/requestitems/${id}`,
       request
+    );
+  }
+  // budget
+  addBudget(id, budgetCode) {
+    return this.http.put(`${this.apiURL}/budget/${id}`, budgetCode);
+  }
+  reject(id) {
+    var reject = {};
+    return this.http.put(`${this.apiURL}/rejectbudget/${id}`, reject);
+  }
+
+  approved(headid, id, qty) {
+    return this.http.put(
+      `${this.uriItem}/${headid}/requestitems/approve/${id}`,
+      qty
+    );
+  }
+  rejected(headid, id) {
+    var reject = {};
+    return this.http.put(
+      `${this.uriItem}/${headid}/requestitems/reject/${id}`,
+      reject
+    );
+  }
+  distribute(headid, id, storeid) {
+    return this.http.put(
+      `${this.uriItem}/${headid}/requestitems/distribute/${id}`,
+      storeid
+    );
+  }
+  buy(headid, id) {
+    var buy = {};
+    return this.http.put(
+      `${this.uriItem}/${headid}/requestitems/buy/${id}`, buy
+    );
+  }
+  notBuy(headid, id) {
+    var buy = {};
+    return this.http.put(
+      `${this.uriItem}/${headid}/requestitems/notbuy/${id}`,
+      buy
     );
   }
 }

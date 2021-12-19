@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AutoresizeSidenavComponent } from './autoresize-sidenav.component';
+import {AutoresizeSidenavComponent} from './autoresize-sidenav.component';
 
 describe('AutoresizeSidenavComponent', () => {
   let component: AutoresizeSidenavComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ErrorFormFieldComponent } from './error-form-field.component';
+import {ErrorFormFieldComponent} from './error-form-field.component';
 
 describe('ErrorFormFieldComponent', () => {
   let component: ErrorFormFieldComponent;

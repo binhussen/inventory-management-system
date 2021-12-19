@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { RipplelessSelectComponent } from './rippleless-select.component';
+import {RipplelessSelectComponent} from './rippleless-select.component';
 
 describe('RipplelessSelectComponent', () => {
   let component: RipplelessSelectComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MultiSectionCardComponent } from './multi-section-card.component';
+import {MultiSectionCardComponent} from './multi-section-card.component';
 
 describe('MultiSectionCardComponent', () => {
   let component: MultiSectionCardComponent;

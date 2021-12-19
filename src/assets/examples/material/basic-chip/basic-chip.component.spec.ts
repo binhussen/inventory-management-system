@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicChipComponent } from './basic-chip.component';
+import {BasicChipComponent} from './basic-chip.component';
 
 describe('BasicChipComponent', () => {
   let component: BasicChipComponent;

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ScrollableDialogComponent } from './scrollable-dialog.component';
+import {ScrollableDialogComponent} from './scrollable-dialog.component';
 
 describe('ScrollableDialogComponent', () => {
   let component: ScrollableDialogComponent;

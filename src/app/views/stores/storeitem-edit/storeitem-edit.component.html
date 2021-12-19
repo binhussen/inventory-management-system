@@ -67,6 +67,7 @@
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
+                      type="number"
                 matInput
                 name="qtyOrdered"
                 formControlName="qtyOrdered"
@@ -88,16 +89,17 @@
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
+                      type="number"
                 matInput
-                name="qtyRecived"
-                formControlName="qtyRecived"
-                placeholder="QtyRecived"
+                name="qtyReceived"
+                formControlName="qtyReceived"
+                placeholder="QtyReceived"
               />
             </mat-form-field>
             <small
               *ngIf="
-                form.controls['qtyRecived'].hasError('required') &&
-                form.controls['qtyRecived'].touched
+                form.controls['qtyReceived'].hasError('required') &&
+                form.controls['qtyReceived'].touched
               "
               class="form-error-msg"
             >
@@ -108,6 +110,7 @@
           <div class="pb-1">
             <mat-form-field class="full-width">
               <input
+                      type="number"
                 matInput
                 name="unitPrice"
                 formControlName="unitPrice"

@@ -1,0 +1,8 @@
+.hidden-row {
+  display: none;
+}
+@media print {
+  .noprint {
+    visibility: hidden;
+  }
+}

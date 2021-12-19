@@ -1,5 +1,4 @@
-import { AfterViewInit } from '@angular/core';
-import { Component, OnInit, ChangeDetectorRef,  } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 
 export interface PeriodicElement {
   name: string;

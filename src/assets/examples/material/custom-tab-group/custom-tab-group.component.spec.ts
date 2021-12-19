@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomTabGroupComponent } from './custom-tab-group.component';
+import {CustomTabGroupComponent} from './custom-tab-group.component';
 
 describe('CustomTabGroupComponent', () => {
   let component: CustomTabGroupComponent;

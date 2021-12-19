@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicDatepickerComponent } from './basic-datepicker.component';
+import {BasicDatepickerComponent} from './basic-datepicker.component';
 
 describe('BasicDatepickerComponent', () => {
   let component: BasicDatepickerComponent;

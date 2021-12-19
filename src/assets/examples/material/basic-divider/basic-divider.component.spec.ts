@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicDividerComponent } from './basic-divider.component';
+import {BasicDividerComponent} from './basic-divider.component';
 
 describe('BasicDividerComponent', () => {
   let component: BasicDividerComponent;

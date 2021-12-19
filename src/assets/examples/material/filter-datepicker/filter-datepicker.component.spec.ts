@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { FilterDatepickerComponent } from './filter-datepicker.component';
+import {FilterDatepickerComponent} from './filter-datepicker.component';
 
 describe('FilterDatepickerComponent', () => {
   let component: FilterDatepickerComponent;

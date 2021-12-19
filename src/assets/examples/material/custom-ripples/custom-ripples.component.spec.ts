@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CustomRipplesComponent } from './custom-ripples.component';
+import {CustomRipplesComponent} from './custom-ripples.component';
 
 describe('CustomRipplesComponent', () => {
   let component: CustomRipplesComponent;

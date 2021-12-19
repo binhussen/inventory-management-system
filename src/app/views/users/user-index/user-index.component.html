@@ -1,10 +1,16 @@
-<button mat-flat-button color="primary" routerLink="/user/register">
+<h1 fxLayout="row" fxLayoutAlign="center center">Users</h1>
+
+<button class="noprint"   mat-flat-button color="primary" routerLink="/user/register">
   Register
 </button>
+<div fxLayout="row" fxLayoutAlign="center center" >
+<mat-icon class="noprint" (click)="printPage()">print</mat-icon>
+</div>
 
 <div class="ml-05 mr-05 mt-05 pb-1">
   <div class="mat-elevation-z8">
     <mat-table [dataSource]="users" matSort>
+
       <ng-container matColumnDef="First Name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
           First Name
@@ -71,6 +77,7 @@
         </mat-header-cell>
         <mat-cell *matCellDef="let element" data-label="role">
           <mat-form-field>
+            <mat-label>{{element.roles}}</mat-label>
             <mat-select>
               <mat-option *ngFor="let role of roles">
                 <div
@@ -97,7 +104,7 @@
       [length]="totalAmountOfRecords"
       [pageSize]="pageSize"
       (page)="updatePagination($event)"
-      class="mat-elevation-z8"
+      class="noprint mat-elevation-z8"
     >
     </mat-paginator>
   </div>

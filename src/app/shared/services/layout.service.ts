@@ -1,7 +1,7 @@
-import { Injectable, Renderer2 } from "@angular/core";
-import { BehaviorSubject } from "rxjs";
-import { getQueryParam } from "../helpers/url.helper";
-import { ThemeService } from "./theme.service";
+import { Injectable, Renderer2 } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { getQueryParam } from '../helpers/url.helper';
+import { ThemeService } from './theme.service';
 
 export interface ILayoutConf {
   navigationPos?: string; // side
@@ -28,7 +28,7 @@ interface IAdjustScreenOptions {
 }
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root',
 })
 export class LayoutService {
   public layoutConf: ILayoutConf;
@@ -42,19 +42,19 @@ export class LayoutService {
     this.setAppLayout(
       //******** SET YOUR LAYOUT OPTIONS HERE *********
       {
-        navigationPos: "side",
-        sidebarStyle: "full", // full, compact, closed
-        sidebarColor: "slate", // http://demos.ui-lib.com/matx-doc/#matx-colors
+        navigationPos: 'side',
+        sidebarStyle: 'full', // full, compact, closed
+        sidebarColor: 'slate', // http://demos.ui-lib.com/matx-doc/#matx-colors
         sidebarCompactToggle: false, // applied when "sidebarStyle" is "compact"
         useBreadcrumb: true,
         footerFixed: true,
-        topbarColor: "purple", // http://demos.ui-lib.com/matx-doc/#matx-colors
-        footerColor: "slate", // http://demos.ui-lib.com/matx-doc/#matx-colors
-        matTheme: "matx-light-purple", // matx-blue, matx-navy, matx-light-purple, matx-dark-purple, matx-dark-pink
-        breadcrumb: "simple", // simple, title
-        perfectScrollbar: true
+        topbarColor: 'purple', // http://demos.ui-lib.com/matx-doc/#matx-colors
+        footerColor: 'slate', // http://demos.ui-lib.com/matx-doc/#matx-colors
+        matTheme: 'matx-light-purple', // matx-blue, matx-navy, matx-light-purple, matx-dark-purple, matx-dark-pink
+        breadcrumb: 'simple', // simple, title
+        perfectScrollbar: true,
       }
-    );    
+    );
   }
 
   setAppLayout(layoutConf: ILayoutConf) {
@@ -80,7 +80,7 @@ export class LayoutService {
   }
 
   setLayoutFromQuery() {
-    let layoutConfString = getQueryParam("layout");
+    let layoutConfString = getQueryParam('layout');
     let prevTheme = this.layoutConf.matTheme;
     try {
       this.layoutConf = JSON.parse(layoutConfString);
@@ -92,19 +92,19 @@ export class LayoutService {
     let sidebarStyle: string;
     this.isMobile = this.isSm();
     this.currentRoute = options.route || this.currentRoute;
-    sidebarStyle = this.isMobile ? "closed" : "full";
+    sidebarStyle = this.isMobile ? 'closed' : 'full';
 
     if (this.currentRoute) {
-      this.fullWidthRoutes.forEach(route => {
+      this.fullWidthRoutes.forEach((route) => {
         if (this.currentRoute.indexOf(route) !== -1) {
-          sidebarStyle = "closed";
+          sidebarStyle = 'closed';
         }
       });
     }
 
     this.publishLayoutChange({
       isMobile: this.isMobile,
-      sidebarStyle: sidebarStyle
+      sidebarStyle: sidebarStyle,
     });
   }
   isSm() {

@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AlignTabGroupComponent } from './align-tab-group.component';
+import {AlignTabGroupComponent} from './align-tab-group.component';
 
 describe('AlignTabGroupComponent', () => {
   let component: AlignTabGroupComponent;

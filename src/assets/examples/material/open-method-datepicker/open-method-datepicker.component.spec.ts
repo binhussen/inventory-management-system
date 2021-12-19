@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { OpenMethodDatepickerComponent } from './open-method-datepicker.component';
+import {OpenMethodDatepickerComponent} from './open-method-datepicker.component';
 
 describe('OpenMethodDatepickerComponent', () => {
   let component: OpenMethodDatepickerComponent;

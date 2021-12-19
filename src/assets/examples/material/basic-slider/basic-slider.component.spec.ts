@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { BasicSliderComponent } from './basic-slider.component';
+import {BasicSliderComponent} from './basic-slider.component';
 
 describe('BasicSliderComponent', () => {
   let component: BasicSliderComponent;

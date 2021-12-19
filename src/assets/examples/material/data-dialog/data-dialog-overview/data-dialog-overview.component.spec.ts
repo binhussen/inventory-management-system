@@ -1,6 +1,6 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { DataDialogOverviewComponent } from './data-dialog-overview.component';
+import {DataDialogOverviewComponent} from './data-dialog-overview.component';
 
 describe('DataDialogOverviewComponent', () => {
   let component: DataDialogOverviewComponent;
