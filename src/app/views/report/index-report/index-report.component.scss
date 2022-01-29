@@ -1,0 +1,14 @@
+.print {
+  // display:none;
+  visibility: hidden;
+}
+@media print {
+    .noprint {
+      display:none;
+      // visibility: hidden;
+    }
+    .print{
+      visibility: visible;
+      // display:block;
+    }
+  }

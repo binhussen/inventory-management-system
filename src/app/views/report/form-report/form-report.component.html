@@ -1,0 +1,117 @@
+<mat-card class="p-0">
+    <mat-card-content>
+      <form (submit)="saveChanges()" [formGroup]="form">
+        <div fxLayout="row wrap">
+          <div fxFlex="100" fxFlex.gt-xs="50" class="pr-1">
+            <div class="pb-1">
+              <mat-form-field class="full-width">
+                <input
+                  matInput
+                  name="bookOwner"
+                  formControlName="bookOwner"
+                  placeholder="Book Owner"
+                  value=""
+                />
+              </mat-form-field>
+              <small
+                *ngIf="
+                  form.controls['bookOwner'].hasError('required') &&
+                  form.controls['bookOwner'].touched
+                "
+                class="form-error-msg"
+              >
+              Book Owner is required
+              </small>
+            </div>
+  
+            <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                      type="text"
+                matInput
+                name="branch"
+                formControlName="branch"
+                placeholder="Branch"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['branch'].hasError('required') &&
+                form.controls['branch'].touched
+              "
+              class="form-error-msg"
+            >
+            Branch Name is required
+            </small>
+          </div>
+  
+          <div class="pb-1">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                type="text"
+                name="memeberPhone"
+                formControlName="memeberPhone"
+                placeholder="Memeber Phone"
+                value=""
+              />
+            </mat-form-field>
+            <small
+              *ngIf="
+                form.controls['memeberPhone'].hasError('required') &&
+                form.controls['memeberPhone'].touched
+              "
+              class="form-error-msg"
+            >
+            Memeber Phone is required
+            </small>
+          </div>
+  
+            <div class="pb-1">
+              <mat-form-field class="full-width">
+                <input
+                        type="text"
+                  matInput
+                  name="bookNumber"
+                  formControlName="bookNumber"
+                  placeholder="Book Number"
+                  value=""
+                />
+              </mat-form-field>
+              <small
+                *ngIf="
+                  form.controls['bookNumber'].hasError('required') &&
+                  form.controls['bookNumber'].touched
+                "
+                class="form-error-msg"
+              >
+              Book Number number is required
+              </small>
+            </div>
+
+            <div class="pb-1">
+                <mat-form-field class="full-width">
+                  <mat-label>Choose Service</mat-label>
+                  <mat-select
+                  formControlName="service"
+                  >
+                    <mat-option
+                      *ngFor="let service of services"
+                      [value]="service"
+                    >
+                      {{ service }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+          </div>
+        </div>
+        <button mat-raised-button color="primary" [disabled]="form.invalid">
+          Submit
+        </button>
+        <a mat-stroked-button routerLink="/view/reports">Cancel</a>
+      </form>
+    </mat-card-content>
+  </mat-card>
+  

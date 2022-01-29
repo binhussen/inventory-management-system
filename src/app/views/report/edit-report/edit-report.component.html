@@ -1,0 +1,9 @@
+<h2>Edit Report</h2>
+
+<app-form-report
+  *ngIf="model"
+  [model]="model"
+  (onSaveChanges)="saveChanges($event)"
+></app-form-report>
+
+<!-- <mat-spinner *ngIf="!model"></mat-spinner> -->

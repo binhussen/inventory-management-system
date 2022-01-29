@@ -55,6 +55,10 @@ import { IndexEmployeesComponent } from './employees/index-employees/index-emplo
 import { CreateEmployeeComponent } from './employees/create-employee/create-employee.component';
 import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.component';
 import { UserIndexComponent } from './users/user-index/user-index.component';
+import { CreateReportComponent } from './report/create-report/create-report.component';
+import { EditReportComponent } from './report/edit-report/edit-report.component';
+import { FormReportComponent } from './report/form-report/form-report.component';
+import { IndexReportComponent } from './report/index-report/index-report.component';
 
 @NgModule({
   declarations: [
@@ -86,6 +90,10 @@ import { UserIndexComponent } from './users/user-index/user-index.component';
     CompanyCreateComponent,
     CompanyDetailComponent,
     CompanyEditComponent,
+    CreateReportComponent,
+    EditReportComponent,
+    FormReportComponent,
+    IndexReportComponent,
   ],
   imports: [
     CommonModule,

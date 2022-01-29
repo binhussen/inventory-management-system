@@ -23,6 +23,8 @@ export class UserFormComponent implements OnInit {
     'Purchaser',
     'FinanceManager',
     'DepartmentHead',
+    'ReportViwer',
+    'ReportCreater'
   ];
   @Output()
   onSubmit = new EventEmitter<User>();

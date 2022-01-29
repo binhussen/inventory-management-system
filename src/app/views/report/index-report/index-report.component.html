@@ -1,0 +1,143 @@
+<h2 fxLayout="row" class="noprint" fxLayoutAlign="center center">Awach Daily Report</h2>
+<app-authorize-role [role]="ReportCreater" *ngIf="checkTime()">
+  <ng-container authorized>
+<button class="noprint" mat-flat-button color="primary" routerLink="/report/create">
+  Create new
+</button>
+</ng-container>
+</app-authorize-role>
+
+<div fxLayout="row" fxLayoutAlign="center center" >
+  <mat-icon class="noprint" (click)="printPage()">print</mat-icon>
+</div>
+
+<div fxLayout="row" class="print">
+  <img src="assets/images/logos/report.png" alt="" />
+</div>
+
+<div class="ml-05 mr-05 mt-05 pb-1">
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="reports" matSort>
+      <ng-container matColumnDef="Book Owner">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Book Owner
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="bookOwner">
+          {{ element.bookOwner }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Branch">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Branch
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="branch">
+          {{ element.branch }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Memeber Phone">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+            Memeber Phone
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="memeberPhone">
+          {{ element.memeberPhone }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Book Number">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Book Number
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="bookNumber">
+          {{ element.bookNumber}}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Service">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Service
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="service">
+          {{ element.service }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Created By">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Created By
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="created by">
+          {{ element.createdByUser }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Created Date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Created Date
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="created date">
+          {{ element.createdDate | date }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Modified By">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Modified By
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="updated by">
+          {{ element.modifiedByUser }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Modified Date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Modified Date
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" data-label="updated">
+          {{ element.modifiedDate | date }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="Actions">
+        <mat-header-cell *matHeaderCellDef class="noprint">Actions</mat-header-cell>
+        <mat-cell *matCellDef="let element" class="noprint">
+          <app-authorize-role [role]="ReportCreater" *ngIf="checkTime()">
+            <ng-container authorized>
+          <mat-icon
+            routerLink="/report/edit/{{ element.id }}"
+            mat-flat-button
+            color="primary"
+            >edit
+          </mat-icon>
+          <mat-icon
+            class="delete-btn"
+            mat-flat-button
+            color="warn"
+            [swal]="{
+              title: 'Confirmation',
+              text: 'Are you sure that you want to delete the record?',
+              showCancelButton: true
+            }"
+            (confirm)="delete(element.id)"
+          >
+            delete_forever</mat-icon
+          >
+        </ng-container>
+        </app-authorize-role>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+      <mat-row *matRowDef="let element; columns: columnsToDisplay"> </mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 20, 50]"
+      showFirstLastButtons
+      [length]="totalAmountOfRecords"
+      [pageSize]="pageSize"
+      (page)="updatePagination($event)"
+      class="noprint mat-elevation-z8"
+    >
+    </mat-paginator>
+  </div>
+</div>

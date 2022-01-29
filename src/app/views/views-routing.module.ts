@@ -23,7 +23,10 @@ import { CompanyEmployeeEditComponent } from "./company/company-employee-edit/co
 import { StoreItemComponent } from "./stores/store-item/store-item.component";
 import {AuthGuard} from '../shared/guards/auth.guard';
 import {RoleGuard} from '../shared/guards/role.guard';
-import {ADMINISTRATOR, DEPARTMENT, FINANCE, PROCUREMENT, PURCHASER, STOREMAN} from '../shared/models/Common.model';
+import {ADMINISTRATOR, DEPARTMENT, FINANCE, PROCUREMENT, PURCHASER, REPORTCREATER, REPORTVIWER, STOREMAN} from '../shared/models/Common.model';
+import { IndexReportComponent } from "./report/index-report/index-report.component";
+import { CreateReportComponent } from "./report/create-report/create-report.component";
+import { EditReportComponent } from "./report/edit-report/edit-report.component";
 
 export const ViewsRoutingModule: Routes = [
   {
@@ -157,5 +160,23 @@ export const ViewsRoutingModule: Routes = [
     canActivate: [RoleGuard],
     data: {roles: [ADMINISTRATOR]},
     component: UserEditComponent,
+  },
+  {
+    path: "reports",
+    canActivate: [RoleGuard],
+    data: {roles: [REPORTCREATER,REPORTVIWER]},
+    component: IndexReportComponent
+  },
+  {
+    path: "report/create",
+    canActivate: [RoleGuard],
+    data: {roles: [REPORTCREATER]},
+    component: CreateReportComponent,
+  },
+  {
+    path: "report/edit/:id",
+    canActivate: [RoleGuard],
+    data: {roles: [REPORTCREATER]},
+    component: EditReportComponent,
   },
 ];

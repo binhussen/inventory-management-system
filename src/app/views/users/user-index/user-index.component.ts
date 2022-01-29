@@ -21,6 +21,8 @@ export class UserIndexComponent implements OnInit {
     'Purchaser',
     'FinanceManager',
     'DepartmentHead',
+    'ReportViwer',
+    'ReportCreater'
   ];
   page: number = 1;
   pageSize: number = 10;

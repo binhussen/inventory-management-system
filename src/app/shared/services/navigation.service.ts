@@ -136,6 +136,22 @@ export class NavigationService {
       state: "companies",
       role: ["Administrator"],
     },
+    {
+      name: "Report",
+      type: "link",
+      tooltip: "Forms",
+      icon: "domain_add",
+      state: "report/create",
+      role: ["ReportCreater"],
+    },
+    {
+      name: "Reports",
+      type: "link",
+      tooltip: "Forms",
+      icon: "business",
+      state: "reports",
+      role: ["ReportCreater","ReportViwer"],
+    },
   ];
 
   // Icon menu TITLE at the very top of navigation.

@@ -7,12 +7,14 @@ import { SecurityService } from '../../services/security.service';
   styleUrls: ['./authorize-role.component.scss'],
 })
 export class AuthorizeRoleComponent implements OnInit {
+  now: Date = new Date();
   constructor(private securityService: SecurityService) {}
 
   ngOnInit(): void {}
 
   @Input()
   role: string;
+
 
   public isAuthorized() {
     if (this.role) {
