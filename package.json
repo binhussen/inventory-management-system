@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ngh": "ng build --prod --base-href 'https://uilibrary.github.io/matx-angular/' && ngh"
+    "sonar": "sonar-scanner"
   },
   "private": true,
   "dependencies": {

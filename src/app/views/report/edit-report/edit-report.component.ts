@@ -27,7 +27,6 @@ export class EditReportComponent implements OnInit {
   }
 
   saveChanges(report: Report) {
-    console.log(report)
     this.reportServie.edit(this.model.id, report).subscribe(() => {
       this.router.navigate(['/reports']);
     },

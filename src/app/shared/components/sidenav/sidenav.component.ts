@@ -10,6 +10,7 @@ export class SidenavComponent {
   @Input("iconMenuTitle") public iconTypeMenuTitle: string;
 
   constructor() {}
+  
   ngOnInit() {}
 
   // Only for demo purpose

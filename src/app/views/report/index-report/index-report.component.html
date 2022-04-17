@@ -1,4 +1,4 @@
-<h2 fxLayout="row" class="noprint" fxLayoutAlign="center center">Awach Daily Report</h2>
+<h2 fxLayout="row" class="noprint" fxLayoutAlign="center center">Inventory Daily Report</h2>
 <app-authorize-role [role]="ReportCreater" *ngIf="checkTime()">
   <ng-container authorized>
 <button class="noprint" mat-flat-button color="primary" routerLink="/report/create">
@@ -12,7 +12,7 @@
 </div>
 
 <div fxLayout="row" class="print">
-  <img src="assets/images/logos/report.png" alt="" />
+  <!-- <img src="assets/images/logos/report.png" alt="" /> -->
 </div>
 
 <div class="ml-05 mr-05 mt-05 pb-1">
